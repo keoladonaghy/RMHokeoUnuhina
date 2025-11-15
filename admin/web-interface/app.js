@@ -13,7 +13,8 @@ class TranslationManager {
         this.searchTimeout = null;
         this.currentEdit = null;
         this.currentProject = 'all';
-        
+        this.editingCell = null; // Track currently editing cell to prevent concurrent edits
+
         this.init();
     }
 
@@ -62,53 +63,88 @@ class TranslationManager {
         // Search functionality
         const searchField = document.getElementById('search-field');
         const searchType = document.querySelectorAll('input[name="search-type"]');
-        
-        searchField.addEventListener('input', () => this.debounceFilter());
-        searchType.forEach(radio => {
-            radio.addEventListener('change', () => this.filterTranslations());
-        });
+
+        if (searchField) {
+            searchField.addEventListener('input', () => this.debounceFilter());
+        } else {
+            console.warn('Element not found: search-field');
+        }
+
+        if (searchType.length > 0) {
+            searchType.forEach(radio => {
+                radio.addEventListener('change', () => this.filterTranslations());
+            });
+        } else {
+            console.warn('Elements not found: input[name="search-type"]');
+        }
 
         // Project selector
-        document.getElementById('project-select').addEventListener('change', (e) => {
-            this.currentProject = e.target.value;
-            this.loadProjectTranslations();
-        });
+        const projectSelect = document.getElementById('project-select');
+        if (projectSelect) {
+            projectSelect.addEventListener('change', (e) => {
+                this.currentProject = e.target.value;
+                this.loadProjectTranslations();
+            });
+        } else {
+            console.warn('Element not found: project-select');
+        }
 
         // Language selectors
-        document.getElementById('lang1-select').addEventListener('change', () => {
-            this.updateLanguageLabels();
-            this.filterTranslations();
-        });
-        
-        document.getElementById('lang2-select').addEventListener('change', () => {
-            this.updateLanguageLabels();
-            this.filterTranslations();
-        });
-        
-        document.getElementById('lang3-select').addEventListener('change', () => {
-            this.updateLanguageLabels();
-            this.filterTranslations();
-        });
+        const lang1Select = document.getElementById('lang1-select');
+        if (lang1Select) {
+            lang1Select.addEventListener('change', () => {
+                this.updateLanguageLabels();
+                this.filterTranslations();
+            });
+        } else {
+            console.warn('Element not found: lang1-select');
+        }
+
+        const lang2Select = document.getElementById('lang2-select');
+        if (lang2Select) {
+            lang2Select.addEventListener('change', () => {
+                this.updateLanguageLabels();
+                this.filterTranslations();
+            });
+        } else {
+            console.warn('Element not found: lang2-select');
+        }
+
+        const lang3Select = document.getElementById('lang3-select');
+        if (lang3Select) {
+            lang3Select.addEventListener('change', () => {
+                this.updateLanguageLabels();
+                this.filterTranslations();
+            });
+        } else {
+            console.warn('Element not found: lang3-select');
+        }
 
         // Modal controls
-        document.getElementById('modal-close').addEventListener('click', () => {
-            this.closeModal();
-        });
-        
-        document.getElementById('cancel-edit').addEventListener('click', () => {
-            this.closeModal();
-        });
-        
-        document.getElementById('save-edit').addEventListener('click', () => {
-            this.saveEdit();
-        });
+        const modalClose = document.getElementById('modal-close');
+        if (modalClose) {
+            modalClose.addEventListener('click', () => this.closeModal());
+        }
+
+        const cancelEdit = document.getElementById('cancel-edit');
+        if (cancelEdit) {
+            cancelEdit.addEventListener('click', () => this.closeModal());
+        }
+
+        const saveEdit = document.getElementById('save-edit');
+        if (saveEdit) {
+            saveEdit.addEventListener('click', () => this.saveEdit());
+        }
 
         // Close modal on overlay click
-        document.getElementById('modal-overlay').addEventListener('click', (e) => {
-            if (e.target.id === 'modal-overlay') {
-                this.closeModal();
-            }
-        });
+        const modalOverlay = document.getElementById('modal-overlay');
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target.id === 'modal-overlay') {
+                    this.closeModal();
+                }
+            });
+        }
 
         // ESC key to close modal
         document.addEventListener('keydown', (e) => {
@@ -119,35 +155,64 @@ class TranslationManager {
         });
 
         // New String Modal controls
-        document.getElementById('new-string-modal-close').addEventListener('click', () => {
-            this.closeNewStringModal();
-        });
-        
-        document.getElementById('cancel-new-string').addEventListener('click', () => {
-            this.closeNewStringModal();
-        });
-        
-        document.getElementById('new-string-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.saveNewString();
-        });
+        const newStringModalClose = document.getElementById('new-string-modal-close');
+        if (newStringModalClose) {
+            newStringModalClose.addEventListener('click', () => this.closeNewStringModal());
+        }
+
+        const cancelNewString = document.getElementById('cancel-new-string');
+        if (cancelNewString) {
+            cancelNewString.addEventListener('click', () => this.closeNewStringModal());
+        }
+
+        const newStringForm = document.getElementById('new-string-form');
+        if (newStringForm) {
+            newStringForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.saveNewString();
+            });
+        }
 
         // Close new string modal on overlay click
-        document.getElementById('new-string-modal-overlay').addEventListener('click', (e) => {
-            if (e.target.id === 'new-string-modal-overlay') {
-                this.closeNewStringModal();
-            }
-        });
+        const newStringModalOverlay = document.getElementById('new-string-modal-overlay');
+        if (newStringModalOverlay) {
+            newStringModalOverlay.addEventListener('click', (e) => {
+                if (e.target.id === 'new-string-modal-overlay') {
+                    this.closeNewStringModal();
+                }
+            });
+        }
 
         // Element name validation on input
-        document.getElementById('element-name').addEventListener('input', () => {
-            this.validateElementName();
-        });
+        const elementName = document.getElementById('element-name');
+        if (elementName) {
+            elementName.addEventListener('input', () => this.validateElementName());
+        }
 
         // Header New String button
-        document.getElementById('new-string-btn-header').addEventListener('click', () => {
-            this.openNewStringModal();
-        });
+        const newStringBtnHeader = document.getElementById('new-string-btn-header');
+        if (newStringBtnHeader) {
+            newStringBtnHeader.addEventListener('click', () => this.openNewStringModal());
+        }
+
+        // Event delegation for results list (prevents memory leaks, handles inline editing)
+        const resultsList = document.getElementById('results-list');
+        if (resultsList) {
+            resultsList.addEventListener('click', (e) => {
+                // Handle editable translation cells
+                if (e.target.classList.contains('editable')) {
+                    e.stopPropagation();
+                    this.startInlineEdit(e.target);
+                }
+                // Handle editable key cells
+                else if (e.target.classList.contains('editable-key')) {
+                    e.stopPropagation();
+                    this.startInlineKeyEdit(e.target);
+                }
+            });
+        } else {
+            console.warn('Element not found: results-list');
+        }
     }
 
     updateLanguageLabels() {
@@ -282,12 +347,18 @@ class TranslationManager {
         const noResults = document.getElementById('no-results');
 
         if (!results.length) {
-            resultsList.innerHTML = '<div class="no-results"><p>No translations found</p></div>';
+            // Use DOM methods to prevent XSS
+            resultsList.innerHTML = '';
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'no-results';
+            const p = document.createElement('p');
+            p.textContent = 'No translations found';
+            noResultsDiv.appendChild(p);
+            resultsList.appendChild(noResultsDiv);
             resultsCount.textContent = '';
             this.updatePagination(0);
             return;
         }
-
 
         // Hide any existing no-results message
         if (noResults) {
@@ -304,37 +375,64 @@ class TranslationManager {
         const lang2 = document.getElementById('lang2-select').value;
         const lang3 = document.getElementById('lang3-select').value;
 
-        resultsList.innerHTML = pageResults.map(item => {
+        // Clear previous results
+        resultsList.innerHTML = '';
+
+        // Build results using DOM methods to prevent XSS
+        pageResults.forEach(item => {
             const lang1Value = item.translations[lang1]?.value || '(missing)';
             const lang2Value = item.translations[lang2]?.value || '(missing)';
             const lang3Value = item.translations[lang3]?.value || '(missing)';
-            
-            return `
-                <div class="result-item" data-key="${item.key_path}" data-project="${item.project_slug}">
-                    <div class="result-key editable-key" data-key="${item.key_path}" data-project="${item.project_slug}" title="Click to edit element name">${item.key_path}</div>
-                    <div class="result-lang editable" data-lang="${lang1}" data-key="${item.key_path}" data-project="${item.project_slug}" title="Click to edit">${this.truncateText(lang1Value, 60)}</div>
-                    <div class="result-lang editable" data-lang="${lang2}" data-key="${item.key_path}" data-project="${item.project_slug}" title="Click to edit">${this.truncateText(lang2Value, 60)}</div>
-                    <div class="result-lang editable" data-lang="${lang3}" data-key="${item.key_path}" data-project="${item.project_slug}" title="Click to edit">${this.truncateText(lang3Value, 60)}</div>
-                </div>
-            `;
-        }).join('');
 
-        // Add click listeners for inline editing
-        resultsList.querySelectorAll('.editable').forEach(cell => {
-            cell.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.startInlineEdit(cell);
-            });
+            // Create result item container
+            const resultItem = document.createElement('div');
+            resultItem.className = 'result-item';
+            resultItem.dataset.key = item.key_path;
+            resultItem.dataset.project = item.project_slug;
+
+            // Create key path cell (editable)
+            const keyCell = document.createElement('div');
+            keyCell.className = 'result-key editable-key';
+            keyCell.dataset.key = item.key_path;
+            keyCell.dataset.project = item.project_slug;
+            keyCell.title = 'Click to edit element name';
+            keyCell.textContent = item.key_path;  // Safe - uses textContent
+
+            // Create language cells (editable)
+            const lang1Cell = document.createElement('div');
+            lang1Cell.className = 'result-lang editable';
+            lang1Cell.dataset.lang = lang1;
+            lang1Cell.dataset.key = item.key_path;
+            lang1Cell.dataset.project = item.project_slug;
+            lang1Cell.title = 'Click to edit';
+            lang1Cell.textContent = this.truncateText(lang1Value, 60);  // Safe - uses textContent
+
+            const lang2Cell = document.createElement('div');
+            lang2Cell.className = 'result-lang editable';
+            lang2Cell.dataset.lang = lang2;
+            lang2Cell.dataset.key = item.key_path;
+            lang2Cell.dataset.project = item.project_slug;
+            lang2Cell.title = 'Click to edit';
+            lang2Cell.textContent = this.truncateText(lang2Value, 60);  // Safe - uses textContent
+
+            const lang3Cell = document.createElement('div');
+            lang3Cell.className = 'result-lang editable';
+            lang3Cell.dataset.lang = lang3;
+            lang3Cell.dataset.key = item.key_path;
+            lang3Cell.dataset.project = item.project_slug;
+            lang3Cell.title = 'Click to edit';
+            lang3Cell.textContent = this.truncateText(lang3Value, 60);  // Safe - uses textContent
+
+            // Assemble the result item
+            resultItem.appendChild(keyCell);
+            resultItem.appendChild(lang1Cell);
+            resultItem.appendChild(lang2Cell);
+            resultItem.appendChild(lang3Cell);
+
+            resultsList.appendChild(resultItem);
         });
 
-        // Add click listeners for editable keys
-        resultsList.querySelectorAll('.editable-key').forEach(cell => {
-            cell.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.startInlineKeyEdit(cell);
-            });
-        });
-
+        // Event delegation now handles click events (no memory leaks)
         this.updatePagination(results.length);
     }
 
@@ -599,15 +697,24 @@ class TranslationManager {
                 );
             }
 
-            await Promise.all(updates);
-            
+            // Use Promise.allSettled to handle partial failures gracefully
+            const results = await Promise.allSettled(updates);
+
+            // Check for any failures
+            const failures = results.filter(r => r.status === 'rejected');
+            if (failures.length > 0) {
+                console.error('Some translations failed to save:', failures);
+                const errorMessages = failures.map(f => f.reason.message).join(', ');
+                throw new Error(`Failed to save ${failures.length} translation(s): ${errorMessages}`);
+            }
+
             this.showSuccessMessage('Translation saved successfully!');
             this.closeModal();
             this.loadProjectTranslations(); // Refresh results
 
         } catch (error) {
             console.error('Save error:', error);
-            alert('Failed to save translation. Please try again.');
+            alert(`Failed to save translation: ${error.message}`);
         } finally {
             this.showLoading(false);
         }
@@ -616,7 +723,19 @@ class TranslationManager {
     startInlineEdit(cell) {
         // Don't start editing if already editing
         if (cell.classList.contains('editing')) return;
-        
+
+        // Prevent concurrent edits - save any existing edit first
+        if (this.editingCell && this.editingCell !== cell) {
+            // Find and blur any existing edit input to trigger save
+            const existingInput = this.editingCell.querySelector('input');
+            if (existingInput) {
+                existingInput.blur();
+            }
+        }
+
+        // Mark this cell as the currently editing cell
+        this.editingCell = cell;
+
         // Get the full text (not truncated)
         const keyPath = cell.dataset.key;
         const project = cell.dataset.project;
@@ -646,7 +765,7 @@ class TranslationManager {
         // Save on blur or Enter
         const saveEdit = async () => {
             const newValue = input.value.trim();
-            
+
             // Only save if value changed
             if (newValue !== originalValue) {
                 try {
@@ -664,15 +783,19 @@ class TranslationManager {
                 // No change, just restore display
                 cell.textContent = this.truncateText(originalValue || '(missing)', 60);
             }
-            
+
             // Clean up
             cell.style.padding = '';
             cell.classList.remove('editing');
+            // Clear editing cell flag
+            if (this.editingCell === cell) {
+                this.editingCell = null;
+            }
         };
-        
+
         // Save on blur
         input.addEventListener('blur', saveEdit);
-        
+
         // Save on Enter
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
@@ -682,6 +805,10 @@ class TranslationManager {
                 cell.textContent = this.truncateText(originalValue || '(missing)', 60);
                 cell.style.padding = '';
                 cell.classList.remove('editing');
+                // Clear editing cell flag
+                if (this.editingCell === cell) {
+                    this.editingCell = null;
+                }
             }
         });
     }

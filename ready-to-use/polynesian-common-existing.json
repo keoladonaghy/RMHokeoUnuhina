@@ -1,0 +1,314 @@
+{
+  "eng": {
+    "buttons": {
+      "ok": "OK",
+      "cancel": "Cancel",
+      "close": "Close",
+      "save": "Save",
+      "delete": "Delete",
+      "yes": "Yes",
+      "no": "No",
+      "help": "Help",
+      "newGame": "New Game",
+      "refresh": "Refresh"
+    },
+    "states": {
+      "loading": "Loading...",
+      "error": "Error",
+      "success": "Success",
+      "comingSoon": "Coming soon...",
+      "notFound": "Not found"
+    },
+    "languages": {
+      "english": "English",
+      "hawaiian": "Hawaiian",
+      "maori": "Māori",
+      "tahitian": "Tahitian",
+      "french": "French",
+      "spanish": "Spanish",
+      "samoan": "Samoan",
+      "tongan": "Tongan"
+    },
+    "interface": {
+      "interfaceLanguage": "Interface Language",
+      "gameLanguage": "Game Language",
+      "language": "Language",
+      "settings": "Settings",
+      "about": "About",
+      "instructions": "Instructions"
+    }
+  },
+  "haw": {
+    "buttons": {
+      "ok": "ʻOia",
+      "cancel": "Hoʻōki",
+      "close": "Pani",
+      "save": "Mālama",
+      "delete": "Holoi",
+      "yes": "ʻAe",
+      "no": "ʻAʻole",
+      "help": "Kōkua",
+      "newGame": "Pāʻani Hou",
+      "refresh": "Pāʻani Hou"
+    },
+    "states": {
+      "loading": "Ke hoʻouka ʻia nei...",
+      "error": "Kuʻia",
+      "success": "Ua Holopono",
+      "comingSoon": "E hiki koke mai ana...",
+      "notFound": "ʻAʻole i loaʻa"
+    },
+    "languages": {
+      "english": "Pelekania",
+      "hawaiian": "ʻŌlelo Hawaiʻi",
+      "maori": "ʻŌlelo Māori",
+      "tahitian": "ʻŌlelo Polapola",
+      "french": "ʻŌlelo Palani",
+      "spanish": "ʻŌlelo Paniolo",
+      "samoan": "ʻŌlelo Hāmoa",
+      "tongan": "ʻŌlelo Tonga"
+    },
+    "interface": {
+      "interfaceLanguage": "ʻŌlelo Nānaina",
+      "gameLanguage": "ʻŌlelo Papa Huaʻōlelo",
+      "language": "ʻŌlelo",
+      "settings": "Nā Hoʻonohonoho",
+      "about": "No Kēia",
+      "instructions": "Pehea e Pāʻani ai"
+    }
+  },
+  "mao": {
+    "buttons": {
+      "ok": "Ae",
+      "cancel": "Whakakore",
+      "close": "Kati",
+      "save": "Tiaki",
+      "delete": "Mukua",
+      "yes": "Ae",
+      "no": "Kāo",
+      "help": "Āwhina",
+      "newGame": "Kēmu Hou",
+      "refresh": "Kēmu Hou"
+    },
+    "states": {
+      "loading": "Uta ana...",
+      "error": "Hē",
+      "success": "Angitu",
+      "comingSoon": "Ka roa ai ka tae mai...",
+      "notFound": "Kāore i kitea"
+    },
+    "languages": {
+      "english": "Pākehā",
+      "hawaiian": "Hawaiʻi",
+      "maori": "Māori",
+      "tahitian": "Tahiti",
+      "french": "Wīwī",
+      "spanish": "Paniora",
+      "samoan": "Hāmoa",
+      "tongan": "Tonga"
+    },
+    "interface": {
+      "interfaceLanguage": "Reo Tawhito",
+      "gameLanguage": "Reo Kēmu",
+      "language": "Reo",
+      "settings": "Tautuhinga",
+      "about": "Mō Tēnei",
+      "instructions": "Pehea ai"
+    }
+  },
+  "tah": {
+    "buttons": {
+      "ok": "Eaha",
+      "cancel": "Faaea",
+      "close": "Hopea",
+      "save": "Faaora",
+      "delete": "Faakore",
+      "yes": "E",
+      "no": "Aita",
+      "help": "Tauturu",
+      "newGame": "Tarava Api",
+      "refresh": "Tarava Api"
+    },
+    "states": {
+      "loading": "Te rave nei...",
+      "error": "Hape",
+      "success": "Ua oti",
+      "comingSoon": "E tae mai atoʻa...",
+      "notFound": "Aita i ite"
+    },
+    "languages": {
+      "english": "Peretane",
+      "hawaiian": "Havaiʻi",
+      "maori": "Maori",
+      "tahitian": "Tahiti",
+      "french": "Farani",
+      "spanish": "Paniora",
+      "samoan": "Hamoa",
+      "tongan": "Tonga"
+    },
+    "interface": {
+      "interfaceLanguage": "Reo Faaohipa",
+      "gameLanguage": "Reo Tarava",
+      "language": "Reo",
+      "settings": "Faanahoraʻa",
+      "about": "No teie",
+      "instructions": "Faanahoraʻa"
+    }
+  },
+  "fra": {
+    "buttons": {
+      "ok": "OK",
+      "cancel": "Annuler",
+      "close": "Fermer",
+      "save": "Enregistrer",
+      "delete": "Supprimer",
+      "yes": "Oui",
+      "no": "Non",
+      "help": "Aide",
+      "newGame": "Nouveau jeu",
+      "refresh": "Actualiser"
+    },
+    "states": {
+      "loading": "Chargement...",
+      "error": "Erreur",
+      "success": "Succès",
+      "comingSoon": "Bientôt disponible...",
+      "notFound": "Non trouvé"
+    },
+    "languages": {
+      "english": "Anglais",
+      "hawaiian": "Hawaïen",
+      "maori": "Maori",
+      "tahitian": "Tahitien",
+      "french": "Français",
+      "spanish": "Espagnol",
+      "samoan": "Samoan",
+      "tongan": "Tongien"
+    },
+    "interface": {
+      "interfaceLanguage": "Langue de lʻinterface",
+      "gameLanguage": "Langue du jeu",
+      "language": "Langue",
+      "settings": "Paramètres",
+      "about": "À propos",
+      "instructions": "Instructions"
+    }
+  },
+  "spa": {
+    "buttons": {
+      "ok": "OK",
+      "cancel": "Cancelar",
+      "close": "Cerrar",
+      "save": "Guardar",
+      "delete": "Eliminar",
+      "yes": "Sí",
+      "no": "No",
+      "help": "Ayuda",
+      "newGame": "Nuevo juego",
+      "refresh": "Actualizar"
+    },
+    "states": {
+      "loading": "Cargando...",
+      "error": "Error",
+      "success": "Éxito",
+      "comingSoon": "Próximamente...",
+      "notFound": "No encontrado"
+    },
+    "languages": {
+      "english": "Inglés",
+      "hawaiian": "Hawaiano",
+      "maori": "Maorí",
+      "tahitian": "Tahitiano",
+      "french": "Francés",
+      "spanish": "Español",
+      "samoan": "Samoano",
+      "tongan": "Tongano"
+    },
+    "interface": {
+      "interfaceLanguage": "Idioma de la interfaz",
+      "gameLanguage": "Idioma del juego",
+      "language": "Idioma",
+      "settings": "Configuración",
+      "about": "Acerca de",
+      "instructions": "Instrucciones"
+    }
+  },
+  "smo": {
+    "buttons": {
+      "ok": "Ioe",
+      "cancel": "Faʻafefe",
+      "close": "Tapuni",
+      "save": "Faʻasaoina",
+      "delete": "Faʻaleaogaina",
+      "yes": "Ioe",
+      "no": "Leai",
+      "help": "Fesoasoani",
+      "newGame": "Taʻaloga Fou",
+      "refresh": "Faʻafou"
+    },
+    "states": {
+      "loading": "O loʻo faʻagaoioi...",
+      "error": "Mea sese",
+      "success": "Manuia",
+      "comingSoon": "O le a vave ona sau...",
+      "notFound": "E leʻi maua"
+    },
+    "languages": {
+      "english": "Igilisi",
+      "hawaiian": "Havai",
+      "maori": "Maori",
+      "tahitian": "Tahiti",
+      "french": "Farani",
+      "spanish": "Sipaniolo",
+      "samoan": "Samoa",
+      "tongan": "Tonga"
+    },
+    "interface": {
+      "interfaceLanguage": "Gagana Faʻaoga",
+      "gameLanguage": "Gagana Taʻaloga",
+      "language": "Gagana",
+      "settings": "Faʻatonuga",
+      "about": "E uiga i lenei",
+      "instructions": "Faʻatonuga"
+    }
+  },
+  "ton": {
+    "buttons": {
+      "ok": "ʻIo",
+      "cancel": "Tamateʻi",
+      "close": "Tāpuni",
+      "save": "Tauhi",
+      "delete": "Tamateʻi",
+      "yes": "ʻIo",
+      "no": "ʻIkai",
+      "help": "Tokoni",
+      "newGame": "Fakatau Foʻou",
+      "refresh": "Fakafoʻou"
+    },
+    "states": {
+      "loading": "ʻOku lava...",
+      "error": "Hala",
+      "success": "Ikuna",
+      "comingSoon": "Te hāfoki mai...",
+      "notFound": "ʻIkai ha"
+    },
+    "languages": {
+      "english": "Palangi",
+      "hawaiian": "Havai",
+      "maori": "Mauli",
+      "tahitian": "Tahiti",
+      "french": "Falanisē",
+      "spanish": "Sipaini",
+      "samoan": "Hāmoa",
+      "tongan": "Tonga"
+    },
+    "interface": {
+      "interfaceLanguage": "Lea Fakamatala",
+      "gameLanguage": "Lea Fakatau",
+      "language": "Lea",
+      "settings": "Ngaahi Fakatotonga",
+      "about": "Ki he ni",
+      "instructions": "Ngaahi Ako"
+    }
+  }
+}

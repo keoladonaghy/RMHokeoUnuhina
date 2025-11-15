@@ -1,0 +1,350 @@
+{
+  "eng": {
+    "branding": {
+      "title": "Just Enough Music Theory For Hawaiian Musicians",
+      "shortTitle": "JEMT4HM",
+      "tagline": "Essential music theory for Hawaiian music"
+    },
+    "navigation": {
+      "chooseInstrument": "Choose Your Instrument",
+      "introduction": "Greetings and welcome to \"Just Enough Music Theory for Hawaiian Musicians\". You will find resources and lessons for the most essential elements of music theory that are found in Hawaiian music. This project is in a developmental stage at the moment, so please bear with us!",
+      "playChord": "Play Chord",
+      "newGame": "New Game"
+    },
+    "instruments": {
+      "ukulele": "'Ukulele",
+      "guitar": "Guitar",
+      "acousticBass": "Acoustic Bass",
+      "electricBass": "Electric Bass"
+    },
+    "chords": {
+      "root": "Root:",
+      "type": "Type:",
+      "selectRoot": "Select Root",
+      "selectType": "Select Type",
+      "major": "Major",
+      "minor": "Minor",
+      "seventh": "7th"
+    },
+    "chordBuilder": {
+      "guitarTitle": "Guitar Chord Builder",
+      "ukuleleTitle": "'Ukulele Chord Builder"
+    },
+    "content": {
+      "contentComingSoon": "Content coming soon..."
+    },
+    "settings": {
+      "title": "Settings",
+      "language": {
+        "title": "Language",
+        "description": "Choose your preferred language for the interface",
+        "english": "English",
+        "hawaiian": "'Ōlelo Hawaiʻi"
+      },
+      "primaryInstrument": {
+        "title": "Primary Instrument",
+        "description": "Select your main instrument for quick access",
+        "ukulele": "'Ukulele",
+        "guitar": "Guitar",
+        "acousticBass": "Acoustic Bass",
+        "electricBass": "Electric Bass",
+        "none": "No Preference"
+      },
+      "buttons": {
+        "save": "Save Settings",
+        "cancel": "Cancel",
+        "close": "Close"
+      }
+    }
+  },
+  "haw": {
+    "branding": {
+      "title": "Ke Kālaikuhi e Lawa Ai Ka Mea Ho'okani Pila a Hīmeni Hawai'i",
+      "shortTitle": "JEMT4HM",
+      "tagline": "Nā kālaikuhi puolo e pono ai ka mea ho'okani pila Hawai'i"
+    },
+    "navigation": {
+      "chooseInstrument": "E Koho i Kāu Pila Ho'okani",
+      "introduction": "Welina ke aloha iā kākou, a e komo mai i \"Nā Kālaikuhi Puolo e Lawa ai Ka Mea Ho'okani Pila a Hīmeni Hawai'i\". E 'ike 'ia i loko nei nā kumu waiwai a ha'awina waiwai loa e pili ana i nā kumumea kālaikuhi puolo e lohe 'ia i loko o ka puolo Hawai'i. Aia nō kēia papahana ma ka kona wā ho'omohala, no laila, e ho'omanawanui mai!",
+      "playChord": "Ho'okani",
+      "newGame": "Pāʻani Hou"
+    },
+    "instruments": {
+      "ukulele": "ʻUkulele",
+      "guitar": "Kīkā",
+      "acousticBass": "Pila Nui",
+      "electricBass": "Kīkā Leo Ha'aha'a"
+    },
+    "chords": {
+      "root": "Mole:",
+      "type": "ʻAno:",
+      "selectRoot": "Koho i ka Kumu",
+      "selectType": "Koho i ka ʻAno",
+      "major": "Mēkia",
+      "minor": "Māina",
+      "seventh": "'Ehiku Emi"
+    },
+    "chordBuilder": {
+      "guitarTitle": "Kītā Chord Builder",
+      "ukuleleTitle": "ʻUkulele Chord Builder"
+    },
+    "content": {
+      "contentComingSoon": "E hiki koke mai ana..."
+    },
+    "settings": {
+      "title": "Nā Hoʻonohonoho",
+      "language": {
+        "title": "ʻŌlelo",
+        "description": "Koho i kāu ʻōlelo makemake no ka ʻaoʻao",
+        "english": "Pelekania",
+        "hawaiian": "'Ōlelo Hawaiʻi"
+      },
+      "primaryInstrument": {
+        "title": "Pila Kani Nui",
+        "description": "Wae i kāu pila kani nui no ka hiki wikiwiki",
+        "ukulele": "ʻUkulele",
+        "guitar": "Kika",
+        "acousticBass": "Pila Nui",
+        "electricBass": "Kīkā Leo Ha'aha'a Uila",
+        "none": "ʻAʻohe Koho"
+      },
+      "buttons": {
+        "save": "Mālama i Nā Hoʻonohonoho",
+        "cancel": "Hoʻōki",
+        "close": "Pani"
+      }
+    }
+  },
+  "mao": {
+    "branding": {
+      "title": "He Mātauranga Puoro nā Kaiako Puoro Māori",
+      "shortTitle": "JEMT4HM",
+      "tagline": "Ngā mātauranga puoro matua mō te puoro Māori"
+    },
+    "navigation": {
+      "chooseInstrument": "Kōwhiria Tō Taonga Puoro",
+      "introduction": "Kia ora, nau mai ki \"He Mātauranga Puoro nā Kaiako Puoro Māori\". Ka kitea e koe ngā rauemi me ngā akoranga mō ngā mea matua o te mātauranga puoro o te puoro Māori. He kaupapa whakatipu tonu tēnei, nō reira kia manawanui!",
+      "playChord": "Whakatangi Kōrā",
+      "newGame": "Kēmu Hou"
+    },
+    "instruments": {
+      "ukulele": "Ukulele",
+      "guitar": "Kītā",
+      "acousticBass": "Pā Hauhunga",
+      "electricBass": "Pā Hiko"
+    },
+    "chords": {
+      "root": "Pū:",
+      "type": "Momo:",
+      "selectRoot": "Kōwhiria te Pū",
+      "selectType": "Kōwhiria te Momo",
+      "major": "Matua",
+      "minor": "Iti",
+      "seventh": "Whitu"
+    },
+    "chordBuilder": {
+      "guitarTitle": "Kītā Kōrā Hanga",
+      "ukuleleTitle": "Ukulele Kōrā Hanga"
+    },
+    "content": {
+      "contentComingSoon": "He roa ai ka tae mai..."
+    },
+    "settings": {
+      "title": "Tautuhinga",
+      "language": {
+        "title": "Reo",
+        "description": "Kōwhiria tō reo pai mō te mata",
+        "english": "Pākehā",
+        "hawaiian": "Hawaiʻi"
+      },
+      "primaryInstrument": {
+        "title": "Taonga Puoro Matua",
+        "description": "Kōwhiria tō taonga puoro matua mō te tere atu",
+        "ukulele": "Ukulele",
+        "guitar": "Kītā",
+        "acousticBass": "Pā Hauhunga",
+        "electricBass": "Pā Hiko",
+        "none": "Kāore he Kōwhiringa"
+      },
+      "buttons": {
+        "save": "Tiaki Tautuhinga",
+        "cancel": "Whakakore",
+        "close": "Kati"
+      }
+    }
+  },
+  "tah": {
+    "branding": {
+      "title": "Te Mau Mata'ira'a Hīmene nō te Feia Hīmene Tahiti",
+      "shortTitle": "JEMT4HM",
+      "tagline": "Te mau mata'ira'a hīmene matamua no te hīmene Tahiti"
+    },
+    "navigation": {
+      "chooseInstrument": "Hiti i Tā 'Oe Hōho'a",
+      "introduction": "Ia ora na, e maeva mai i \"Te Mau Mata'ira'a Hīmene nō te Feia Hīmene Tahiti\". E 'ite ra 'outou i te mau tīfau ma te mau ha'api'ira'a no te mau mea rahi roa o te mata'ira'a hīmene i loto i te hīmene Tahiti. Te mea nei teie hōho'a, no reira e fa'ari'i!",
+      "playChord": "Hōho'a",
+      "newGame": "Tarava Api"
+    },
+    "instruments": {
+      "ukulele": "Ukulele",
+      "guitar": "Kītā",
+      "acousticBass": "Pā Fa'a'ū",
+      "electricBass": "Pā Uira"
+    },
+    "chords": {
+      "root": "A'a:",
+      "type": "Huru:",
+      "selectRoot": "Hiti i te A'a",
+      "selectType": "Hiti i te Huru",
+      "major": "Rahi",
+      "minor": "Iti",
+      "seventh": "Hitu"
+    },
+    "chordBuilder": {
+      "guitarTitle": "Kītā Chord Hanga",
+      "ukuleleTitle": "Ukulele Chord Hanga"
+    },
+    "content": {
+      "contentComingSoon": "E tae mai ato'a..."
+    },
+    "settings": {
+      "title": "Faanahora'a",
+      "language": {
+        "title": "Reo",
+        "description": "Hiti i tā 'oe reo manao no te mata",
+        "english": "Peretane",
+        "hawaiian": "Havai'i"
+      },
+      "primaryInstrument": {
+        "title": "Hōho'a Matamua",
+        "description": "Hiti i tā 'oe hōho'a matamua no te tere",
+        "ukulele": "Ukulele",
+        "guitar": "Kītā",
+        "acousticBass": "Pā Fa'a'ū",
+        "electricBass": "Pā Uira",
+        "none": "Aita ta Hiti"
+      },
+      "buttons": {
+        "save": "Faaora i te Faanahora'a",
+        "cancel": "Faaea",
+        "close": "Hopea"
+      }
+    }
+  },
+  "fra": {
+    "branding": {
+      "title": "Théorie Musicale Essentielle pour Musiciens Hawaïens",
+      "shortTitle": "JEMT4HM",
+      "tagline": "Théorie musicale essentielle pour la musique hawaïenne"
+    },
+    "navigation": {
+      "chooseInstrument": "Choisissez Votre Instrument",
+      "introduction": "Bonjour et bienvenue dans \"Théorie Musicale Essentielle pour Musiciens Hawaïens\". Vous trouverez ici des ressources et des leçons sur les éléments essentiels de la théorie musicale présents dans la musique hawaïenne. Ce projet est en cours de développement, merci de votre patience !",
+      "playChord": "Jouer l'Accord",
+      "newGame": "Nouveau Jeu"
+    },
+    "instruments": {
+      "ukulele": "Ukulélé",
+      "guitar": "Guitare",
+      "acousticBass": "Basse Acoustique",
+      "electricBass": "Basse Électrique"
+    },
+    "chords": {
+      "root": "Fondamentale:",
+      "type": "Type:",
+      "selectRoot": "Sélectionner la Fondamentale",
+      "selectType": "Sélectionner le Type",
+      "major": "Majeur",
+      "minor": "Mineur",
+      "seventh": "7ème"
+    },
+    "chordBuilder": {
+      "guitarTitle": "Constructeur d'Accords Guitare",
+      "ukuleleTitle": "Constructeur d'Accords Ukulélé"
+    },
+    "content": {
+      "contentComingSoon": "Contenu à venir..."
+    },
+    "settings": {
+      "title": "Paramètres",
+      "language": {
+        "title": "Langue",
+        "description": "Choisissez votre langue préférée pour l'interface",
+        "english": "Anglais",
+        "hawaiian": "Hawaïen"
+      },
+      "primaryInstrument": {
+        "title": "Instrument Principal",
+        "description": "Sélectionnez votre instrument principal pour un accès rapide",
+        "ukulele": "Ukulélé",
+        "guitar": "Guitare",
+        "acousticBass": "Basse Acoustique",
+        "electricBass": "Basse Électrique",
+        "none": "Aucune Préférence"
+      },
+      "buttons": {
+        "save": "Enregistrer les Paramètres",
+        "cancel": "Annuler",
+        "close": "Fermer"
+      }
+    }
+  },
+  "spa": {
+    "branding": {
+      "title": "Teoría Musical Esencial para Músicos Hawaianos",
+      "shortTitle": "JEMT4HM",
+      "tagline": "Teoría musical esencial para la música hawaiana"
+    },
+    "navigation": {
+      "chooseInstrument": "Elige Tu Instrumento",
+      "introduction": "Saludos y bienvenidos a \"Teoría Musical Esencial para Músicos Hawaianos\". Encontrarás recursos y lecciones sobre los elementos esenciales de la teoría musical presentes en la música hawaiana. Este proyecto está en desarrollo, ¡ten paciencia con nosotros!",
+      "playChord": "Tocar Acorde",
+      "newGame": "Nuevo Juego"
+    },
+    "instruments": {
+      "ukulele": "Ukulele",
+      "guitar": "Guitarra",
+      "acousticBass": "Bajo Acústico",
+      "electricBass": "Bajo Eléctrico"
+    },
+    "chords": {
+      "root": "Fundamental:",
+      "type": "Tipo:",
+      "selectRoot": "Seleccionar Fundamental",
+      "selectType": "Seleccionar Tipo",
+      "major": "Mayor",
+      "minor": "Menor",
+      "seventh": "7ma"
+    },
+    "chordBuilder": {
+      "guitarTitle": "Constructor de Acordes de Guitarra",
+      "ukuleleTitle": "Constructor de Acordes de Ukulele"
+    },
+    "content": {
+      "contentComingSoon": "Contenido próximamente..."
+    },
+    "settings": {
+      "title": "Configuración",
+      "language": {
+        "title": "Idioma",
+        "description": "Elige tu idioma preferido para la interfaz",
+        "english": "Inglés",
+        "hawaiian": "Hawaiano"
+      },
+      "primaryInstrument": {
+        "title": "Instrumento Principal",
+        "description": "Selecciona tu instrumento principal para acceso rápido",
+        "ukulele": "Ukulele",
+        "guitar": "Guitarra",
+        "acousticBass": "Bajo Acústico",
+        "electricBass": "Bajo Eléctrico",
+        "none": "Sin Preferencia"
+      },
+      "buttons": {
+        "save": "Guardar Configuración",
+        "cancel": "Cancelar",
+        "close": "Cerrar"
+      }
+    }
+  }
+}

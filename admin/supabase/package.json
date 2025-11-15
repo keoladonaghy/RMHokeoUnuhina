@@ -1,0 +1,31 @@
+{
+  "name": "polynesian-translations-supabase",
+  "version": "1.0.0",
+  "description": "Import and manage Polynesian language translations in Supabase",
+  "main": "02-import-script.js",
+  "scripts": {
+    "import": "node 02-import-script.js",
+    "import:test": "node 02-import-script.js --test",
+    "import:common": "node 02-import-script.js --project polynesian-common",
+    "import:jemt4": "node 02-import-script.js --project jemt4-music",
+    "import:kimikupu": "node 02-import-script.js --project kimiKupu-specific",
+    "import:pangakupu": "node 02-import-script.js --project pangaKupu-specific"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  },
+  "keywords": [
+    "translations",
+    "polynesian",
+    "supabase",
+    "i18n",
+    "hawaiian",
+    "maori",
+    "tahitian"
+  ],
+  "author": "",
+  "license": "MIT"
+}

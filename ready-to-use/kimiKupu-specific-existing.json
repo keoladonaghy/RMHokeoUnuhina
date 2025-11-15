@@ -1,0 +1,583 @@
+{
+  "eng": {
+    "branding": {
+      "title": "Reo Moana Puzzle",
+      "subtitle": "Polynesian Word Game",
+      "description": "This is an open source adaptation of the word guessing game Wordle, designed for Polynesian languages."
+    },
+    "welcome": {
+      "title": "Reo Moana Puzzle",
+      "startButton": "New Game",
+      "helpButton": "How to Play"
+    },
+    "instructions": {
+      "title": "How to Play",
+      "hawaiianToggle": "'Ōlelo Hawaiʻi",
+      "englishToggle": "English",
+      "steps": {
+        "selectLetters": {
+          "title": "Select Letters:",
+          "description": "Tap letters to form your guess. Each guess must be a valid {wordLength}-letter word."
+        },
+        "formingWords": {
+          "title": "Forming Words:",
+          "correctSpelling": "Words must be spelled correctly using proper orthography."
+        },
+        "submitAuto": {
+          "title": "Submit Your Guess:",
+          "autoAppear": "Press Enter when your word is complete."
+        }
+      },
+      "tips": {
+        "title": "Tips",
+        "diacriticals": "Use proper diacritics (kahakō and ʻokina) where required."
+      }
+    },
+    "game": {
+      "wordsFound": "Words Found",
+      "currentWord": "Current Guess",
+      "delete": "Delete",
+      "refresh": "New Game",
+      "confirmRefresh": {
+        "title": "New Game",
+        "confirm": "New Game",
+        "cancel": "Cancel"
+      },
+      "messages": {
+        "wordFound": "Congratulations!",
+        "invalidWord": "Word not found",
+        "tooShort": "Not enough letters",
+        "celebrationComplete": [
+          "Share",
+          "Congratulations!"
+        ],
+        "notEnoughLetters": "Not enough letters",
+        "wordNotFound": "Word not found",
+        "gameLost": "The word was"
+      }
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Interface Language",
+      "gameLanguage": "Game Language",
+      "hawaiian": "Hawaiian",
+      "maori": "Māori",
+      "tahitian": "Tahitian",
+      "samoan": "Samoan",
+      "english": "English",
+      "underDevelopment": "(under development)",
+      "acknowledgment": "Mahalo to Mary Boyce for the Māori word list used in this game."
+    },
+    "about": {
+      "title": "About This Game",
+      "adaptedBy": "Adapted by",
+      "originalCode": "Original code",
+      "originalCodeBy": "by",
+      "customizeText": "and customize it for another language!",
+      "wordsSourced": "The words for this game were sourced from",
+      "playOriginal": "Or, you can also",
+      "playOriginalLink": "play the original here",
+      "credits": {
+        "originalAuthor": "Hannah Park",
+        "forkAuthor": "Aidan Pine"
+      }
+    }
+  },
+  "haw": {
+    "branding": {
+      "title": "Reo Moana: Hulihua",
+      "subtitle": "Pā'ani Hua'ōlelo Polenesia",
+      "description": "He mea kumu waiwai kēia o ka nane hua'ōlelo Wordle, ua hana 'ia no nā 'ōlelo Polenesia."
+    },
+    "welcome": {
+      "title": "Reo Moana: Hulihua",
+      "startButton": "Pā'ani",
+      "helpButton": "Pehea e Pā'ani ai"
+    },
+    "instructions": {
+      "title": "Pehea e Pā'ani ai",
+      "hawaiianToggle": "'Ōlelo Hawaiʻi",
+      "englishToggle": "'Ōlelo Pelekania",
+      "steps": {
+        "selectLetters": {
+          "title": "Koho i nā Kupu:",
+          "description": "E kaomi i nā hua'ōlelo e hō'ike 'ia, No nā woela me ke kahakō, e kaomi a pa'a ma luna o ka woela E hō'ike 'ia ia woela me ka kahakō ma luna. E kaualakō i kou manamana lima i kuna ia wowela, a e ho'oku'u. 'O kekahi hua'ōlelo Hawai'i 'oia'i'o {wordLength} huapalapala kona lō'ihi."
+        },
+        "formingWords": {
+          "title": "Ka moena o nā hua'ōlelo:",
+          "correctSpelling": "Koi 'ia ka pela pololei 'ana o nā hua'ōlelo me ka 'okina me ke kahakō ke pono."
+        },
+        "submitAuto": {
+          "title": "Ho'okomo i kāu koho:",
+          "autoAppear": "E kaomi iā Kāho'i ke piha pono kāu hua'ōlelo."
+        }
+      },
+      "tips": {
+        "title": "Mana'o Kōkua",
+        "diacriticals": "E ho'ohana i nā māka Hawai'i (ke kahakō a me ka ʻokina) ma kahi e koi 'ia."
+      }
+    },
+    "game": {
+      "wordsFound": "Nā Hua'ōlelo i 'ikea",
+      "currentWord": "Ka hua'ōlelo koho e kū ne",
+      "delete": "Delete",
+      "refresh": "Pā'ani Hou",
+      "confirmRefresh": {
+        "title": "Pā'ani Hou",
+        "confirm": "Pā'ani Hou",
+        "cancel": "Ho'ōki"
+      },
+      "messages": {
+        "wordFound": "Hoʻomaikaʻi!",
+        "invalidWord": "'A'ole i loa'a ia hua'ōlelo",
+        "tooShort": "'A'ole i lawa nā huapalapala",
+        "celebrationComplete": [
+          "Ka'ana Aku",
+          "Hoʻomaikaʻi!"
+        ],
+        "notEnoughLetters": "'A'ole i lawa nā huapalapala",
+        "wordNotFound": "ʻAʻole i loaʻa ia huaʻōlelo",
+        "gameLost": "Eia ka huaʻōlelo"
+      }
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "'Ōlelo Nānaina",
+      "gameLanguage": "'Ōlelo Papa Hua'ōlelo",
+      "hawaiian": "'Ōlelo Hawai'",
+      "maori": "'Ōlelo Māori",
+      "tahitian": "'Ōlelo Polapola",
+      "samoan": "'Ōlelo Hāmoa",
+      "english": "English",
+      "underDevelopment": "(ke ho'omākaukau 'ia nei)",
+      "acknowledgment": "Mahalo iā Mary Boyce no ka papa hua'ōlelo Māori e ho'ohana 'ia ma kēia pā'ani."
+    },
+    "about": {
+      "title": "No Kēia Nane Hua'ōlelo",
+      "adaptedBy": "Ua hana 'ia e",
+      "originalCode": "Ke kumu kōmika mua",
+      "originalCodeBy": "nā",
+      "customizeText": "a hana i kēia no kekahi 'ōlelo 'ē a'e!",
+      "wordsSourced": "Ua komo 'ia nā hua'ōlelo o kēia pā'ani mai",
+      "playOriginal": "A hiki nō ho'i iā 'oe ke",
+      "playOriginalLink": "pā'ani i ka mua ma 'ane'i",
+      "credits": {
+        "originalAuthor": "Hannah Park",
+        "forkAuthor": "Aidan Pine"
+      }
+    }
+  },
+  "mao": {
+    "branding": {
+      "title": "Reo Māori Puzzle",
+      "subtitle": "Kēmu Kupu Poronēhia",
+      "description": "He taonga nā te iwi katoa tēnei o te kēmu kupu Wordle, kua hangaia mō ngā reo Poronesia."
+    },
+    "welcome": {
+      "title": "Reo Māori Puzzle",
+      "startButton": "Kēmu Hou",
+      "helpButton": "Pehea ai"
+    },
+    "instructions": {
+      "title": "Pehea ai",
+      "hawaiianToggle": "Reo Māori",
+      "englishToggle": "English",
+      "steps": {
+        "selectLetters": {
+          "title": "Kōwhiria ngā reta:",
+          "description": "Tāpahia ngā reta hei hanga kupu. Me whakatōhia tētahi kupu roa {wordLength} reta."
+        },
+        "formingWords": {
+          "title": "Te Hanga Kupu:",
+          "correctSpelling": "Me tika ai te tuhituhi o ngā kupu."
+        },
+        "submitAuto": {
+          "title": "Tukuna Tō Kupu:",
+          "autoAppear": "Pēhia a Enter i roa ai tō kupu."
+        }
+      },
+      "tips": {
+        "title": "Ngā Tohutohu",
+        "diacriticals": "Whakamahia ngā tohu (whakatōhia) i ngā wāhi tika."
+      }
+    },
+    "game": {
+      "wordsFound": "Ngā Kupu I Kitea",
+      "currentWord": "Kupu o Nāianei",
+      "delete": "Mukua",
+      "refresh": "Kēmu Hou",
+      "confirmRefresh": {
+        "title": "Kēmu Hou?",
+        "confirm": "Kēmu Hou",
+        "cancel": "Whakakore"
+      },
+      "messages": {
+        "wordFound": "Ka pai!",
+        "invalidWord": "Kāore he kupu",
+        "tooShort": "He poto rawa",
+        "celebrationComplete": [
+          "Tīhei mauri ora!",
+          "Ka pai!"
+        ],
+        "notEnoughLetters": "He poto rawa",
+        "wordNotFound": "Kāore he kupu",
+        "gameLost": "Ko te kupu"
+      }
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Reo Tawhito",
+      "gameLanguage": "Reo Kēmu",
+      "hawaiian": "Hawaiʻi",
+      "maori": "Māori",
+      "tahitian": "Tahiti",
+      "samoan": "Sāmoa",
+      "english": "Pākehā",
+      "underDevelopment": "(hanga ana)",
+      "acknowledgment": "Mahalo to Mary Boyce for the Māori word list used in this game."
+    },
+    "about": {
+      "title": "Mō Tēnei Kēmu",
+      "adaptedBy": "Kua whakaahuatia e",
+      "originalCode": "Te waehere taketake",
+      "originalCodeBy": "nā",
+      "customizeText": "ā whakaahuahia mō tētahi atu reo!",
+      "wordsSourced": "Ngā kupu o tēnei kēmu i tangohia mai i",
+      "playOriginal": "Rānei, ka āhei rānei koe ki te",
+      "playOriginalLink": "tākaro i te taketake nei",
+      "credits": {
+        "originalAuthor": "Hannah Park",
+        "forkAuthor": "Aidan Pine"
+      }
+    }
+  },
+  "tah": {
+    "branding": {
+      "title": "Reo Tahiti Puzzle",
+      "subtitle": "Tarava Parau Polinē",
+      "description": "He mea kino 'ore roa teie no te tarava parau Wordle, ua hanga hia no te mau reo Polinē."
+    },
+    "welcome": {
+      "title": "Reo Tahiti Puzzle",
+      "startButton": "Tarava Api",
+      "helpButton": "Pehea te hana"
+    },
+    "instructions": {
+      "title": "Pehea te hana",
+      "hawaiianToggle": "Reo Tahiti",
+      "englishToggle": "Peretane",
+      "steps": {
+        "selectLetters": {
+          "title": "Hiti i te mau reta:",
+          "description": "Fa'i i te mau reta e hana ai i ta parau. E parau 'oia'i'o {wordLength} reta."
+        },
+        "formingWords": {
+          "title": "Te Hana Parau:",
+          "correctSpelling": "E pono ia ai te fa'atura'a tika o te mau parau."
+        },
+        "submitAuto": {
+          "title": "Fa'ahoro i ta 'oe Parau:",
+          "autoAppear": "Tāpahi ia Enter ia roa ta 'oe parau."
+        }
+      },
+      "tips": {
+        "title": "Mau Fa'aauara'a",
+        "diacriticals": "Fa'aaue i te mau fa'ailoga (tō me te hāmani) i te mau vahi e hinaaro ai."
+      }
+    },
+    "game": {
+      "wordsFound": "Te Mau Parau i 'Ite'ia",
+      "currentWord": "Te Parau o Teie Taime",
+      "delete": "Faakore",
+      "refresh": "Tarava Api",
+      "confirmRefresh": {
+        "title": "Tarava Api?",
+        "confirm": "Tarava Api",
+        "cancel": "Faaea"
+      },
+      "messages": {
+        "wordFound": "Maita'i roa!",
+        "invalidWord": "Aita te parau",
+        "tooShort": "Te'a te reta",
+        "celebrationComplete": [
+          "Fa'aturahia!",
+          "Maita'i roa!"
+        ],
+        "notEnoughLetters": "Te'a te reta",
+        "wordNotFound": "Aita te parau",
+        "gameLost": "Teie te parau"
+      }
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Reo Faaohipa",
+      "gameLanguage": "Reo Tarava",
+      "hawaiian": "Havai'i",
+      "maori": "Maori",
+      "tahitian": "Tahiti",
+      "samoan": "Hamoa",
+      "english": "Peretane",
+      "underDevelopment": "(te hanga nei)",
+      "acknowledgment": "Mauruuru ia Mary Boyce no te papa parau Māori i fa'aaue i teie tarava."
+    },
+    "about": {
+      "title": "No Teie Tarava",
+      "adaptedBy": "Ua hanga hia e",
+      "originalCode": "Te kōmika taketake",
+      "originalCodeBy": "na",
+      "customizeText": "a hanga i teie no ta'tahi atu reo!",
+      "wordsSourced": "Ua riro mai te mau parau o teie tarava i",
+      "playOriginal": "A nehenehe ho'i",
+      "playOriginalLink": "tarava i te taketake nei",
+      "credits": {
+        "originalAuthor": "Hannah Park",
+        "forkAuthor": "Aidan Pine"
+      }
+    }
+  },
+  "smo": {
+    "branding": {
+      "title": "Ta'aloga Upu Samoa",
+      "subtitle": "Ta'aloga Upu Polenisia",
+      "description": "O se fetuunaiga lelei lenei o le ta'aloga upu Wordle, ua fausia mo gagana Polenisia."
+    },
+    "welcome": {
+      "title": "Ta'aloga Upu Samoa",
+      "startButton": "Ta'aloga Fou",
+      "helpButton": "Auala e Ta'alo ai"
+    },
+    "instructions": {
+      "title": "Auala e Ta'alo ai",
+      "hawaiianToggle": "Gagana Samoa",
+      "englishToggle": "Igilisi",
+      "steps": {
+        "selectLetters": {
+          "title": "Filifili mata:",
+          "description": "Tagofi mata e fai ai lau upu. O se upu moni {wordLength} mata."
+        },
+        "formingWords": {
+          "title": "Faia Upu:",
+          "correctSpelling": "E tatau ona sa'o le tusi o upu."
+        },
+        "submitAuto": {
+          "title": "Aumai lau Upu:",
+          "autoAppear": "Kiliki ia Enter pe a uma lau upu."
+        }
+      },
+      "tips": {
+        "title": "Fautuaga",
+        "diacriticals": "Fa'aaoga fa'ailoga tika (faatotoa ma faasino) pe a mana'omia."
+      }
+    },
+    "game": {
+      "wordsFound": "Upu na Maua",
+      "currentWord": "Upu Lenei",
+      "delete": "Fa'aleaogaina",
+      "refresh": "Ta'aloga Fou",
+      "confirmRefresh": {
+        "title": "Ta'aloga Fou?",
+        "confirm": "Ta'aloga Fou",
+        "cancel": "Fa'afefe"
+      },
+      "messages": {
+        "wordFound": "Fa'afetai tele!",
+        "invalidWord": "E le'i maua le upu",
+        "tooShort": "E le lava mata",
+        "celebrationComplete": [
+          "Tufatufa!",
+          "Fa'afetai tele!"
+        ],
+        "notEnoughLetters": "E le lava mata",
+        "wordNotFound": "E le'i maua le upu",
+        "gameLost": "O le upu"
+      }
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Gagana Fa'aoga",
+      "gameLanguage": "Gagana Ta'aloga",
+      "hawaiian": "Havai",
+      "maori": "Maori",
+      "tahitian": "Tahiti",
+      "samoan": "Samoa",
+      "english": "Igilisi",
+      "underDevelopment": "(o lo'o galue)",
+      "acknowledgment": "Fa'afetai ia Mary Boyce mo le lisi upu Māori na fa'aaogaina i lenei ta'aloga."
+    },
+    "about": {
+      "title": "E Uiga i Lenei Ta'aloga",
+      "adaptedBy": "Na fetuunaiga e",
+      "originalCode": "Komikaiga muamua",
+      "originalCodeBy": "e",
+      "customizeText": "ma fetuunai mo se isi gagana!",
+      "wordsSourced": "Na maua upu o lenei ta'aloga mai",
+      "playOriginal": "Pe e mafai foi",
+      "playOriginalLink": "ta'alo le uluai mea iinei",
+      "credits": {
+        "originalAuthor": "Hannah Park",
+        "forkAuthor": "Aidan Pine"
+      }
+    }
+  },
+  "fra": {
+    "branding": {
+      "title": "Puzzle Reo Moana",
+      "subtitle": "Jeu de Mots Polynésiens",
+      "description": "Ceci est une adaptation open source du jeu de devinettes de mots Wordle, conçue pour les langues polynésiennes."
+    },
+    "welcome": {
+      "title": "Puzzle Reo Moana",
+      "startButton": "Nouveau Jeu",
+      "helpButton": "Comment Jouer"
+    },
+    "instructions": {
+      "title": "Comment Jouer",
+      "hawaiianToggle": "Hawaïen",
+      "englishToggle": "Anglais",
+      "steps": {
+        "selectLetters": {
+          "title": "Sélectionner les Lettres:",
+          "description": "Tapez les lettres pour former votre supposition. Chaque supposition doit être un mot valide de {wordLength} lettres."
+        },
+        "formingWords": {
+          "title": "Formation des Mots:",
+          "correctSpelling": "Les mots doivent être épelés correctement en utilisant l'orthographe appropriée."
+        },
+        "submitAuto": {
+          "title": "Soumettre Votre Supposition:",
+          "autoAppear": "Appuyez sur Entrée quand votre mot est complet."
+        }
+      },
+      "tips": {
+        "title": "Conseils",
+        "diacriticals": "Utilisez les diacritiques appropriés (macrons et apostrophes) où nécessaire."
+      }
+    },
+    "game": {
+      "wordsFound": "Mots Trouvés",
+      "currentWord": "Supposition Actuelle",
+      "delete": "Supprimer",
+      "refresh": "Nouveau Jeu",
+      "confirmRefresh": {
+        "title": "Nouveau Jeu?",
+        "confirm": "Nouveau Jeu",
+        "cancel": "Annuler"
+      },
+      "messages": {
+        "wordFound": "Félicitations!",
+        "invalidWord": "Mot non trouvé",
+        "tooShort": "Pas assez de lettres",
+        "celebrationComplete": [
+          "Partager!",
+          "Félicitations!"
+        ],
+        "notEnoughLetters": "Pas assez de lettres",
+        "wordNotFound": "Mot non trouvé",
+        "gameLost": "Le mot était"
+      }
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Langue de l'Interface",
+      "gameLanguage": "Langue du Jeu",
+      "hawaiian": "Hawaïen",
+      "maori": "Maori",
+      "tahitian": "Tahitien",
+      "samoan": "Samoan",
+      "english": "Anglais",
+      "underDevelopment": "(en développement)",
+      "acknowledgment": "Merci à Mary Boyce pour la liste de mots maoris utilisée dans ce jeu."
+    },
+    "about": {
+      "title": "À Propos de Ce Jeu",
+      "adaptedBy": "Adapté par",
+      "originalCode": "Code original",
+      "originalCodeBy": "par",
+      "customizeText": "et personnalisez-le pour une autre langue!",
+      "wordsSourced": "Les mots de ce jeu proviennent de",
+      "playOriginal": "Ou, vous pouvez aussi",
+      "playOriginalLink": "jouer à l'original ici",
+      "credits": {
+        "originalAuthor": "Hannah Park",
+        "forkAuthor": "Aidan Pine"
+      }
+    }
+  },
+  "spa": {
+    "branding": {
+      "title": "Rompecabezas Reo Moana",
+      "subtitle": "Juego de Palabras Polinesias",
+      "description": "Esta es una adaptación de código abierto del juego de adivinanzas de palabras Wordle, diseñado para idiomas polinesios."
+    },
+    "welcome": {
+      "title": "Rompecabezas Reo Moana",
+      "startButton": "Nuevo Juego",
+      "helpButton": "Cómo Jugar"
+    },
+    "instructions": {
+      "title": "Cómo Jugar",
+      "hawaiianToggle": "Hawaiano",
+      "englishToggle": "Inglés",
+      "steps": {
+        "selectLetters": {
+          "title": "Seleccionar Letras:",
+          "description": "Toca las letras para formar tu suposición. Cada suposición debe ser una palabra válida de {wordLength} letras."
+        },
+        "formingWords": {
+          "title": "Formando Palabras:",
+          "correctSpelling": "Las palabras deben estar deletreadas correctamente usando la ortografía apropiada."
+        },
+        "submitAuto": {
+          "title": "Enviar Tu Suposición:",
+          "autoAppear": "Presiona Enter cuando tu palabra esté completa."
+        }
+      },
+      "tips": {
+        "title": "Consejos",
+        "diacriticals": "Usa diacríticos apropiados (macrones y apostrofes) donde sea necesario."
+      }
+    },
+    "game": {
+      "wordsFound": "Palabras Encontradas",
+      "currentWord": "Suposición Actual",
+      "delete": "Eliminar",
+      "refresh": "Nuevo Juego",
+      "confirmRefresh": {
+        "title": "¿Nuevo Juego?",
+        "confirm": "Nuevo Juego",
+        "cancel": "Cancelar"
+      },
+      "messages": {
+        "wordFound": "¡Felicitaciones!",
+        "invalidWord": "Palabra no encontrada",
+        "tooShort": "No hay suficientes letras",
+        "celebrationComplete": [
+          "¡Compartir!",
+          "¡Felicitaciones!"
+        ],
+        "notEnoughLetters": "No hay suficientes letras",
+        "wordNotFound": "Palabra no encontrada",
+        "gameLost": "La palabra era"
+      }
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Idioma de la Interfaz",
+      "gameLanguage": "Idioma del Juego",
+      "hawaiian": "Hawaiano",
+      "maori": "Maorí",
+      "tahitian": "Tahitiano",
+      "samoan": "Samoano",
+      "english": "Inglés",
+      "underDevelopment": "(en desarrollo)",
+      "acknowledgment": "Gracias a Mary Boyce por la lista de palabras maoríes usada en este juego."
+    },
+    "about": {
+      "title": "Acerca de Este Juego",
+      "adaptedBy": "Adaptado por",
+      "originalCode": "Código original",
+      "originalCodeBy": "por",
+      "customizeText": "¡y personalízalo para otro idioma!",
+      "wordsSourced": "Las palabras de este juego fueron obtenidas de",
+      "playOriginal": "O, también puedes",
+      "playOriginalLink": "jugar el original aquí",
+      "credits": {
+        "originalAuthor": "Hannah Park",
+        "forkAuthor": "Aidan Pine"
+      }
+    }
+  }
+}

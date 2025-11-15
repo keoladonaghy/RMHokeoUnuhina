@@ -1,0 +1,912 @@
+{
+  "eng": {
+    "welcome": {
+      "title": "A SEA OF WORDS",
+      "startButton": "Begin",
+      "helpButton": "Help"
+    },
+    "instructions": {
+      "title": "How to Play",
+      "hawaiianToggle": "'Ōlelo Hawaiʻi",
+      "englishToggle": "English",
+      "tahitianToggle": "Reo Tahiti",
+      "close": "Close",
+      "steps": {
+        "selectLetters": {
+          "title": "Select Letters:",
+          "description": "Tap the buttons around the wheel to form a word. The wheel contains a mix of:",
+          "vowels": "Vowels: a, e, i, o, u",
+          "longVowels": "Long vowels with diacritics: ā, ē, ī, ō, ū",
+          "okina": "The glottal stop: 'okina (') for Hawaiian",
+          "eta": "The glottal stop: 'eta (') for Tahitian",
+          "note": "Letters may appear more than once across different words but are shown only once in the wheel."
+        },
+        "formingWords": {
+          "title": "Forming Words:",
+          "correctSpelling": "Words in the puzzle must be spelled correctly in the target language, using proper diacritics when required.",
+          "availableLetters": "All letters in the word must come from the seven on the wheel.",
+          "minLength": "Each word must be at least 3 letters long."
+        },
+        "submitAuto": {
+          "title": "Submit Automatically:",
+          "autoAppear": "When you complete a valid word, it will automatically appear in the crossword-style grid above the wheel.",
+          "noSubmit": "No need to press a \"submit\" button."
+        },
+        "editing": {
+          "title": "Editing:",
+          "mistake": "Made a mistake? Tap the center delete button to remove the last letter you selected.",
+          "keepTapping": "Keep tapping delete to remove letters one by one."
+        },
+        "continue": {
+          "title": "Continue Guessing:",
+          "afterSuccess": "After a successful word, keep going to find more.",
+          "findAll": "Try to discover all the words hidden in the puzzle!"
+        }
+      },
+      "tips": {
+        "title": "Tips",
+        "diacriticals": "Don't forget to use diacritics where needed—they count as distinct characters.",
+        "differences": "Many Polynesian words differ only by the use of diacritics. Be careful with proper spelling.",
+        "example": "For example, these are all different words: pau, paʻu, paʻū, and pāʻū.",
+        "pronunciation": "Listen closely to how words are pronounced—they often hint at correct spelling."
+      }
+    },
+    "game": {
+      "wordsFound": "Words Found",
+      "hintsUsed": "Hints Used",
+      "currentWord": "Current Word",
+      "delete": "Delete",
+      "hint": "Hint",
+      "refresh": "New Game",
+      "upload": "Upload Words",
+      "debug": "Debug",
+      "showWords": "Show Words",
+      "hideWords": "Hide Words",
+      "confirmRefresh": {
+        "title": "Start New Game?",
+        "message": "This will reset your current progress and start a new puzzle.",
+        "confirm": "Play Again",
+        "cancel": "Quit"
+      },
+      "messages": {
+        "wordFound": "EXCELLENT!",
+        "wordFoundDesc": "You have successfully located {{word}}!",
+        "alreadyFound": "PREVIOUSLY FOUND!",
+        "invalidWord": "Not a valid word",
+        "tooShort": "Word too short",
+        "letterNotAvailable": "Letter not available",
+        "threeLetterHint": "Try typing more letters for longer words!",
+        "hintUsed": "One Hint used!",
+        "wordDetectionExplanation": "If you type any word that is shorter than the maximum word length, wait three seconds and I will automatically determine if it is correct. Otherwise, click on the enter key to the right of where your word appears.",
+        "hintLetterRevealed": "Letter revealed: {{letter}}",
+        "noHintsLeft": "No hints left!",
+        "celebrationComplete": [
+          "You Won!",
+          "Congratulations!",
+          "Victory!",
+          "Amazing!",
+          "Excellent!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Upload Custom Word List",
+      "description": "Upload a text file with words (one per line) to create a custom puzzle.",
+      "dragDrop": "Drag and drop a .txt file here, or click to select",
+      "processing": "Processing...",
+      "success": "{{count}} words loaded successfully!",
+      "error": "Error loading file. Please try again.",
+      "useDefault": "Use Default Words",
+      "startGame": "Start Game with Custom Words"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Interface Language",
+      "gameLanguage": "Game Language",
+      "hawaiian": "Hawaiian",
+      "maori": "Māori",
+      "tahitian": "Tahitian",
+      "english": "English",
+      "underDevelopment": "(under development)",
+      "cancel": "Cancel",
+      "ok": "OK",
+      "acknowledgment": "Thank you to all contributors for the word lists used in this game."
+    },
+    "loading": "Loading words..."
+  },
+  "haw": {
+    "welcome": {
+      "title": "Nane Hua'ōlelo",
+      "startButton": "Holo'ana",
+      "helpButton": "Kōkua"
+    },
+    "instructions": {
+      "title": "Pehea e Pā'ani Ai",
+      "hawaiianToggle": "'Ōlelo Hawaiʻi",
+      "englishToggle": "Pelekania",
+      "tahitianToggle": "'Ōlelo Polapola",
+      "close": "Pani",
+      "steps": {
+        "selectLetters": {
+          "title": "Koho Huapalapala:",
+          "description": "Koho i nā pihi i loko o ka huila e kākau ai i kekahi huaʻōlelo. Aia i loko o ka huila 'ehiku huapalapala i 'ike 'ia i loko o nā hua'ōlelo:",
+          "vowels": "Nā hua Hawaiʻi: a, e, i, o, u",
+          "longVowels": "Nā hua me ka kahakō: ā, ē, ī, ō, ū",
+          "okina": "Ka ʻokina: (ʻ)",
+          "eta": "Ka ʻeta no Polapola: (')",
+          "note": "Hiki i nā leka ke hōʻike ʻia ma nā huaʻōlelo he nui, akā e hōʻike ʻia hoʻokahi wale nō manawa i loko o ka huila."
+        },
+        "formingWords": {
+          "title": "Ke Haku Huaʻōlelo:",
+          "correctSpelling": "Pono e kākau pololei ʻia nā huaʻōlelo 'ōlelo Hawai'i i hūnā 'ia i loko o ka nane hua'ōlelo.",
+          "availableLetters": "Aia i loko o ka huila nā huapalapala a pau i loa'a i loko o nā hua'ōlelo.",
+          "minLength": "Pono e lōʻihi ka huaʻōlelo i nā leka ʻekolu a ʻoi aku paha."
+        },
+        "submitAuto": {
+          "title": "Hoʻouna ʻAkomi:",
+          "autoAppear": "Ke pau ka huaʻōlelo kūpono, e pāʻia ʻakomi ia ma loko o ka papa huaʻōlelo ma luna o ka huila.",
+          "noSubmit": "ʻAʻole pono e kaomi i ka pihi \"hoʻouna\"."
+        },
+        "editing": {
+          "title": "Hoʻoponopono:",
+          "mistake": "Ua kiko hewa 'oe? E kaomi i ke pihi holoi i waena o nā huapalapala e wehe ai i ka huapalapala hope loa āu i koho ai.",
+          "keepTapping": "Paʻi mau i ka holoi e wehe mau i nā leka hoʻokahi i ka manawa."
+        },
+        "continue": {
+          "title": "E Hoʻomau i ka Nānā ʻana:",
+          "afterSuccess": "Ma hope o ka loaʻa ʻana o kekahi huaʻōlelo kūpono, e hoʻomau e ʻimi i nā mea hou aku.",
+          "findAll": "E hoʻāʻo e ʻike i nā huaʻōlelo a pau i hūnā ʻia i loko o ka pakuhi!"
+        }
+      },
+      "tips": {
+        "title": "Nā Manaʻo Kōkua",
+        "diacriticals": "Mai poina e hoʻohana i ka kahakō (macron) a me ka ʻokina i nā wahi kūpono—he mau leka kūʻokoʻa nō lāua.",
+        "differences": "E makaʻala: Nui nā huaʻōlelo Hawaiʻi e koe wale nō ka hoʻohana ʻana i ka ʻokina a i ʻole ka kahakō.",
+        "example": "He laʻana: ʻokoʻa kēia mau huaʻōlelo: pau, paʻu, paʻū, a me pāʻū.",
+        "pronunciation": "E hoʻolohe pono i ka puana ʻana o nā huaʻōlelo Hawaiʻi—he kōkua ka lohe pono ana i ke kikokiko 'ana i ka hua'ōlelo pololei."
+      }
+    },
+    "game": {
+      "wordsFound": "Nā Huaʻōlelo i Loaʻa",
+      "hintsUsed": "Nā 'ōlelo hoʻohani i hoʻohana ʻia",
+      "currentWord": "Ka Huaʻōlelo e kū nei",
+      "delete": "Holoi",
+      "hint": "'Ōlelo Ho'ohani",
+      "refresh": "Pāʻani Hou",
+      "upload": "Hoʻouka Huaʻōlelo",
+      "debug": "Hoʻoponopono",
+      "showWords": "Hōʻike i nā Huaʻōlelo",
+      "hideWords": "Hūnā i nā Huaʻōlelo",
+      "confirmRefresh": {
+        "title": "Hoʻomaka i pāʻani hou?",
+        "message": "E holoi ʻia kāu holomua a hoʻomaka kekahi nane hou.",
+        "confirm": "Pāʻani Hou",
+        "cancel": "Haʻalele"
+      },
+      "messages": {
+        "wordFound": "UIHĀ!",
+        "wordFoundDesc": "Ua koho pono 'ia 'o {{word}}!",
+        "alreadyFound": "UA LOA'A MUA!",
+        "invalidWord": "ʻAʻole ia he huaʻōlelo i loa'a",
+        "tooShort": "Pōkole loa ka huaʻōlelo",
+        "letterNotAvailable": "ʻAʻole loa'a ia hua papalapala",
+        "threeLetterHint": "E kaomi hou i pihi i huli 'ia no nā huaʻōlelo lōʻihi!",
+        "hintUsed": "Ua hoʻohana ʻia ka 'ōlelo ho'ohani!",
+        "wordDetectionExplanation": "Inā kākau ʻoe i kekahi huaʻōlelo pōkole ma mua o ka lōʻihi loa, e kali ʻekolu mau kekona a e ʻike au iā ia. A inā ʻaʻole, e kaomi i ka pihi hoʻokomo ma ka ʻākau o kāu huaʻōlelo.",
+        "hintLetterRevealed": "Huapalapala i hōʻike ʻia: {{letter}}",
+        "noHintsLeft": "ʻAʻohe 'ōlelo ho'ohani i koe!",
+        "celebrationComplete": [
+          "Ua Lanakila 'Oe!",
+          "Hūlō!",
+          "Maikaʻi Loa!",
+          "ʻAno ʻAi!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Hoʻouka Papa Huaʻōlelo Hou",
+      "description": "Hoʻouka i kekahi faila kikokikona me nā huaʻōlelo Hawaiʻi (hoʻokahi ma kēlā me kēia laina) e hana ai i pakuhi kūikawā.",
+      "dragDrop": "Kaualakō i ka waihona .txt ma ʻaneʻi, a ho'oku'u, a i 'ole kaomi e koho",
+      "processing": "Ke hoʻoponopono nei...",
+      "success": "{{count}} huaʻōlelo i hoʻouka pono ʻia!",
+      "error": "Hewa i ka hoʻouka faila. E hoʻāʻo hou.",
+      "useDefault": "Hoʻohana i nā Huaʻōlelo Paʻamau",
+      "startGame": "Hoʻomaka i ka Pāʻani me nā Huaʻōlelo Kūikawā"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "'Ōlelo Nānaina",
+      "gameLanguage": "ʻŌlelo Pāʻani",
+      "hawaiian": "ʻŌlelo Hawaiʻi",
+      "maori": "'Ōlelo Māori",
+      "tahitian": "'Ōlelo Polapola",
+      "english": "'Ōlelo Pelekania",
+      "underDevelopment": "(ke hoʻomohala ʻia nei)",
+      "cancel": "Hoʻokī",
+      "ok": "ʻAe",
+      "acknowledgment": "Mahalo nui iā Mary Boyce nāna ka papa hua'ōlelo e ho'ohana 'ia i kēia nane."
+    },
+    "loading": "Ke hoʻouka 'ia nei nā huaʻōlelo..."
+  },
+  "mao": {
+    "welcome": {
+      "title": "Panga Kupu",
+      "startButton": "Tīmata",
+      "helpButton": "Āwhina"
+    },
+    "instructions": {
+      "title": "Me Pēhea e Tākaro ai",
+      "hawaiianToggle": "'Ōlelo Hawaiʻi",
+      "englishToggle": "Pākehā",
+      "tahitianToggle": "Reo Tahiti",
+      "close": "Kati",
+      "steps": {
+        "selectLetters": {
+          "title": "Kōwhiri Reta:",
+          "description": "Pāwhiria ngā pātene huri noa i te huringa hei waihanga i tētahi kupu. Kei roto i te huringa:",
+          "vowels": "Ngā oropuare Māori: a, e, i, o, u",
+          "longVowels": "Ngā oropuare roa me te tohutō: ā, ē, ī, ō, ū",
+          "okina": "Te kōmāinu mō Hawaiʻi: (ʻ)",
+          "eta": "Te kōmāinu mō Tahiti: (')",
+          "note": "Ka kitea ngā reta he maha hoki, engari, kotahi anake te whakaaturanga i te huringa."
+        },
+        "formingWords": {
+          "title": "Te Waihanga Kupu:",
+          "correctSpelling": "Me tika te takitaki o ngā kupu i roto i te reo Māori, me whakamahi hoki i te tohutō me i nga wā tika.",
+          "availableLetters": "Me riro katoa ngā reta o te kupu mai i ngā reta e whitu kei roto i te huringa.",
+          "minLength": "Kia toru te roa iti o ngā reta."
+        },
+        "submitAuto": {
+          "title": "Tuku Aunoa:",
+          "autoAppear": "Ka oti ana tētahi kupu tika, ka kitea aunoatia i te pangakupu i runga i te huringa.",
+          "noSubmit": "Kāore he pātene \"tuku\" hei pēhi."
+        },
+        "editing": {
+          "title": "Whakatikatika:",
+          "mistake": "I hē koe? Pāwhiritia te pātene mukua i waenganui i te huringa hei tangohia tāu reta mutunga i kōwhiriti ai.",
+          "keepTapping": "Me pāwhiri tonu i te pātene \"tuku\" kia tangohia ngā reta tētahi i muri i tētahi."
+        },
+        "continue": {
+          "title": "Haere Tonu:",
+          "afterSuccess": "Ki te kitea tētahi kupu tiki, haere tonu ki te kimi atu.",
+          "findAll": "Me ngana koe ki te kite i ngā kupu katoa kua huna ki te panga kupu!"
+        }
+      },
+      "tips": {
+        "title": "Tohutohu",
+        "diacriticals": "Kaua e wareware ki te whakamahi i te tohutō i ngā wā e tika ai—he reta rerekē ēnei.",
+        "differences": "He maha ngā kupu Māori i rerekē nā te whakamahia o te tohutō. Kia tūpato:",
+        "example": "Hei tauira, he kupu rerekē katoa ēnei: keke, kēkē, kekē.",
+        "pronunciation": "Whakarongo ki te whakahua o ngā kupu Māori—he tohu ēnei mō te tātaki kupu tika."
+      }
+    },
+    "game": {
+      "wordsFound": "Ngā Kupu I Kitea",
+      "hintsUsed": "Ngā Tīwhiri I Whakamahia",
+      "currentWord": "Te Kupu O Nāianei",
+      "delete": "Muku",
+      "hint": "Tīwhiri",
+      "refresh": "Kēmu Hōu",
+      "upload": "Tikuatu",
+      "debug": "Patuiro",
+      "showWords": "Whakaatu Kupu",
+      "hideWords": "Huna Kupu",
+      "confirmRefresh": {
+        "title": "Tīmata Kēmu Hōu?",
+        "message": "Mā tēnei koe ka whakatūngia tō whakaahu whakamua, ā, ka tīmata hōu ai he kēmu.",
+        "confirm": "Whakatūturu",
+        "cancel": "Ka Mutu"
+      },
+      "messages": {
+        "wordFound": "ANĀ!",
+        "wordFoundDesc": "Kua mau i a koe {{word}}!",
+        "alreadyFound": "KUA KITEA KĒTIA!",
+        "invalidWord": "EHARA IA TETAHI KUPU TIKA.",
+        "tooShort": "He poto rawa te kupu",
+        "letterNotAvailable": "Kāore te reta nei i roto i tētahi kupu",
+        "threeLetterHint": "Me ngana ki te kimi i ngā reta mō ngā kupu roa atu!",
+        "hintUsed": "Kotahi Tīwiri i whakamahia!",
+        "wordDetectionExplanation": "Mēnā ka taiapa koe i tētahi kupu he poto iho i te mutunga roa, tatari ai kia toru hēkona, ā maku e whakatau ai mēnā he tika. Mēnā rānei, pāwhiri i te kī urunga ki te katau o tō kupu.",
+        "hintLetterRevealed": "Te reta i whakakitea: {{letter}}",
+        "noHintsLeft": "Kāore he tīwhiri!",
+        "celebrationComplete": [
+          "Ka Mau Te Wehi!",
+          "Kia Ora!",
+          "Tino Pai!",
+          "Rawe!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Tikiake Kōnae Kupu Motuhake",
+      "description": "Tikiake he kōnae kupu Māori (kotahi kupu i ia raina) hei hanga panga kupu motuhake.",
+      "dragDrop": "Tōia, whakangā hoki he kōnae .txt ki konei, pāwhiri rānei ki te pātene kōwhiri",
+      "processing": "E whāwhā tukanga ana...",
+      "success": "{{count}} kupu i utaina rawatia!",
+      "error": "I raruraru te uta kōnae. Me tikiake anō.",
+      "useDefault": "Whakamahia Kupu Taunoa",
+      "startGame": "Tīmata i te kēmu ki ngā kupu motuhake"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Reo Tāhono",
+      "gameLanguage": "Reo Kēmu",
+      "hawaiian": "ʻŌlelo Hawaiʻi",
+      "maori": "Te Reo Māori",
+      "tahitian": "Reo Tahiti",
+      "english": "Reo Ingarihi",
+      "underDevelopment": "(ka whakawhanaketia nei)",
+      "cancel": "Whakakore",
+      "ok": "Ae",
+      "acknowledgment": "Ngā mihi ki a Mary Boyce nāna ka rārangi kupu e whakamahia i tēnei tanga kupu."
+    },
+    "loading": "E tukuatu ana ngā kupu Māori..."
+  },
+  "tah": {
+    "welcome": {
+      "title": "Tahitian Word Puzzle",
+      "startButton": "Begin",
+      "helpButton": "Tauturu"
+    },
+    "instructions": {
+      "title": "Pehea e Ta'iri ai",
+      "hawaiianToggle": "'Ōlelo Hawaiʻi",
+      "englishToggle": "Peretane",
+      "tahitianToggle": "Reo Tahiti",
+      "close": "Hopea",
+      "steps": {
+        "selectLetters": {
+          "title": "Hiri i te mau Pi'i:",
+          "description": "Tāpā i te mau pi'i i ni'a i te rō'a no te hāpono i te ta'ata parau. Te mau pi'i i roto i te rō'a:",
+          "vowels": "Te mau orofena Tahiti: a, e, i, o, u",
+          "longVowels": "Te mau orofena roa me te tārava: ā, ē, ī, ō, ū",
+          "okina": "Te 'eta no Hawaiʻi: (ʻ)",
+          "eta": "Te 'eta: (')",
+          "note": "Te mau pi'i e nehenehe ia hōpe'a mai i te mau ta'ata parau 'ē, 'e ite ra'a hoê 'avae i te rō'a."
+        },
+        "formingWords": {
+          "title": "Te Hāpono i te mau Ta'ata Parau:",
+          "correctSpelling": "Ia fa'atei te mau ta'ata parau i roto i te reo Tahiti, me te fa'aohipa 'ana i te 'eta e i te tārava i te mau taime fa'aea.",
+          "availableLetters": "Te mau pi'i tōtaha o te ta'ata parau mai te mau pi'i hitu i ni'a i te rō'a.",
+          "minLength": "Ia roa te ta'ata parau i te toru pi'i."
+        },
+        "submitAuto": {
+          "title": "Fa'aora Otomāti:",
+          "autoAppear": "I te pau 'ana o te ta'ata parau fa'aea, e ite mau otomāti i ni'a i te rō'a.",
+          "noSubmit": "Aita ta pi'i \"fa'aora\" e tāpā ai."
+        },
+        "editing": {
+          "title": "Fa'anahora'a:",
+          "mistake": "Ua hape? Tāpā i te pi'i faakore i te pu i waena o te rō'a no te 'ā'ai 'ana i tāu pi'i hope roa i hiri ai 'oe.",
+          "keepTapping": "Tāpā mau i te faakore no te 'ā'ai mau 'ana i te mau pi'i ta'atahi i te taime."
+        },
+        "continue": {
+          "title": "Fa'ahou:",
+          "afterSuccess": "I muri i te loaa'a 'ana o te ta'ata parau fa'aea, fa'ahou e 'imi i te mau mea 'ē atu.",
+          "findAll": "Tē mea ra ia 'ite i te mau ta'ata parau tōtaha ua huna 'ia i roto i te ta'iri parau!"
+        }
+      },
+      "tips": {
+        "title": "Te mau Faufa'a",
+        "diacriticals": "Aua e pohe te fa'aohipa 'ana i te tārava e i te 'eta i te mau taime fa'aea—he pi'i 'ē rāua.",
+        "differences": "Te mau ta'ata parau Tahiti mau e 'ē noa i te fa'aohipa 'ana i te tārava e i te 'eta. Ia fa'atia:",
+        "example": "Te laana nei, he ta'ata parau 'ē tōtaha: pau, pa'u, pa'ū, e pā'ū.",
+        "pronunciation": "Fa'aroho maitai i te pehe 'ana o te mau ta'ata parau Tahiti—he tauturu mau i te fa'atei tika 'ana."
+      }
+    },
+    "game": {
+      "wordsFound": "Te mau Ta'ata Parau i 'Ite",
+      "hintsUsed": "Te mau Tīwhiri i Fa'aohipa",
+      "currentWord": "Te Ta'ata Parau Teie Nei",
+      "delete": "Faakore",
+      "hint": "Tīwhiri",
+      "refresh": "Ta'iri Api",
+      "upload": "Fa'aora Ta'ata Parau",
+      "debug": "Fa'anahora'a",
+      "showWords": "Fa'aite i te mau Ta'ata Parau",
+      "hideWords": "Huna i te mau Ta'ata Parau",
+      "confirmRefresh": {
+        "title": "Fa'atō i te ta'iri api?",
+        "message": "E fa'atei teie i tāu hōrue e fa'atō ai i te ta'iri api.",
+        "confirm": "Ta'iri Hou",
+        "cancel": "Fa'aea"
+      },
+      "messages": {
+        "wordFound": "MĀURUURU!",
+        "wordFoundDesc": "Ua mau i a 'oe {{word}}!",
+        "alreadyFound": "UA MAUA MUA!",
+        "invalidWord": "Aita teie he ta'ata parau tika",
+        "tooShort": "Poto roa te ta'ata parau",
+        "letterNotAvailable": "Aita te pi'i nei i loa'a",
+        "threeLetterHint": "Tē mea nei ia 'imi i te mau pi'i no te mau ta'ata parau roa atu!",
+        "hintUsed": "Hoê tīwhiri i fa'aohipa!",
+        "wordDetectionExplanation": "Inaha fa'atei 'oe i te ta'ata parau poto iho i te roa mau, tatari ia toru hēkona, ā naku e fa'aho'i mēnā he tika. A inaha aita, tāpā i te pi'i 'uru i te 'ataʻu o tāu ta'ata parau.",
+        "hintLetterRevealed": "Pi'i i fa'aite: {{letter}}",
+        "noHintsLeft": "Aita he tīwhiri!",
+        "celebrationComplete": [
+          "Ua Rave!",
+          "Māuruuru!",
+          "Maiore!",
+          "Nehenehe!",
+          "Maitai Roa!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Fa'aora Papa Ta'ata Parau Motuhake",
+      "description": "Fa'aora i te faira ta'ata me te mau ta'ata parau Tahiti (hoê ma te reira raina) no te hāpono i te ta'iri motuhake.",
+      "dragDrop": "Tōhia e fa'aea hoki te faira .txt i 'ō nei, tāpā rānei no te hiri",
+      "processing": "Tē hāpono nei...",
+      "success": "{{count}} ta'ata parau i fa'aora maitai!",
+      "error": "Hape i te fa'aora faira. Ia 'ā'ano hou.",
+      "useDefault": "Fa'aohipa i te mau Ta'ata Parau Pau'amau",
+      "startGame": "Fa'atō i te Ta'iri me te mau Ta'ata Parau Motuhake"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Reo Fa'aohipa",
+      "gameLanguage": "Reo Ta'iri",
+      "hawaiian": "'Ōlelo Hawaiʻi",
+      "maori": "Te Reo Māori",
+      "tahitian": "Reo Tahiti",
+      "english": "Reo Peretane",
+      "underDevelopment": "(tē fa'atupu nei)",
+      "cancel": "Fa'aea",
+      "ok": "Eaha",
+      "acknowledgment": "Māuruuru i te mau tauturu no te papa ta'ata parau e fa'aohipa nei i teie ta'iri."
+    },
+    "loading": "Tē fa'aora nei te mau ta'ata parau Tahiti..."
+  },
+  "fra": {
+    "welcome": {
+      "title": "UNE MER DE MOTS",
+      "startButton": "Commencer",
+      "helpButton": "Aide"
+    },
+    "instructions": {
+      "title": "Comment Jouer",
+      "hawaiianToggle": "Hawaïen",
+      "englishToggle": "Anglais",
+      "tahitianToggle": "Tahitien",
+      "close": "Fermer",
+      "steps": {
+        "selectLetters": {
+          "title": "Sélectionner les Lettres:",
+          "description": "Appuyez sur les boutons autour de la roue pour former un mot. La roue contient un mélange de:",
+          "vowels": "Voyelles: a, e, i, o, u",
+          "longVowels": "Voyelles longues avec diacritiques: ā, ē, ī, ō, ū",
+          "okina": "L'arrêt glottal: 'okina (') pour l'hawaïen",
+          "eta": "L'arrêt glottal: 'eta (') pour le tahitien",
+          "note": "Les lettres peuvent apparaître plusieurs fois dans différents mots mais ne sont affichées qu'une seule fois dans la roue."
+        },
+        "formingWords": {
+          "title": "Formation des Mots:",
+          "correctSpelling": "Les mots du puzzle doivent être épelés correctement dans la langue cible, en utilisant les diacritiques appropriés lorsque requis.",
+          "availableLetters": "Toutes les lettres du mot doivent provenir des sept sur la roue.",
+          "minLength": "Chaque mot doit comporter au moins 3 lettres."
+        },
+        "submitAuto": {
+          "title": "Soumission Automatique:",
+          "autoAppear": "Lorsque vous complétez un mot valide, il apparaîtra automatiquement dans la grille style mots croisés au-dessus de la roue.",
+          "noSubmit": "Pas besoin d'appuyer sur un bouton \"soumettre\"."
+        },
+        "editing": {
+          "title": "Modification:",
+          "mistake": "Une erreur? Appuyez sur le bouton supprimer au centre pour retirer la dernière lettre sélectionnée.",
+          "keepTapping": "Continuez à appuyer sur supprimer pour retirer les lettres une par une."
+        },
+        "continue": {
+          "title": "Continuer à Deviner:",
+          "afterSuccess": "Après un mot réussi, continuez pour en trouver d'autres.",
+          "findAll": "Essayez de découvrir tous les mots cachés dans le puzzle!"
+        }
+      },
+      "tips": {
+        "title": "Conseils",
+        "diacriticals": "N'oubliez pas d'utiliser les diacritiques là où nécessaire—ils comptent comme des caractères distincts.",
+        "differences": "Beaucoup de mots polynésiens ne diffèrent que par l'utilisation de diacritiques. Attention à l'orthographe correcte.",
+        "example": "Par exemple, ce sont tous des mots différents: pau, paʻu, paʻū, et pāʻū.",
+        "pronunciation": "Écoutez attentivement la prononciation des mots—elle donne souvent des indices sur l'orthographe correcte."
+      }
+    },
+    "game": {
+      "wordsFound": "Mots Trouvés",
+      "hintsUsed": "Indices Utilisés",
+      "currentWord": "Mot Actuel",
+      "delete": "Supprimer",
+      "hint": "Indice",
+      "refresh": "Nouveau Jeu",
+      "upload": "Télécharger Mots",
+      "debug": "Déboguer",
+      "showWords": "Montrer Mots",
+      "hideWords": "Cacher Mots",
+      "confirmRefresh": {
+        "title": "Commencer Nouveau Jeu?",
+        "message": "Ceci réinitialisera votre progression actuelle et démarrera un nouveau puzzle.",
+        "confirm": "Rejouer",
+        "cancel": "Quitter"
+      },
+      "messages": {
+        "wordFound": "EXCELLENT!",
+        "wordFoundDesc": "Vous avez trouvé avec succès {{word}}!",
+        "alreadyFound": "TROUVÉ PRÉCÉDEMMENT!",
+        "invalidWord": "Mot non valide",
+        "tooShort": "Mot trop court",
+        "letterNotAvailable": "Lettre non disponible",
+        "threeLetterHint": "Essayez de taper plus de lettres pour des mots plus longs!",
+        "hintUsed": "Un indice utilisé!",
+        "wordDetectionExplanation": "Si vous tapez un mot plus court que la longueur maximale, attendez trois secondes et je déterminerai automatiquement s'il est correct. Sinon, cliquez sur la touche entrée à droite de votre mot.",
+        "hintLetterRevealed": "Lettre révélée: {{letter}}",
+        "noHintsLeft": "Plus d'indices!",
+        "celebrationComplete": [
+          "Vous avez Gagné!",
+          "Félicitations!",
+          "Victoire!",
+          "Incroyable!",
+          "Excellent!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Télécharger Liste de Mots Personnalisée",
+      "description": "Téléchargez un fichier texte avec des mots (un par ligne) pour créer un puzzle personnalisé.",
+      "dragDrop": "Glissez-déposez un fichier .txt ici, ou cliquez pour sélectionner",
+      "processing": "Traitement...",
+      "success": "{{count}} mots chargés avec succès!",
+      "error": "Erreur de chargement du fichier. Veuillez réessayer.",
+      "useDefault": "Utiliser Mots par Défaut",
+      "startGame": "Démarrer Jeu avec Mots Personnalisés"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Langue Interface",
+      "gameLanguage": "Langue du Jeu",
+      "hawaiian": "Hawaïen",
+      "maori": "Maori",
+      "tahitian": "Tahitien",
+      "english": "Anglais",
+      "underDevelopment": "(en développement)",
+      "cancel": "Annuler",
+      "ok": "OK",
+      "acknowledgment": "Merci à tous les contributeurs pour les listes de mots utilisées dans ce jeu."
+    },
+    "loading": "Chargement des mots..."
+  },
+  "spa": {
+    "welcome": {
+      "title": "UN MAR DE PALABRAS",
+      "startButton": "Comenzar",
+      "helpButton": "Ayuda"
+    },
+    "instructions": {
+      "title": "Cómo Jugar",
+      "hawaiianToggle": "Hawaiano",
+      "englishToggle": "Inglés",
+      "tahitianToggle": "Tahitiano",
+      "close": "Cerrar",
+      "steps": {
+        "selectLetters": {
+          "title": "Seleccionar Letras:",
+          "description": "Toca los botones alrededor de la rueda para formar una palabra. La rueda contiene una mezcla de:",
+          "vowels": "Vocales: a, e, i, o, u",
+          "longVowels": "Vocales largas con diacríticos: ā, ē, ī, ō, ū",
+          "okina": "La parada glotal: 'okina (') para hawaiano",
+          "eta": "La parada glotal: 'eta (') para tahitiano",
+          "note": "Las letras pueden aparecer más de una vez en diferentes palabras pero se muestran solo una vez en la rueda."
+        },
+        "formingWords": {
+          "title": "Formando Palabras:",
+          "correctSpelling": "Las palabras en el rompecabezas deben estar deletreadas correctamente en el idioma objetivo, usando diacríticos apropiados cuando sea requerido.",
+          "availableLetters": "Todas las letras de la palabra deben provenir de las siete en la rueda.",
+          "minLength": "Cada palabra debe tener al menos 3 letras."
+        },
+        "submitAuto": {
+          "title": "Enviar Automáticamente:",
+          "autoAppear": "Cuando completes una palabra válida, aparecerá automáticamente en la cuadrícula estilo crucigrama arriba de la rueda.",
+          "noSubmit": "No necesitas presionar un botón \"enviar\"."
+        },
+        "editing": {
+          "title": "Editando:",
+          "mistake": "¿Cometiste un error? Toca el botón borrar del centro para quitar la última letra que seleccionaste.",
+          "keepTapping": "Sigue tocando borrar para quitar letras una por una."
+        },
+        "continue": {
+          "title": "Continuar Adivinando:",
+          "afterSuccess": "Después de una palabra exitosa, sigue para encontrar más.",
+          "findAll": "¡Trata de descubrir todas las palabras escondidas en el rompecabezas!"
+        }
+      },
+      "tips": {
+        "title": "Consejos",
+        "diacriticals": "No olvides usar diacríticos donde sea necesario—cuentan como caracteres distintos.",
+        "differences": "Muchas palabras polinesias difieren solo por el uso de diacríticos. Ten cuidado con la ortografía correcta.",
+        "example": "Por ejemplo, todas estas son palabras diferentes: pau, paʻu, paʻū, y pāʻū.",
+        "pronunciation": "Escucha atentamente cómo se pronuncian las palabras—a menudo dan pistas sobre la ortografía correcta."
+      }
+    },
+    "game": {
+      "wordsFound": "Palabras Encontradas",
+      "hintsUsed": "Pistas Usadas",
+      "currentWord": "Palabra Actual",
+      "delete": "Borrar",
+      "hint": "Pista",
+      "refresh": "Juego Nuevo",
+      "upload": "Subir Palabras",
+      "debug": "Depurar",
+      "showWords": "Mostrar Palabras",
+      "hideWords": "Ocultar Palabras",
+      "confirmRefresh": {
+        "title": "¿Comenzar Juego Nuevo?",
+        "message": "Esto reiniciará tu progreso actual y comenzará un nuevo rompecabezas.",
+        "confirm": "Jugar Otra Vez",
+        "cancel": "Salir"
+      },
+      "messages": {
+        "wordFound": "¡EXCELENTE!",
+        "wordFoundDesc": "¡Has encontrado exitosamente {{word}}!",
+        "alreadyFound": "¡ENCONTRADA PREVIAMENTE!",
+        "invalidWord": "No es una palabra válida",
+        "tooShort": "Palabra demasiado corta",
+        "letterNotAvailable": "Letra no disponible",
+        "threeLetterHint": "¡Trata de escribir más letras para palabras más largas!",
+        "hintUsed": "¡Una pista usada!",
+        "wordDetectionExplanation": "Si escribes una palabra más corta que la longitud máxima, espera tres segundos y automáticamente determinaré si es correcta. De lo contrario, haz clic en la tecla enter a la derecha de donde aparece tu palabra.",
+        "hintLetterRevealed": "Letra revelada: {{letter}}",
+        "noHintsLeft": "¡No quedan pistas!",
+        "celebrationComplete": [
+          "¡Ganaste!",
+          "¡Felicitaciones!",
+          "¡Victoria!",
+          "¡Increíble!",
+          "¡Excelente!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Subir Lista de Palabras Personalizada",
+      "description": "Sube un archivo de texto con palabras (una por línea) para crear un rompecabezas personalizado.",
+      "dragDrop": "Arrastra y suelta un archivo .txt aquí, o haz clic para seleccionar",
+      "processing": "Procesando...",
+      "success": "¡{{count}} palabras cargadas exitosamente!",
+      "error": "Error cargando archivo. Por favor intenta otra vez.",
+      "useDefault": "Usar Palabras Predeterminadas",
+      "startGame": "Comenzar Juego con Palabras Personalizadas"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Idioma de Interfaz",
+      "gameLanguage": "Idioma del Juego",
+      "hawaiian": "Hawaiano",
+      "maori": "Maorí",
+      "tahitian": "Tahitiano",
+      "english": "Inglés",
+      "underDevelopment": "(en desarrollo)",
+      "cancel": "Cancelar",
+      "ok": "OK",
+      "acknowledgment": "Gracias a todos los contribuyentes por las listas de palabras usadas en este juego."
+    },
+    "loading": "Cargando palabras..."
+  },
+  "smo": {
+    "welcome": {
+      "title": "Sami o Upu",
+      "startButton": "Amata",
+      "helpButton": "Fesoasoani"
+    },
+    "instructions": {
+      "title": "Faapefea ona Ta'alo",
+      "hawaiianToggle": "Hawaiʻi",
+      "englishToggle": "Igilisi",
+      "tahitianToggle": "Tahiti",
+      "close": "Tapuni",
+      "steps": {
+        "selectLetters": {
+          "title": "Filifili Mata:",
+          "description": "Oomi i kilīniki o le li'o e faia ai se upu. O lo'o i ai i le li'o:",
+          "vowels": "Mata Samoa: a, e, i, o, u",
+          "longVowels": "Mata uumi ma fa'ailogaga: ā, ē, ī, ō, ū",
+          "okina": "Le ki'i mo Hawaiʻi: (')",
+          "eta": "Le ki'i mo Tahiti: (')",
+          "note": "E mafai ona fa'aalia mata i le tele o taimi ae na'o le tasi le fa'aaliga i le li'o."
+        },
+        "formingWords": {
+          "title": "Faia Upu:",
+          "correctSpelling": "E tatau ona tusitusi sa'o upu o le mea'ai i le gagana fa'atatau, fa'aaoga ai fa'ailoga sa'o pe a mana'omia.",
+          "availableLetters": "O mata uma o le upu e tatau ona sau mai mata e fitu i le li'o.",
+          "minLength": "E tatau ona i ai le tolu mata i upu ta'itasi."
+        },
+        "submitAuto": {
+          "title": "Lafo Otometi:",
+          "autoAppear": "A mae'a se upu talafeagai, o le a fa'aalia otometi i le fa'atonuga e pei o upu fa'alava i luga o le li'o.",
+          "noSubmit": "E leai se mana'oga e oomi ai se ki \"lafo\"."
+        },
+        "editing": {
+          "title": "Fa'asa:",
+          "mistake": "Na faia se mea sese? Oomi le ki tape i le ogatotonu e aveese ai lau mata mulimuli na e filifilia.",
+          "keepTapping": "Fa'aauau ona oomi le tape e aveese ai mata ta'itasi i taimi."
+        },
+        "continue": {
+          "title": "Fa'aauau le Mate:",
+          "afterSuccess": "A uma se upu manuia, fa'aauau e su'e isi.",
+          "findAll": "Taumafai e maua upu uma ua natia i le mea'ai!"
+        }
+      },
+      "tips": {
+        "title": "Fautuaga",
+        "diacriticals": "Aua ne'i galo ia te oe ona fa'aaoga fa'ailoga pe a mana'omia—o mata eseese ia.",
+        "differences": "O le tele o upu Polenisia e eseese ai na'o le fa'aogaina o fa'ailoga. Ia fa'aeteete i le tusitusiga sa'o.",
+        "example": "Mo se fa'ata'ita'iga, o nei uma o upu eseese: pau, paʻu, paʻū, ma pāʻū.",
+        "pronunciation": "Fa'alogo lelei i le tautala o upu—e masani ona tu'uina atu fautuaga mo le tusitusiga sa'o."
+      }
+    },
+    "game": {
+      "wordsFound": "Upu na Maua",
+      "hintsUsed": "Fautuaga na Fa'aaogaina",
+      "currentWord": "Upu o lea Taimi",
+      "delete": "Tape",
+      "hint": "Fautuaga",
+      "refresh": "Ta'aloga Fou",
+      "upload": "Fa'aulu Upu",
+      "debug": "Fa'asa",
+      "showWords": "Fa'aali Upu",
+      "hideWords": "Natia Upu",
+      "confirmRefresh": {
+        "title": "Amata Ta'aloga Fou?",
+        "message": "O le a toe seti ai lau alualu ma amata ai se mea'ai fou.",
+        "confirm": "Ta'alo Toe",
+        "cancel": "Tu'ua"
+      },
+      "messages": {
+        "wordFound": "LELEI!",
+        "wordFoundDesc": "Ua e maua ma le manuia {{word}}!",
+        "alreadyFound": "NA MAUA MUAMUA!",
+        "invalidWord": "E le o se upu talafeagai",
+        "tooShort": "Puupuu le upu",
+        "letterNotAvailable": "E leai se mata",
+        "threeLetterHint": "Taumafai e tusi atu mata mo upu uumi!",
+        "hintUsed": "Na fa'aaoga se fautuaga!",
+        "wordDetectionExplanation": "Afai e te tusia se upu e puupuu ifo i le umi sili, faatali tolu sekone ma ou te otometi ai ona iloa pe sa'o. A leai foi, kiliki le ki ulufale i le taumatau o le mea e aliali ai lau upu.",
+        "hintLetterRevealed": "Mata na fa'aalia: {{letter}}",
+        "noHintsLeft": "Leai ni fautuaga!",
+        "celebrationComplete": [
+          "Na e Manumalo!",
+          "Fa'afetai!",
+          "Manumalo!",
+          "Ofoofogia!",
+          "Sili!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Fa'aulu Lisi Upu Fa'apitoa",
+      "description": "Fa'aulu se faila tusitusia ma upu (tasi i laina ta'itasi) e faia ai se mea'ai fa'apitoa.",
+      "dragDrop": "Toso ma tuu se faila .txt iinei, pe kiliki e filifili",
+      "processing": "O lo'o galue...",
+      "success": "{{count}} upu na fa'aulu ma le manuia!",
+      "error": "Fa'afitauli i le fa'aulu faila. Fa'amolemole toe taumafai.",
+      "useDefault": "Fa'aaoga Upu Masani",
+      "startGame": "Amata Ta'aloga ma Upu Fa'apitoa"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Gagana Fa'aoga",
+      "gameLanguage": "Gagana Ta'aloga",
+      "hawaiian": "Hawaiʻi",
+      "maori": "Maori",
+      "tahitian": "Tahiti",
+      "english": "Igilisi",
+      "underDevelopment": "(o lo'o atia'e)",
+      "cancel": "Soloia",
+      "ok": "Ioe",
+      "acknowledgment": "Fa'afetai i tagata uma na fesoasoani mo lisi upu na fa'aaogaina i lenei ta'aloga."
+    },
+    "loading": "O lo'o fa'aulu upu..."
+  },
+  "ton": {
+    "welcome": {
+      "title": "Tahi 'o e ngaahi Lea",
+      "startButton": "Kamata",
+      "helpButton": "Tokoni"
+    },
+    "instructions": {
+      "title": "Fefe 'ene Fakatau",
+      "hawaiianToggle": "Hawaiʻi",
+      "englishToggle": "Palangi",
+      "tahitianToggle": "Tahiti",
+      "close": "Tāpuni",
+      "steps": {
+        "selectLetters": {
+          "title": "Fili 'a e ngaahi Lēta:",
+          "description": "Tapo 'a e ngaahi patani 'o takatakai 'a e vili ko e ngahiʻanga 'o ha lea. 'Oku 'i he vili:",
+          "vowels": "Ngaahi lēta siʻo: a, e, i, o, u",
+          "longVowels": "Ngaahi lēta siʻo tolonga mo e ngaahi fakamatala: ā, ē, ī, ō, ū",
+          "okina": "Ko e fakaikiiki ki Hawaiʻi: (')",
+          "eta": "Ko e fakaikiiki ki Tahiti: (')",
+          "note": "'E lava 'a e ngaahi lēta ke ha'u 'i he ngaahi lea kehekehe ka ko e taha pe 'ene fakahā 'i he vili."
+        },
+        "formingWords": {
+          "title": "Ngaohi 'a e ngaahi Lea:",
+          "correctSpelling": "'Oku pau ke tohi totonu 'a e ngaahi lea 'o e founga 'i he lea fakatokanga'i, mo e ngaue'aki 'a e ngaahi fakamatala totonu 'i he taimi fiema'u.",
+          "availableLetters": "Ko e ngaahi lēta kotoa 'o e lea 'oku pau ke ha'u mei he lēta fitu 'i he vili.",
+          "minLength": "'Oku pau ke 'i ai ha lēta 'e tolu 'i ha lea kotoa."
+        },
+        "submitAuto": {
+          "title": "Fekau 'Otomēteki:",
+          "autoAppear": "'I he ka ke 'osi ha lea lelei, 'e ha'u 'otomēteki ia 'i he fale'anga fekauaki mo e ngaahi lea hūfaki 'i 'olunga 'i he vili.",
+          "noSubmit": "'Ikai ha fiema'u ke tapo ha patani \"fekau\"."
+        },
+        "editing": {
+          "title": "Fakalelei:",
+          "mistake": "Na'e fai ha hala? Tapo 'a e patani 'atu 'i he potu lotoloto ke 'ave 'a ho lēta mui taha na'e ke fili.",
+          "keepTapping": "Tumaki pe ke tapo 'a e 'atu ke 'ave 'a e ngaahi lēta taha taha."
+        },
+        "continue": {
+          "title": "Tumaki 'a e Mahino:",
+          "afterSuccess": "Hili ha lea ikuna, tumaki ke kumi ha me'a kehe.",
+          "findAll": "Feinga'i ke 'ilo 'a e ngaahi lea kotoa kuo fufū 'i he fakatau!"
+        }
+      },
+      "tips": {
+        "title": "ngaahi Ako",
+        "diacriticals": "'Oua te ke ngalo ke ngaue'aki 'a e ngaahi fakamatala 'i he fiema'u—ko ngaahi lēta kehekehe ia.",
+        "differences": "'Oku lahi 'a e ngaahi lea Polinēsia 'oku kehekehe ai pe 'i he ngaue'aki 'a e ngaahi fakamatala. Tokanga'i 'a e tohi totonu.",
+        "example": "Ko e fakamatala ni, ko e ngaahi lea kehekehe kotoa eni: pau, paʻu, paʻū, mo pāʻū.",
+        "pronunciation": "Fanongo lelei ki he lea 'o e ngaahi lea—'oku nau 'ilo'i ma'u pe 'a e tohi totonu."
+      }
+    },
+    "game": {
+      "wordsFound": "Ngaahi Lea Na'e Kumi",
+      "hintsUsed": "Ngaahi Ako Na'e Ngaue'aki",
+      "currentWord": "Lea 'o e Taimi ni",
+      "delete": "'Atu",
+      "hint": "Ako",
+      "refresh": "Fakatau Fo'ou",
+      "upload": "Hiki Hake Ngaahi Lea",
+      "debug": "Fakalelei",
+      "showWords": "Fakahā 'a e Ngaahi Lea",
+      "hideWords": "Fufū 'a e Ngaahi Lea",
+      "confirmRefresh": {
+        "title": "Kamata ha Fakatau Fo'ou?",
+        "message": "'E fakafo'ou eni ho hāfoki 'o e taimi ni mo kamata ha fakatau fo'ou.",
+        "confirm": "Fakatau Kehe",
+        "cancel": "Tamate'i"
+      },
+      "messages": {
+        "wordFound": "LELEI!",
+        "wordFoundDesc": "Kuo ke mau'i ma'u {{word}}!",
+        "alreadyFound": "KUO KUMI MUAMUA!",
+        "invalidWord": "'Ikai ko ha lea totonu",
+        "tooShort": "Poto foki 'a e lea",
+        "letterNotAvailable": "'Ikai 'i ai ha lēta",
+        "threeLetterHint": "Feinga'i ke tohi lēta lahi ange ki he ngaahi lea lōloa!",
+        "hintUsed": "Kuo ngaue'aki ha ako!",
+        "wordDetectionExplanation": "Kapau te ke tohi ha lea 'oku poto iho 'i he lōloa mākehe, 'alo 'a e sekoni 'e tolu pea te u 'ilo 'otomēteki pe kapau 'oku totonu. Ka 'ikai, lomihi 'a e ki 'ulu 'i he toumataʻu 'o e feitu'u 'oku hā ai ho lea.",
+        "hintLetterRevealed": "Lēta kuo fakahā: {{letter}}",
+        "noHintsLeft": "'Ikai ha ako!",
+        "celebrationComplete": [
+          "Kuo ke Ikuna!",
+          "Fakamalō!",
+          "Ikuna!",
+          "Fakamalō foki!",
+          "Lelei 'aupito!"
+        ]
+      }
+    },
+    "uploader": {
+      "title": "Hiki Hake Lisi Lea Fakatonutonu",
+      "description": "Hiki hake ha faile tohi mo e ngaahi lea (taha 'i ha laina) ke ngaohi ha fakatau fakatonutonu.",
+      "dragDrop": "Toho mo tuku ha faile .txt ki heni, pe lomihi ke fili",
+      "processing": "Fakatau...",
+      "success": "{{count}} lea kuo hiki hake ma'u!",
+      "error": "Hala 'i he hiki hake faile. 'Oku 'auhola ke toe feinga'i.",
+      "useDefault": "Ngaue'aki 'a e Ngaahi Lea Tā'efakakehe",
+      "startGame": "Kamata Fakatau mo e Ngaahi Lea Fakatonutonu"
+    },
+    "languageDropdown": {
+      "interfaceLanguage": "Lea Fakamatala",
+      "gameLanguage": "Lea Fakatau",
+      "hawaiian": "Hawaiʻi",
+      "maori": "Mauli",
+      "tahitian": "Tahiti",
+      "english": "Palangi",
+      "underDevelopment": "('oku fakatupu)",
+      "cancel": "Tamate'i",
+      "ok": "'Io",
+      "acknowledgment": "Malo 'a e tokoni kotoa ki he ngaahi lisi lea na'e ngaue'aki 'i he fakatau ni."
+    },
+    "loading": "'Oku hiki hake 'a e ngaahi lea..."
+  }
+}

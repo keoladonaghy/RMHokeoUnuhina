@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Manager Debug</title>
+</head>
+<body>
+    <h1>Translation Manager Debug</h1>
+    
+    <div>
+        <h2>1. Test Database Connection</h2>
+        <button onclick="testConnection()">Test Connection</button>
+        <div id="connection-result"></div>
+    </div>
+    
+    <div>
+        <h2>2. Test Direct Table Access</h2>
+        <button onclick="testDirectAccess()">Test Projects Table</button>
+        <div id="direct-result"></div>
+    </div>
+    
+    <div>
+        <h2>3. Test Translation Export View</h2>
+        <button onclick="testExportView()">Test Export View</button>
+        <div id="export-result"></div>
+    </div>
+    
+    <div>
+        <h2>4. Test Raw Translations Search</h2>
+        <button onclick="testRawSearch()">Search "OK" in Raw Tables</button>
+        <div id="raw-result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script>
+        let supabase;
+        
+        // Initialize Supabase
+        if (window.SUPABASE_CONFIG) {
+            supabase = window.supabase.createClient(window.SUPABASE_CONFIG.url, window.SUPABASE_CONFIG.key);
+        } else {
+            alert('Please configure Supabase credentials in config.js');
+        }
+
+        async function testConnection() {
+            const result = document.getElementById('connection-result');
+            try {
+                const { data, error } = await supabase.from('projects').select('count').limit(1);
+                if (error) throw error;
+                result.innerHTML = '<div style="color: green;">✅ Connection successful!</div>';
+            } catch (error) {
+                result.innerHTML = `<div style="color: red;">❌ Connection failed: ${error.message}</div>`;
+            }
+        }
+
+        async function testDirectAccess() {
+            const result = document.getElementById('direct-result');
+            try {
+                const { data, error } = await supabase.from('projects').select('name, slug');
+                if (error) throw error;
+                result.innerHTML = `<div style="color: green;">✅ Projects found: ${JSON.stringify(data, null, 2)}</div>`;
+            } catch (error) {
+                result.innerHTML = `<div style="color: red;">❌ Projects query failed: ${error.message}</div>`;
+            }
+        }
+
+        async function testExportView() {
+            const result = document.getElementById('export-result');
+            try {
+                const { data, error } = await supabase.from('translation_export').select('*').limit(5);
+                if (error) throw error;
+                result.innerHTML = `<div style="color: green;">✅ Export view works: ${data.length} records</div><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                result.innerHTML = `<div style="color: red;">❌ Export view failed: ${error.message}</div>`;
+            }
+        }
+
+        async function testRawSearch() {
+            const result = document.getElementById('raw-result');
+            try {
+                // Search for "OK" in translations table joined with other tables
+                const { data, error } = await supabase
+                    .from('translations')
+                    .select(`
+                        value,
+                        translation_keys(key_path, namespace, projects(slug)),
+                        languages(code)
+                    `)
+                    .ilike('value', '%OK%')
+                    .limit(10);
+                
+                if (error) throw error;
+                result.innerHTML = `<div style="color: green;">✅ Raw search found ${data.length} results</div><pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                result.innerHTML = `<div style="color: red;">❌ Raw search failed: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

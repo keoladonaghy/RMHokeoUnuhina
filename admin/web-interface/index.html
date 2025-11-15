@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polynesian Translation Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <img src="../../img/hokeo-unuhinia.png" alt="Hokeo Unuhina" class="header-logo">
+                <div class="language-selectors">
+                    <div class="language-selector">
+                        <label for="lang1-select">Language 1:</label>
+                        <select id="lang1-select">
+                            <option value="eng" selected>English</option>
+                            <option value="haw">Hawaiian</option>
+                            <option value="mao">Māori</option>
+                            <option value="tah">Tahitian</option>
+                            <option value="fra">French</option>
+                            <option value="spa">Spanish</option>
+                            <option value="smo">Samoan</option>
+                            <option value="ton">Tongan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="language-selector">
+                        <label for="lang2-select">Language 2:</label>
+                        <select id="lang2-select">
+                            <option value="eng">English</option>
+                            <option value="haw" selected>Hawaiian</option>
+                            <option value="mao">Māori</option>
+                            <option value="tah">Tahitian</option>
+                            <option value="fra">French</option>
+                            <option value="spa">Spanish</option>
+                            <option value="smo">Samoan</option>
+                            <option value="ton">Tongan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="language-selector">
+                        <label for="lang3-select">Language 3:</label>
+                        <select id="lang3-select">
+                            <option value="eng">English</option>
+                            <option value="haw">Hawaiian</option>
+                            <option value="mao" selected>Māori</option>
+                            <option value="tah">Tahitian</option>
+                            <option value="fra">French</option>
+                            <option value="spa">Spanish</option>
+                            <option value="smo">Samoan</option>
+                            <option value="ton">Tongan</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="project-selector">
+                    <label for="project-select">Project:</label>
+                    <select id="project-select">
+                        <option value="all">All Projects</option>
+                        <option value="polynesian-common">Common Elements</option>
+                        <option value="jemt4-music">JEMT4 Music Theory</option>
+                        <option value="kimiKupu-specific">KimiKupu Word Game</option>
+                        <option value="pangaKupu-specific">PangaKupu Crossword</option>
+                    </select>
+                </div>
+                
+                <div class="search-controls">
+                    <div class="search-type">
+                        <input type="radio" id="search-keys" name="search-type" value="keys">
+                        <label for="search-keys">Key Paths</label>
+                        <input type="radio" id="search-values" name="search-type" value="values" checked>
+                        <label for="search-values">Translation Text</label>
+                    </div>
+                    
+                    <div class="search-input">
+                        <input type="text" id="search-field" placeholder="Search translations..." autocomplete="off">
+                        <span class="search-results-count" id="results-count"></span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="search-results" id="search-results">
+                <div class="results-header">
+                    <h3>Search Results</h3>
+                    <div class="header-actions">
+                        <button class="new-string-button" id="new-string-btn-header">New String</button>
+                        <div class="pagination" id="pagination"></div>
+                    </div>
+                </div>
+                
+                <div class="results-list" id="results-list">
+                    <div class="no-results" id="no-results">
+                        <p>Select a project to load translations</p>
+                    </div>
+                </div>
+                
+                <div class="pagination-bottom" id="pagination-bottom"></div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Edit Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="edit-modal">
+            <div class="modal-header">
+                <h2>Edit Translation</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="translation-info">
+                    <div class="key-info">
+                        <strong>Key:</strong> <span id="edit-key-path"></span>
+                    </div>
+                    <div class="project-info">
+                        <strong>Project:</strong> <span id="edit-project"></span>
+                    </div>
+                    <div class="namespace-info">
+                        <strong>Namespace:</strong> <span id="edit-namespace"></span>
+                    </div>
+                </div>
+                
+                <div class="translation-fields">
+                    <div class="field-group">
+                        <label id="lang1-label">English</label>
+                        <textarea id="lang1-input" rows="3"></textarea>
+                        <div class="field-status">
+                            <span class="approval-status" id="lang1-approval"></span>
+                            <span class="validation-warning" id="lang1-warning"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="field-group">
+                        <label id="lang2-label">Hawaiian</label>
+                        <textarea id="lang2-input" rows="3"></textarea>
+                        <div class="field-status">
+                            <span class="approval-status" id="lang2-approval"></span>
+                            <span class="validation-warning" id="lang2-warning"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="field-group">
+                        <label id="lang3-label">Māori</label>
+                        <textarea id="lang3-input" rows="3"></textarea>
+                        <div class="field-status">
+                            <span class="approval-status" id="lang3-approval"></span>
+                            <span class="validation-warning" id="lang3-warning"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="cancel-edit">Cancel</button>
+                    <button class="btn btn-primary" id="save-edit">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- New String Modal -->
+    <div class="modal-overlay" id="new-string-modal-overlay">
+        <div class="new-string-modal" id="new-string-modal">
+            <div class="modal-header">
+                <h2>Add New Translation String</h2>
+                <button class="modal-close" id="new-string-modal-close">&times;</button>
+            </div>
+            
+            <div class="modal-content">
+                <form class="new-string-form" id="new-string-form">
+                    <div class="element-name-field">
+                        <label for="element-name">Element Name (e.g., buttons.help, game.messages.start)</label>
+                        <input type="text" id="element-name" placeholder="buttons.help" autocomplete="off" required>
+                        <div class="validation-message" id="element-name-validation"></div>
+                    </div>
+                    
+                    <div class="translation-info">
+                        <div class="project-info">
+                            <strong>Target Project:</strong> <span id="new-string-project"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="language-grid">
+                        <div class="language-field">
+                            <label for="new-eng">English</label>
+                            <input type="text" id="new-eng" placeholder="Enter English text">
+                        </div>
+                        <div class="language-field">
+                            <label for="new-haw">Hawaiian (ʻŌlelo Hawaiʻi)</label>
+                            <input type="text" id="new-haw" placeholder="Enter Hawaiian text">
+                        </div>
+                        <div class="language-field">
+                            <label for="new-mao">Māori (Te Reo Māori)</label>
+                            <input type="text" id="new-mao" placeholder="Enter Māori text">
+                        </div>
+                        <div class="language-field">
+                            <label for="new-tah">Tahitian (Reo Tahiti)</label>
+                            <input type="text" id="new-tah" placeholder="Enter Tahitian text">
+                        </div>
+                        <div class="language-field">
+                            <label for="new-fra">French (Français)</label>
+                            <input type="text" id="new-fra" placeholder="Enter French text">
+                        </div>
+                        <div class="language-field">
+                            <label for="new-spa">Spanish (Español)</label>
+                            <input type="text" id="new-spa" placeholder="Enter Spanish text">
+                        </div>
+                        <div class="language-field">
+                            <label for="new-smo">Samoan (Gagana Sāmoa)</label>
+                            <input type="text" id="new-smo" placeholder="Enter Samoan text">
+                        </div>
+                        <div class="language-field">
+                            <label for="new-ton">Tongan (Lea Fakatonga)</label>
+                            <input type="text" id="new-ton" placeholder="Enter Tongan text">
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-new-string">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="save-new-string">Add Translation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Indicator -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <span>Loading...</span>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

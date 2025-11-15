@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/keola/Documents/GitHub/RMHokeoUnuhina/**)",
+      "Read(//Users/keola/Documents/GitHub/JEMT4/**)",
+      "Bash(supabase functions deploy:*)",
+      "Bash(python3:*)",
+      "Bash(open http://localhost:8001/index-v2.html)",
+      "Bash(open http://localhost:8001/translation-test.html)",
+      "Bash(node:*)",
+      "Bash(open:*)",
+      "Bash(sed:*)",
+      "Read(//Users/keola/.claude/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,490 @@
+{
+  "eng": {
+    "actions": {
+      "play": "Play",
+      "pause": "Pause",
+      "restart": "Restart",
+      "hint": "Hint",
+      "skip": "Skip",
+      "undo": "Undo",
+      "newGame": "New Game",
+      "refresh": "Refresh",
+      "share": "Share"
+    },
+    "messages": {
+      "wordFound": "Congratulations!",
+      "wordNotFound": "Word not found",
+      "notEnoughLetters": "Not enough letters",
+      "invalidWord": "Invalid word",
+      "alreadyFound": "Already found",
+      "gameWon": "You won!",
+      "gameLost": "Game over",
+      "tryAgain": "Try again",
+      "wellDone": "Well done!",
+      "almostThere": "Almost there!",
+      "keepTrying": "Keep trying!"
+    },
+    "stats": {
+      "score": "Score",
+      "level": "Level",
+      "streak": "Streak",
+      "best": "Best",
+      "current": "Current",
+      "total": "Total",
+      "average": "Average",
+      "rank": "Rank",
+      "points": "Points"
+    },
+    "progress": {
+      "wordsFound": "Words Found",
+      "wordsRemaining": "Words Remaining",
+      "hintsUsed": "Hints Used",
+      "attempts": "Attempts",
+      "timeElapsed": "Time Elapsed",
+      "gamesPlayed": "Games Played",
+      "successRate": "Success Rate",
+      "completionRate": "Completion Rate"
+    },
+    "difficulty": {
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard",
+      "expert": "Expert",
+      "custom": "Custom"
+    },
+    "confirmation": {
+      "newGame": "Start a new game?",
+      "restart": "Restart this game?",
+      "quit": "Quit current game?",
+      "confirm": "Confirm",
+      "areYouSure": "Are you sure?"
+    }
+  },
+  "haw": {
+    "actions": {
+      "play": "Pā'ani",
+      "pause": "Ho'okū",
+      "restart": "Ho'omaka hou",
+      "hint": "Hō'ailona",
+      "skip": "Lele",
+      "undo": "Ho'ōki",
+      "newGame": "Pā'ani Hou",
+      "refresh": "Ho'omaika'i hou",
+      "share": "Ka'ana aku"
+    },
+    "messages": {
+      "wordFound": "Ho'omaikaʻi!",
+      "wordNotFound": "'A'ole i loa'a ia hua'ōlelo",
+      "notEnoughLetters": "'A'ole i lawa nā huapalapala",
+      "invalidWord": "He hua'ōlelo hewa",
+      "alreadyFound": "Ua loa'a kēia ma mua",
+      "gameWon": "Ua lanakila 'oe!",
+      "gameLost": "Ua pau ka pā'ani",
+      "tryAgain": "E ho'ā'o hou",
+      "wellDone": "Ua hana maikaʻi!",
+      "almostThere": "Kokoke!",
+      "keepTrying": "E ho'omau!"
+    },
+    "stats": {
+      "score": "Papa",
+      "level": "Pae",
+      "streak": "Kaʻina",
+      "best": "Maikaʻi loa",
+      "current": "Kēia manawa",
+      "total": "Pau",
+      "average": "Kaulike",
+      "rank": "Kūlana",
+      "points": "Palapala"
+    },
+    "progress": {
+      "wordsFound": "Nā Hua'ōlelo i 'Ike'ia",
+      "wordsRemaining": "Nā Hua'ōlelo e Koe nei",
+      "hintsUsed": "Nā Hō'ailona i Ho'ohana 'ia",
+      "attempts": "Nā Ho'ā'o",
+      "timeElapsed": "Ka Manawa i Hala ai",
+      "gamesPlayed": "Nā Pā'ani i Hana 'ia",
+      "successRate": "Papa Holo Pono",
+      "completionRate": "Papa Pau"
+    },
+    "difficulty": {
+      "easy": "Maʻalahi",
+      "medium": "Waena",
+      "hard": "Pa'akikī",
+      "expert": "Akamai",
+      "custom": "Koho kēhau"
+    },
+    "confirmation": {
+      "newGame": "E ho'omaka i kahi pā'ani hou?",
+      "restart": "E ho'omaka hou i kēia pā'ani?",
+      "quit": "E ho'ōki i ka pā'ani?",
+      "confirm": "Ho'oia",
+      "areYouSure": "Ua mākaukau 'oe?"
+    }
+  },
+  "mao": {
+    "actions": {
+      "play": "Tākaro",
+      "pause": "Whakatū",
+      "restart": "Tīmata anō",
+      "hint": "Tohutohu",
+      "skip": "Rere",
+      "undo": "Whakakore",
+      "newGame": "Kēmu Hou",
+      "refresh": "Whakakē anō",
+      "share": "Tīhei"
+    },
+    "messages": {
+      "wordFound": "Ka pai!",
+      "wordNotFound": "Kāore he kupu",
+      "notEnoughLetters": "He poto rawa",
+      "invalidWord": "He kupu kē",
+      "alreadyFound": "Kua kitea kētia",
+      "gameWon": "Kua wikitoria koe!",
+      "gameLost": "Kua mutu te kēmu",
+      "tryAgain": "Whakamātau anō",
+      "wellDone": "He pai rawa!",
+      "almostThere": "Tata ana!",
+      "keepTrying": "Kia kaha!"
+    },
+    "stats": {
+      "score": "Kaute",
+      "level": "Taumata",
+      "streak": "Rōpū",
+      "best": "Pai rawa",
+      "current": "Ināianei",
+      "total": "Katoa",
+      "average": "Toharite",
+      "rank": "Raina",
+      "points": "Mata"
+    },
+    "progress": {
+      "wordsFound": "Ngā Kupu i Kitea",
+      "wordsRemaining": "Ngā Kupu e Toe ana",
+      "hintsUsed": "Ngā Tohutohu i Whakamahia",
+      "attempts": "Ngā Whakamātau",
+      "timeElapsed": "Te Taima i Roa ai",
+      "gamesPlayed": "Ngā Kēmu i Tākarohia",
+      "successRate": "Rēti Angitu",
+      "completionRate": "Rēti Whakaoti"
+    },
+    "difficulty": {
+      "easy": "Māmā",
+      "medium": "Waenganui",
+      "hard": "Uaua",
+      "expert": "Mōhio",
+      "custom": "Ritenga"
+    },
+    "confirmation": {
+      "newGame": "Tīmata kēmu hou?",
+      "restart": "Tīmata anō tēnei kēmu?",
+      "quit": "Whakamutu i te kēmu?",
+      "confirm": "Whakaū",
+      "areYouSure": "He pono?"
+    }
+  },
+  "tah": {
+    "actions": {
+      "play": "Tarava",
+      "pause": "Fa'aroo",
+      "restart": "Fa'ahou",
+      "hint": "Fa'aauara'a",
+      "skip": "Tere",
+      "undo": "Fa'afefe",
+      "newGame": "Tarava Api",
+      "refresh": "Fa'ahou",
+      "share": "Fa'aturahia"
+    },
+    "messages": {
+      "wordFound": "Maita'i roa!",
+      "wordNotFound": "Aita te parau",
+      "notEnoughLetters": "Te'a te reta",
+      "invalidWord": "Parau hape",
+      "alreadyFound": "Ua ite ia",
+      "gameWon": "Ua manuia oe!",
+      "gameLost": "Ua hopea te tarava",
+      "tryAgain": "Fa'ahou",
+      "wellDone": "Ua haa noa!",
+      "almostThere": "E tata ra!",
+      "keepTrying": "Fa'aiti!"
+    },
+    "stats": {
+      "score": "Numera",
+      "level": "Faaofara'a",
+      "streak": "Parera'a",
+      "best": "Maita'i roa",
+      "current": "Teie taime",
+      "total": "Atoa",
+      "average": "Hoora'a",
+      "rank": "Ra'a",
+      "points": "Mata"
+    },
+    "progress": {
+      "wordsFound": "Te Mau Parau i Ite'ia",
+      "wordsRemaining": "Te Mau Parau e Toe",
+      "hintsUsed": "Te Mau Fa'aauara'a i Fa'aohipe'ia",
+      "attempts": "Te Mau Ha'amaa",
+      "timeElapsed": "Te Taime i Roa'a",
+      "gamesPlayed": "Te Mau Tarava i Ravehia",
+      "successRate": "Fa'aaufara'a Manuia",
+      "completionRate": "Fa'aaufara'a Hopea"
+    },
+    "difficulty": {
+      "easy": "Fariu",
+      "medium": "Fa'ahoro",
+      "hard": "Faito",
+      "expert": "Akamai",
+      "custom": "Koho"
+    },
+    "confirmation": {
+      "newGame": "Fa'atere i te tarava api?",
+      "restart": "Fa'ahou i teie tarava?",
+      "quit": "Fa'aroa i te tarava?",
+      "confirm": "Fa'amaita'i",
+      "areYouSure": "Ua mau anei?"
+    }
+  },
+  "fra": {
+    "actions": {
+      "play": "Jouer",
+      "pause": "Pause",
+      "restart": "Recommencer",
+      "hint": "Indice",
+      "skip": "Passer",
+      "undo": "Annuler",
+      "newGame": "Nouveau jeu",
+      "refresh": "Actualiser",
+      "share": "Partager"
+    },
+    "messages": {
+      "wordFound": "Félicitations !",
+      "wordNotFound": "Mot non trouvé",
+      "notEnoughLetters": "Pas assez de lettres",
+      "invalidWord": "Mot invalide",
+      "alreadyFound": "Déjà trouvé",
+      "gameWon": "Vous avez gagné !",
+      "gameLost": "Jeu terminé",
+      "tryAgain": "Réessayez",
+      "wellDone": "Bien joué !",
+      "almostThere": "Presque !",
+      "keepTrying": "Continuez !"
+    },
+    "stats": {
+      "score": "Score",
+      "level": "Niveau",
+      "streak": "Série",
+      "best": "Meilleur",
+      "current": "Actuel",
+      "total": "Total",
+      "average": "Moyenne",
+      "rank": "Rang",
+      "points": "Points"
+    },
+    "progress": {
+      "wordsFound": "Mots trouvés",
+      "wordsRemaining": "Mots restants",
+      "hintsUsed": "Indices utilisés",
+      "attempts": "Tentatives",
+      "timeElapsed": "Temps écoulé",
+      "gamesPlayed": "Parties jouées",
+      "successRate": "Taux de réussite",
+      "completionRate": "Taux d'achèvement"
+    },
+    "difficulty": {
+      "easy": "Facile",
+      "medium": "Moyen",
+      "hard": "Difficile",
+      "expert": "Expert",
+      "custom": "Personnalisé"
+    },
+    "confirmation": {
+      "newGame": "Commencer un nouveau jeu ?",
+      "restart": "Recommencer ce jeu ?",
+      "quit": "Quitter le jeu en cours ?",
+      "confirm": "Confirmer",
+      "areYouSure": "Êtes-vous sûr ?"
+    }
+  },
+  "spa": {
+    "actions": {
+      "play": "Jugar",
+      "pause": "Pausar",
+      "restart": "Reiniciar",
+      "hint": "Pista",
+      "skip": "Saltar",
+      "undo": "Deshacer",
+      "newGame": "Nuevo juego",
+      "refresh": "Actualizar",
+      "share": "Compartir"
+    },
+    "messages": {
+      "wordFound": "¡Felicitaciones!",
+      "wordNotFound": "Palabra no encontrada",
+      "notEnoughLetters": "No hay suficientes letras",
+      "invalidWord": "Palabra inválida",
+      "alreadyFound": "Ya encontrada",
+      "gameWon": "¡Ganaste!",
+      "gameLost": "Juego terminado",
+      "tryAgain": "Inténtalo de nuevo",
+      "wellDone": "¡Bien hecho!",
+      "almostThere": "¡Casi!",
+      "keepTrying": "¡Sigue intentando!"
+    },
+    "stats": {
+      "score": "Puntuación",
+      "level": "Nivel",
+      "streak": "Racha",
+      "best": "Mejor",
+      "current": "Actual",
+      "total": "Total",
+      "average": "Promedio",
+      "rank": "Rango",
+      "points": "Puntos"
+    },
+    "progress": {
+      "wordsFound": "Palabras encontradas",
+      "wordsRemaining": "Palabras restantes",
+      "hintsUsed": "Pistas usadas",
+      "attempts": "Intentos",
+      "timeElapsed": "Tiempo transcurrido",
+      "gamesPlayed": "Juegos jugados",
+      "successRate": "Tasa de éxito",
+      "completionRate": "Tasa de finalización"
+    },
+    "difficulty": {
+      "easy": "Fácil",
+      "medium": "Medio",
+      "hard": "Difícil",
+      "expert": "Experto",
+      "custom": "Personalizado"
+    },
+    "confirmation": {
+      "newGame": "¿Iniciar un nuevo juego?",
+      "restart": "¿Reiniciar este juego?",
+      "quit": "¿Salir del juego actual?",
+      "confirm": "Confirmar",
+      "areYouSure": "¿Estás seguro?"
+    }
+  },
+  "smo": {
+    "actions": {
+      "play": "Ta'alo",
+      "pause": "Taofi",
+      "restart": "Toe amata",
+      "hint": "Fa'ailoga",
+      "skip": "Solo",
+      "undo": "Toe sui",
+      "newGame": "Ta'aloga Fou",
+      "refresh": "Fa'afou",
+      "share": "Tufatufa"
+    },
+    "messages": {
+      "wordFound": "Fa'afetai tele!",
+      "wordNotFound": "E le'i maua le upu",
+      "notEnoughLetters": "E le lava mata",
+      "invalidWord": "Upu sese",
+      "alreadyFound": "Ua uma ona maua",
+      "gameWon": "Ua e manumalo!",
+      "gameLost": "Ua uma le ta'aloga",
+      "tryAgain": "Toe taumafai",
+      "wellDone": "Lelei tele!",
+      "almostThere": "Latalata!",
+      "keepTrying": "Fa'aauau!"
+    },
+    "stats": {
+      "score": "Numera",
+      "level": "Tulaga",
+      "streak": "Fa'atasi",
+      "best": "Sili",
+      "current": "Taimi nei",
+      "total": "Aotelega",
+      "average": "Feaveai",
+      "rank": "Fa'asologa",
+      "points": "Mata"
+    },
+    "progress": {
+      "wordsFound": "Upu na Maua",
+      "wordsRemaining": "Upu o Totoe",
+      "hintsUsed": "Fa'ailoga na Fa'aaoga",
+      "attempts": "Taumafaiga",
+      "timeElapsed": "Taimi na Mavae",
+      "gamesPlayed": "Ta'aloga na Faia",
+      "successRate": "Fua Manuia",
+      "completionRate": "Fua Fa'amae'a"
+    },
+    "difficulty": {
+      "easy": "Faigofie",
+      "medium": "Feaveai",
+      "hard": "Faigata",
+      "expert": "Poto",
+      "custom": "Fa'apitoa"
+    },
+    "confirmation": {
+      "newGame": "Amata se ta'aloga fou?",
+      "restart": "Toe amata lenei ta'aloga?",
+      "quit": "Tu'u lenei ta'aloga?",
+      "confirm": "Fa'amaoni",
+      "areYouSure": "E te mautinoa?"
+    }
+  },
+  "ton": {
+    "actions": {
+      "play": "Fakatau",
+      "pause": "Fakatū",
+      "restart": "Kamata fo'ou",
+      "hint": "Fakamatala",
+      "skip": "Kapusi",
+      "undo": "Fakafoki",
+      "newGame": "Fakatau Fo'ou",
+      "refresh": "Fakafo'ou",
+      "share": "Vahevahe"
+    },
+    "messages": {
+      "wordFound": "Mālō!",
+      "wordNotFound": "'Ikai ha lea",
+      "notEnoughLetters": "'Ikai ma'u tohi",
+      "invalidWord": "Lea kovi",
+      "alreadyFound": "Kuo kumi'i",
+      "gameWon": "Kuo ikuna!",
+      "gameLost": "Kuo 'osi 'a e fakatau",
+      "tryAgain": "Toe feinga",
+      "wellDone": "Sai 'aupito!",
+      "almostThere": "Ofi 'aupito!",
+      "keepTrying": "Fakatonutonu!"
+    },
+    "stats": {
+      "score": "Lau",
+      "level": "Potu",
+      "streak": "Fetongi",
+      "best": "Lelei taha",
+      "current": "Taimi ni",
+      "total": "Kotoa",
+      "average": "Avereesi",
+      "rank": "Fakakaukau",
+      "points": "Mata"
+    },
+    "progress": {
+      "wordsFound": "Ngaahi Lea Kumi",
+      "wordsRemaining": "Ngaahi Lea Toe",
+      "hintsUsed": "Ngaahi Fakamatala Na'e Faka'aonga'i",
+      "attempts": "Ngaahi Feinga",
+      "timeElapsed": "Taimi Na'e 'Alu",
+      "gamesPlayed": "Ngaahi Fakatau Na'e Fai",
+      "successRate": "Fua Ikuna",
+      "completionRate": "Fua Kakato"
+    },
+    "difficulty": {
+      "easy": "Faingofua",
+      "medium": "Avereesi",
+      "hard": "Faingata'a",
+      "expert": "Poto",
+      "custom": "Fakakehe"
+    },
+    "confirmation": {
+      "newGame": "Kamata ha fakatau fo'ou?",
+      "restart": "Toe kamata 'a e fakatau ni?",
+      "quit": "Tuku 'a e fakatau ni?",
+      "confirm": "Fakamooni",
+      "areYouSure": "Ko e mo'oni?"
+    }
+  }
+}

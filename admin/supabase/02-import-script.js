@@ -16,13 +16,41 @@ const fs = require('fs');
 const path = require('path');
 
 // ==========================================
-// CONFIGURATION - Update these values
+// CONFIGURATION - Validate environment variables
 // ==========================================
 
 const SUPABASE_CONFIG = {
-  url: process.env.SUPABASE_URL || 'YOUR_SUPABASE_URL',
-  key: process.env.SUPABASE_ANON_KEY || 'YOUR_SUPABASE_ANON_KEY'
+  url: process.env.SUPABASE_URL,
+  key: process.env.SUPABASE_ANON_KEY
 };
+
+// Validate required environment variables
+if (!SUPABASE_CONFIG.url || !SUPABASE_CONFIG.key) {
+  console.error('❌ ERROR: Missing required environment variables');
+  console.error('');
+  console.error('Please set the following environment variables:');
+  console.error('  SUPABASE_URL          Your Supabase project URL');
+  console.error('  SUPABASE_ANON_KEY     Your Supabase anon/public key');
+  console.error('');
+  console.error('You can set them in a .env file (see .env.example) or as environment variables');
+  console.error('');
+  process.exit(1);
+}
+
+// Validate URL format
+if (!SUPABASE_CONFIG.url.startsWith('https://') || !SUPABASE_CONFIG.url.includes('.supabase.co')) {
+  console.error('❌ ERROR: Invalid SUPABASE_URL format');
+  console.error('Expected format: https://your-project-id.supabase.co');
+  console.error(`Received: ${SUPABASE_CONFIG.url}`);
+  process.exit(1);
+}
+
+// Validate key is not placeholder
+if (SUPABASE_CONFIG.key === 'your-anon-key-here' || SUPABASE_CONFIG.key === 'YOUR_SUPABASE_ANON_KEY') {
+  console.error('❌ ERROR: SUPABASE_ANON_KEY appears to be a placeholder');
+  console.error('Please replace it with your actual Supabase anon key');
+  process.exit(1);
+}
 
 // Mapping of your JSON files to project slugs
 const PROJECT_FILES = {

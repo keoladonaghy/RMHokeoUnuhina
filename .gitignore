@@ -1,5 +1,15 @@
 node_modules/
 .DS_Store
 *.log
+
+# Environment variables - never commit these!
 .env
 .env.local
+admin/supabase/.env
+
+# Configuration files with credentials - never commit these!
+admin/web-interface/config.js
+
+# Keep only the example/template versions:
+# admin/web-interface/config.example.js (safe to commit)
+# admin/supabase/.env.example (safe to commit)

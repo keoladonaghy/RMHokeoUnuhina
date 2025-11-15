@@ -20,9 +20,75 @@ class TranslationManager {
 
     async init() {
         await this.loadConfig();
+
+        // Check authentication
+        const isAuthenticated = await this.checkAuth();
+        if (!isAuthenticated) {
+            window.location.href = 'login.html';
+            return;
+        }
+
         this.setupEventListeners();
         this.updateLanguageLabels();
+        this.addLogoutButton();
         console.log('Translation Manager initialized');
+    }
+
+    async checkAuth() {
+        try {
+            const { data: { session }, error } = await this.supabase.auth.getSession();
+
+            if (error) {
+                console.error('Auth check error:', error);
+                return false;
+            }
+
+            if (!session) {
+                return false;
+            }
+
+            // Store user info
+            this.currentUser = session.user;
+            console.log('Authenticated as:', this.currentUser.email);
+            return true;
+
+        } catch (error) {
+            console.error('Authentication check failed:', error);
+            return false;
+        }
+    }
+
+    addLogoutButton() {
+        const header = document.querySelector('.header-content');
+        if (!header) {
+            console.warn('Header not found, cannot add logout button');
+            return;
+        }
+
+        const logoutDiv = document.createElement('div');
+        logoutDiv.className = 'user-info';
+        logoutDiv.innerHTML = `
+            <span class="user-email">${this.currentUser.email}</span>
+            <button id="logout-btn" class="btn-logout">Logout</button>
+        `;
+        header.appendChild(logoutDiv);
+
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => this.handleLogout());
+        }
+    }
+
+    async handleLogout() {
+        try {
+            const { error } = await this.supabase.auth.signOut();
+            if (error) throw error;
+
+            window.location.href = 'login.html';
+        } catch (error) {
+            console.error('Logout error:', error);
+            alert('Failed to logout. Please try again.');
+        }
     }
 
     async loadConfig() {

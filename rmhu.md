@@ -1,6 +1,6 @@
-# Tolgee Project Structure & Implementation Plan
+# RMHTS Project Structure & Implementation Plan
 
-## Recommended Tolgee Project Organization
+## Recommended RMHTS Project Organization
 
 ### Project Hierarchy
 
@@ -65,7 +65,7 @@ Polynesian Translation System/
 }
 ```
 
-**Tolgee Export Format**: 
+**RMHTS Export Format**: 
 - API Endpoint: `/api/projects/polynesian-common/export/{language}.json`
 - Usage: All applications load this first
 
@@ -271,7 +271,7 @@ const translations = await Promise.all([
 ]);
 ```
 
-## Tolgee Project Settings
+## RMHTS Project Settings
 
 ### polynesian-common
 ```yaml
@@ -305,7 +305,7 @@ Review Required: Yes for all languages
 ## Implementation Timeline
 
 ### Week 1: Foundation Setup
-- **Day 1-2**: Set up Tolgee instance with 5 projects
+- **Day 1-2**: Set up RMHTS instance with 5 projects
 - **Day 3-4**: Import existing translations into standard format
 - **Day 5**: Configure API keys and access permissions
 
@@ -352,7 +352,7 @@ Review Required: Yes for all languages
 ### Scaling Considerations
 - Monitor API response times as content grows
 - Implement CDN for static translation assets
-- Consider regional Tolgee instances for global users
+- Consider regional RMHTS instances for global users
 - Plan for automated translation memory systems
 
 ---

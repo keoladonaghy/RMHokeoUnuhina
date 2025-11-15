@@ -249,4 +249,4 @@ This system provides:
 - ✅ Real-time updates through Supabase
 - ✅ Free tier covers your current needs
 
-The database approach gives you the flexibility of Tolgee-style translation management at a fraction of the cost, with complete control over your data and API.
+The database approach gives you the flexibility of RMHTS-style translation management at a fraction of the cost, with complete control over your data and API.

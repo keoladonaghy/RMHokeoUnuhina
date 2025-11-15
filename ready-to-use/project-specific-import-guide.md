@@ -84,10 +84,10 @@
    const t = jemt4Translations[currentLanguage];
    ```
 
-### Option 2: Tolgee Platform Import
+### Option 2: RMHTS Platform Import
 **Best for**: Collaborative translation management, professional workflow
 
-#### Create Separate Tolgee Projects
+#### Create Separate RMHTS Projects
 
 1. **jemt4-music-theory**
    - Base language: English (eng)
@@ -111,7 +111,7 @@
 
 #### Import Process for Each Project
 
-1. **Login to Tolgee** → Create new project
+1. **Login to RMHTS** → Create new project
 2. **Project Settings** → Import
 3. **Choose file** → Select the corresponding JSON file
 4. **Import method**: "Replace existing translations"
@@ -158,9 +158,9 @@ const guitarTitle = jemt4.instruments.guitar; // "Kīkā"
 const settingsTitle = common.interface.settings; // "Nā Hoʻonohonoho"
 ```
 
-**After (Tolgee API)**:
+**After (RMHTS API)**:
 ```javascript
-// Dynamic loading from Tolgee
+// Dynamic loading from RMHTS
 const translations = await Promise.all([
   fetch('/api/projects/polynesian-common/export/haw.json'),
   fetch('/api/projects/jemt4-music-theory/export/haw.json')
@@ -287,4 +287,4 @@ const helpButton = common.buttons.help; // "Aide"
 
 ---
 
-This comprehensive system preserves all your existing translation work while providing a solid foundation for future expansion and professional translation management. Each file is ready for immediate use or Tolgee platform import.
+This comprehensive system preserves all your existing translation work while providing a solid foundation for future expansion and professional translation management. Each file is ready for immediate use or RMHTS platform import.

@@ -1,4 +1,4 @@
-# Tolgee Import Guide for Common Elements
+# RMHTS Import Guide for Common Elements
 
 ## Ready-to-Use File Created
 
@@ -61,11 +61,11 @@ This file contains your actual existing translations consolidated into the stand
 "help": "Āwhina",  // Change this to your preferred translation
 ```
 
-### Option 2: Upload to Tolgee
+### Option 2: Upload to RMHTS
 **Good for**: Collaborative translation, professional workflow
 
-#### Step 1: Create Tolgee Project
-1. **Login to your Tolgee instance**
+#### Step 1: Create RMHTS Project
+1. **Login to your RMHTS instance**
 2. **Create new project**: `polynesian-common`
 3. **Set base language**: English (eng)
 4. **Add target languages**: haw, mao, tah, fra, spa, smo, ton
@@ -82,7 +82,7 @@ This file contains your actual existing translations consolidated into the stand
    - etc.
 
 #### Step 3: Review and Approve
-1. **Check all imported keys** in Tolgee interface
+1. **Check all imported keys** in RMHTS interface
 2. **Review translations** for accuracy
 3. **Mark approved** when satisfied
 4. **Generate API key** for your applications
@@ -150,7 +150,7 @@ Some button translations may have regional variations:
 - "Cancel" in Hawaiian: "Ho'ōki" (current) vs other options
 - "Delete" in Māori: "Mukua" (current) vs "Whakakore"
 
-**You can modify** these in the JSON or via Tolgee interface.
+**You can modify** these in the JSON or via RMHTS interface.
 
 ### Cultural Sensitivity
 All translations have been researched for cultural appropriateness, but please:
@@ -163,6 +163,6 @@ All translations have been researched for cultural appropriateness, but please:
 1. **Test the JSON file** with one application first
 2. **Make any needed adjustments** to translations
 3. **Expand to additional namespaces** (games, music, project-specific)
-4. **Set up full Tolgee system** when ready for production
+4. **Set up full RMHTS system** when ready for production
 
 This file gives you a solid foundation to begin using the standardized translation system immediately while maintaining all your existing translation work.

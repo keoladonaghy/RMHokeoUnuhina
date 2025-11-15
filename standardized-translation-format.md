@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document defines the standardized JSON format for UI translations across all Polynesian language projects, designed for Tolgee integration and future expansion.
+This document defines the standardized JSON format for UI translations across all Polynesian language projects, designed for RMHTS integration and future expansion.
 
 ## Language Code Standard
 
@@ -321,11 +321,11 @@ project-translations.json
 }
 ```
 
-### Tolgee Production Format
+### RMHTS Production Format
 **Namespace-based organization**
 
 ```
-tolgee-projects/
+RMHTS-projects/
 ├── polynesian-common/      # Shared UI elements
 ├── polynesian-games/       # Game terminology  
 ├── jemt4-music/           # Music theory terms
@@ -443,7 +443,7 @@ tolgee-projects/
 
 ### Phase 3: Implementation
 1. **Convert existing files** to standard format
-2. **Set up Tolgee projects** with namespace structure
+2. **Set up RMHTS projects** with namespace structure
 3. **Import standardized content**
 4. **Update application code** to use new keys
 

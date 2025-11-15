@@ -1,4 +1,4 @@
-# Tolgee Translation System - Discussion Notes
+#  RM Hōkea ʻUnuhina Translation System - Discussion Notes
 
 ## Date: October 12, 2025
 
@@ -9,7 +9,7 @@ This document captures our discussion about implementing a centralized translati
 ### Core Architecture
 
 **Platform Stack:**
-- **Tolgee**: Translation management platform (web interface)
+- **RMUTS**: Translation management platform (web interface)
 - **Railway**: Docker container hosting ($5-15/month)
 - **Supabase**: PostgreSQL database (Free tier - 500MB)
 - **Vercel**: Frontend application hosting
@@ -42,7 +42,7 @@ This document captures our discussion about implementing a centralized translati
 - Optional manual refresh button for immediate updates
 
 **Benefits:**
-- Reduces load on Tolgee API and database
+- Reduces load on RMHTS API and database
 - Users still get regular updates
 - Better performance for end users
 
@@ -50,17 +50,17 @@ This document captures our discussion about implementing a centralized translati
 
 **Current State**: Static JSON files for translations
 
-**Tolgee Integration:**
+**RMHTS Integration:**
 - Replace JSON file imports with API calls
 - Use i18next with HTTP backend
-- Call Tolgee export endpoints (e.g., `/api/projects/{projectId}/export/settings.json`)
+- Call RMHTS export endpoints (e.g., `/api/projects/{projectId}/export/settings.json`)
 - Maintain existing JSON structure and key naming
 - Minimal code changes required
 
 **Example Structure:**
 ```javascript
 // Instead of: import settingsEn from './i18n/settings.en.json'
-// Use: API call to Tolgee endpoint returns same JSON structure
+// Use: API call to RMHTS endpoint returns same JSON structure
 ```
 
 ### 3. Shared Translation Strings (Common Namespace)
@@ -72,7 +72,7 @@ Many UI elements appear across multiple applications and contexts:
 - Common navigation terms
 - Standard UI labels
 
-**Tolgee Solution:**
+**RMHTS Solution:**
 - Create a "common" namespace for universal terms
 - All projects reference the same shared translations
 - Define each term once in Hawaiian
@@ -103,7 +103,7 @@ Some English words have multiple meanings requiring different Hawaiian translati
 
 **Solution:**
 - Use separate translation keys: `music.play` and `game.play`
-- Add context notes in Tolgee for translators
+- Add context notes in RMHTS for translators
 - Provides clarity for accurate Hawaiian translation choices
 
 ### 5. Language Source Flexibility
@@ -130,7 +130,7 @@ Ability to promote project-specific translations to shared common namespace
 4. Other projects can then reuse the translation
 
 **Implementation Notes:**
-- Tolgee web interface should support moving/copying keys between namespaces
+- RMHTS web interface should support moving/copying keys between namespaces
 - Requires updating app code to reference new common namespace keys
 - Important for scalability as project portfolio grows
 
@@ -165,7 +165,7 @@ Ability to promote project-specific translations to shared common namespace
 
 ### Phase 1: Foundation
 - Set up Supabase database
-- Deploy Tolgee on Railway
+- Deploy RMHTS on Railway
 - Configure initial admin access
 
 ### Phase 2: Migration
@@ -204,7 +204,7 @@ Ability to promote project-specific translations to shared common namespace
 
 **Identified Need: Intermediate Preparation Phase**
 
-Before importing into Tolgee, requires systematic file preparation:
+Before importing into RMHTS, requires systematic file preparation:
 
 1. **Create Standard Format Template**
    - Define consistent naming conventions
@@ -221,27 +221,27 @@ Before importing into Tolgee, requires systematic file preparation:
 3. **Strategic Considerations**
    - Account for future language expansion
    - Prevent need for later restructuring
-   - Ensure clean import into Tolgee
+   - Ensure clean import into RMHTS
    - Avoid creating organizational mess
 
 **Next Steps:**
 - Complete file inventory when back at computer
 - Define standard format specification
 - Systematically convert each file to standard
-- Prepare consolidated files for Tolgee import
+- Prepare consolidated files for RMHTS import
 
 ### Custom LLM Integration Planning
 
 **Question Raised:**
-Integration possibilities between Tolgee and custom Polynesian language LLM currently in development.
+Integration possibilities between RMHTS and custom Polynesian language LLM currently in development.
 
 **Current Understanding:**
-- Tolgee supports major translation services (Google Translate, AWS Translate)
+- RMHTS supports major translation services (Google Translate, AWS Translate)
 - Uses standard translation API interfaces
 - Custom providers possible if API-compatible
 
 **Strategic Opportunity:**
-Design custom Polynesian LLM with Tolgee compatibility from the beginning
+Design custom Polynesian LLM with RMHTS compatibility from the beginning
 
 **Benefits of Custom LLM Integration:**
 - Superior accuracy for Hawaiian and Polynesian languages
@@ -250,7 +250,7 @@ Design custom Polynesian LLM with Tolgee compatibility from the beginning
 - Powerful differentiator for underserved languages
 
 **Design Considerations:**
-- Research Tolgee's translation provider API specifications
+- Research RMHTS's translation provider API specifications
 - Build compatible request/response formats into LLM design
 - Plan API endpoints during LLM architecture phase
 - Ensure seamless integration when both systems ready
@@ -262,29 +262,29 @@ Design custom Polynesian LLM with Tolgee compatibility from the beginning
 
 **Future Planning:**
 - Include translation API compatibility in LLM architecture
-- Research Tolgee translation provider specifications
+- Research RMHTS translation provider specifications
 - Design endpoints for seamless integration
 - Other LLM applications to be discussed in future
 
-### Tolgee Deployment Clarification
+### RMHTS Deployment Clarification
 
-**Question:** Is Tolgee a GitHub repo that needs to be forked?
+**Question:** Is RMHTS a GitHub repo that needs to be forked?
 
 **Answer:** No forking required!
 
-- Tolgee is deployed using official Docker image: `tolgee/tolgee:latest`
+- RMHTS is deployed using official Docker image: `RMHTS/RMHTS:latest`
 - Create simple repository with configuration files only:
   - Dockerfile (references official image)
   - config.yaml (custom configuration)
   - railway.toml (Railway deployment settings)
-- No need to fork entire Tolgee codebase
+- No need to fork entire RMHTS codebase
 - Deploy pre-built container to Railway
 - Configure with Supabase database connection
 
 **Deployment Approach:**
 - Use official Docker image as-is
 - Add only your configuration files
-- Simple, clean deployment without managing Tolgee source code
+- Simple, clean deployment without managing RMHTS source code
 
 ---
 
@@ -292,7 +292,7 @@ Design custom Polynesian LLM with Tolgee compatibility from the beginning
 
 1. Specific caching implementation details (localStorage vs IndexedDB?)
 2. Exact update frequency (daily vs weekly check?)
-3. Fallback strategy if Tolgee API is unavailable
+3. Fallback strategy if RMHTS API is unavailable
 4. Permission model for translators and reviewers
 5. Machine translation workflow for initial drafts
 6. Review process for Hawaiian language accuracy
@@ -313,14 +313,14 @@ Design custom Polynesian LLM with Tolgee compatibility from the beginning
 
 ## Next Steps
 
-1. Review Tolgee's web interface documentation for namespace management features
+1. Review RMHTS's web interface documentation for namespace management features
 2. Test caching strategies with prototype implementation
 3. Create initial list of common UI terms for shared namespace
 4. Develop naming conventions for translation keys
 5. Plan migration timeline for existing JSON files
 6. Inventory existing JSON files and language coverage
 7. Define standard format template for all translations
-8. Research Tolgee translation provider API for custom LLM integration
+8. Research RMHTS translation provider API for custom LLM integration
 
 ---
 
@@ -338,7 +338,7 @@ Design custom Polynesian LLM with Tolgee compatibility from the beginning
 **Database Setup:**
 ```sql
 -- In Supabase SQL Editor, create dedicated database (optional)
-CREATE DATABASE tolgee_translations;
+CREATE DATABASE RMHTS_translations;
 -- Or use the default 'postgres' database
 ```
 
@@ -388,31 +388,31 @@ POSTGRES_POOLED_URL=postgresql://postgres.[PROJECT_REF]:[PASSWORD]@aws-0-[REGION
 ```sql
 -- Connect to your PostgreSQL database
 -- Ensure UTF-8 encoding for international character support
-CREATE DATABASE tolgee_translations 
+CREATE DATABASE RMHTS_translations 
   WITH ENCODING 'UTF8' 
   LC_COLLATE = 'en_US.UTF-8' 
   LC_CTYPE = 'en_US.UTF-8';
 
 -- Create dedicated user (if not done through hosting panel)
-CREATE USER tolgee_user WITH PASSWORD 'secure_password';
-GRANT ALL PRIVILEGES ON DATABASE tolgee_translations TO tolgee_user;
+CREATE USER RMHTS_user WITH PASSWORD 'secure_password';
+GRANT ALL PRIVILEGES ON DATABASE RMHTS_translations TO RMHTS_user;
 ```
 
 **Connection Testing:**
 ```bash
 # Test connection from your local machine
-psql -h your-hosting-server.com -U tolgee_user -d tolgee_translations
+psql -h your-hosting-server.com -U RMHTS_user -d RMHTS_translations
 ```
 
 #### 3. Environment Variables for Generic PostgreSQL
 ```env
 # Database Connection
 POSTGRES_HOST=your-hosting-server.com
-POSTGRES_DATABASE=tolgee_translations
-POSTGRES_USER=tolgee_user
+POSTGRES_DATABASE=RMHTS_translations
+POSTGRES_USER=RMHTS_user
 POSTGRES_PASSWORD=your_secure_password
 POSTGRES_PORT=5432
-POSTGRES_URL=postgresql://tolgee_user:your_secure_password@your-hosting-server.com:5432/tolgee_translations
+POSTGRES_URL=postgresql://RMHTS_user:your_secure_password@your-hosting-server.com:5432/RMHTS_translations
 ```
 
 ### Railway Deployment Setup
@@ -434,7 +434,7 @@ POSTGRES_URL=postgresql://tolgee_user:your_secure_password@your-hosting-server.c
 
 **Create Repository Structure:**
 ```
-tolgee-deployment/
+RMHTS-deployment/
 ├── Dockerfile
 ├── config.yaml
 ├── railway.toml
@@ -443,7 +443,7 @@ tolgee-deployment/
 
 **Dockerfile:**
 ```dockerfile
-FROM tolgee/tolgee:latest
+FROM RMHTS/RMHTS:latest
 
 # Copy custom configuration
 COPY config.yaml /config.yaml
@@ -461,17 +461,17 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
 
 **config.yaml:**
 ```yaml
-tolgee:
+RMHTS:
   # Disable embedded PostgreSQL to use external database
   postgres-autostart:
     enabled: false
   
   # Authentication settings
   authentication:
-    initial-password: "${TOLGEE_ADMIN_PASSWORD}"
+    initial-password: "${RMHTS_ADMIN_PASSWORD}"
     
   # Frontend URL configuration
-  frontend-url: "${TOLGEE_FRONTEND_URL}"
+  frontend-url: "${RMHTS_FRONTEND_URL}"
 
 # Spring database configuration
 spring:
@@ -494,7 +494,7 @@ server:
 # Logging configuration
 logging:
   level:
-    io.tolgee: INFO
+    io.RMHTS: INFO
     org.springframework: WARN
 ```
 
@@ -524,18 +524,18 @@ variables = { SPRING_PROFILES_ACTIVE = "production" }
 POSTGRES_URL=postgresql://postgres:[PASSWORD]@[HOST]:5432/postgres
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=your_supabase_password
-TOLGEE_ADMIN_PASSWORD=your_admin_password
-TOLGEE_FRONTEND_URL=https://your-app.railway.app
+RMHTS_ADMIN_PASSWORD=your_admin_password
+RMHTS_FRONTEND_URL=https://your-app.railway.app
 SPRING_PROFILES_ACTIVE=production
 ```
 
 **For Generic PostgreSQL:**
 ```env
-POSTGRES_URL=postgresql://tolgee_user:password@your-host.com:5432/tolgee_translations
-POSTGRES_USER=tolgee_user
+POSTGRES_URL=postgresql://RMHTS_user:password@your-host.com:5432/RMHTS_translations
+POSTGRES_USER=RMHTS_user
 POSTGRES_PASSWORD=your_secure_password
-TOLGEE_ADMIN_PASSWORD=your_admin_password
-TOLGEE_FRONTEND_URL=https://your-app.railway.app
+RMHTS_ADMIN_PASSWORD=your_admin_password
+RMHTS_FRONTEND_URL=https://your-app.railway.app
 SPRING_PROFILES_ACTIVE=production
 ```
 
@@ -559,9 +559,9 @@ SPRING_PROFILES_ACTIVE=production
 **Environment Variables in Vercel:**
 ```env
 # Add to Vercel project settings → Environment Variables
-TOLGEE_API_URL=https://your-app.railway.app/api
-TOLGEE_PROJECT_ID=your_project_id
-TOLGEE_API_KEY=your_api_key
+RMHTS_API_URL=https://your-app.railway.app/api
+RMHTS_PROJECT_ID=your_project_id
+RMHTS_API_KEY=your_api_key
 ```
 
 #### 2. Frontend Code Updates
@@ -584,9 +584,9 @@ const initI18n = async () => {
       lng: localStorage.getItem('language') || 'en',
       fallbackLng: 'en',
       backend: {
-        loadPath: `${process.env.TOLGEE_API_URL}/projects/${process.env.TOLGEE_PROJECT_ID}/export/{{lng}}.json`,
+        loadPath: `${process.env.RMHTS_API_URL}/projects/${process.env.RMHTS_PROJECT_ID}/export/{{lng}}.json`,
         customHeaders: {
-          'X-API-Key': process.env.TOLGEE_API_KEY
+          'X-API-Key': process.env.RMHTS_API_KEY
         }
       },
       // Caching strategy
@@ -610,7 +610,7 @@ const initI18n = async () => {
 
 **fly.toml Configuration:**
 ```toml
-app = "your-tolgee-app"
+app = "your-RMHTS-app"
 
 [build]
   dockerfile = "Dockerfile"
@@ -652,7 +652,7 @@ app = "your-tolgee-app"
 
 #### 1. Database Connection Test
 
-**Check Tolgee Logs:**
+**Check RMHTS Logs:**
 ```bash
 # Railway logs
 railway logs
@@ -689,7 +689,7 @@ curl -H "X-API-Key: your-api-key" \
 
 **Browser Network Tab:**
 - Load your application
-- Check for successful API calls to Tolgee
+- Check for successful API calls to RMHTS
 - Verify translations load correctly
 - Test language switching functionality
 
@@ -716,7 +716,7 @@ curl -H "X-API-Key: your-api-key" \
 ```bash
 # Automated backup script (run via cron or GitHub Actions)
 curl -H "X-API-Key: $API_KEY" \
-  "$TOLGEE_URL/api/projects/export" \
+  "$RMHTS_URL/api/projects/export" \
   -o "backup-$(date +%Y%m%d).json"
 ```
 
@@ -750,7 +750,7 @@ const cacheConfig = {
 
 #### 1. Database Connection Problems
 
-**Symptoms:** Tolgee fails to start, connection timeout errors
+**Symptoms:** RMHTS fails to start, connection timeout errors
 
 **Solutions:**
 - Verify database credentials
@@ -763,7 +763,7 @@ const cacheConfig = {
 **Symptoms:** 401/403 errors when accessing translations
 
 **Solutions:**
-- Verify API key permissions in Tolgee dashboard
+- Verify API key permissions in RMHTS dashboard
 - Check CORS settings if browser-based requests fail
 - Ensure API key is correctly set in environment variables
 

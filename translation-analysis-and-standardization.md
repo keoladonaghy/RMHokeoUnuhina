@@ -5,7 +5,7 @@
 After analyzing your three projects, I can confirm that:
 - **Word list TypeScript files** are well-formed and consistent across projects
 - **JSON interface files** have different structures and varying completion levels
-- **A standardized format** is needed for Tolgee migration
+- **A standardized format** is needed for RMHTS migration
 - **Significant consolidation opportunities** exist for common UI elements
 
 ## Project Analysis
@@ -139,7 +139,7 @@ export const hawaiianWords = [
 - Māori / 'Ōlelo Māori / Māori  
 - English / Pelekania / Pākehā
 
-## Standardized Tolgee Format Recommendation
+## Standardized RMHTS Format Recommendation
 
 ### Proposed Namespace Structure
 
@@ -273,13 +273,13 @@ export const hawaiianWords = [
 ## Implementation Recommendations
 
 ### 1. Immediate Actions
-- **Consolidate common translations** into shared Tolgee project
+- **Consolidate common translations** into shared RMHTS project
 - **Fill translation gaps** in KimiKupu and PangaKupu
 - **Standardize language codes** (en, haw, mao, tah, sam)
 
-### 2. Tolgee Project Structure
+### 2. RMHTS Project Structure
 ```
-tolgee-polynesain-translations/
+RMHTS-polynesain-translations/
 ├── common-ui/           # Shared across all projects
 ├── jemt4-music/         # Music theory specific  
 ├── games-general/       # Shared game elements
@@ -311,7 +311,7 @@ tolgee-polynesain-translations/
 ## Next Steps
 
 1. **Create master translation file** combining all current content
-2. **Set up Tolgee instance** with proposed namespace structure
+2. **Set up RMHTS instance** with proposed namespace structure
 3. **Begin with JEMT4 migration** (most complete translations)
 4. **Fill gaps in other projects** using established patterns  
 5. **Implement HTTP backend** across all projects

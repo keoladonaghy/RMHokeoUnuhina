@@ -1,8 +1,8 @@
-# Migration Process: Current Formats to Standardized Tolgee System
+# Migration Process: Current Formats to Standardized RMHTS System
 
 ## Overview
 
-This document outlines the step-by-step process for migrating your existing translation files to the standardized Tolgee system using 3-letter language codes and the new namespace structure.
+This document outlines the step-by-step process for migrating your existing translation files to the standardized RMHTS system using 3-letter language codes and the new namespace structure.
 
 ## Pre-Migration Assessment
 
@@ -12,7 +12,7 @@ This document outlines the step-by-step process for migrating your existing tran
 3. **PangaKupu**: 1 interface JSON file (eng only)
 
 ### Target State Goals
-- **5 Tolgee projects** with standardized namespaces
+- **5 RMHTS projects** with standardized namespaces
 - **8 language support** (eng, haw, mao, tah, fra, spa, smo, ton)
 - **Consolidated common elements** across all projects
 - **Elimination of translation gaps**
@@ -99,10 +99,10 @@ This document outlines the step-by-step process for migrating your existing tran
 - Consistency within each language
 - Context-appropriate language register
 
-### Phase 3: Tolgee Setup (Week 2)
+### Phase 3: RMHTS Setup (Week 2)
 
-#### Step 3.1: Create Tolgee Projects
-**In Tolgee Dashboard**:
+#### Step 3.1: Create RMHTS Projects
+**In RMHTS Dashboard**:
 
 1. **polynesian-common**
    - Base language: `eng`
@@ -385,4 +385,4 @@ fs.writeFileSync('output/kimiKupu-specific.json', JSON.stringify(kimiKupuOutput,
 
 ---
 
-This migration process provides a systematic approach to transitioning from scattered translation files to a unified, scalable Tolgee-based system while preserving all existing translations and ensuring seamless user experience.
+This migration process provides a systematic approach to transitioning from scattered translation files to a unified, scalable RMHTS-based system while preserving all existing translations and ensuring seamless user experience.

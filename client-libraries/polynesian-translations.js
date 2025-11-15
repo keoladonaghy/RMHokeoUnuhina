@@ -195,12 +195,14 @@ class PolynesianTranslations {
         }
         
         // Simple parameter interpolation
+        // Use split/join instead of regex to prevent ReDoS attacks
         if (params && Object.keys(params).length > 0) {
             Object.keys(params).forEach(key => {
-                translation = translation.replace(new RegExp(`{{${key}}}`, 'g'), params[key])
+                const placeholder = `{{${key}}}`;
+                translation = translation.split(placeholder).join(params[key]);
             })
         }
-        
+
         return translation
     }
 

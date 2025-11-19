@@ -13,7 +13,7 @@ The following security issues existed in earlier versions and have been addresse
 1. **Exposed Supabase Credentials** (CRITICAL - FIXED)
    - **Issue**: Supabase URL and anon key were committed to version control
    - **Fix**: Credentials moved to `.env` and `config.js` (both in `.gitignore`)
-   - **Action Required**: Rotate your Supabase anon key if you cloned before this fix
+   - **Action Required**: Use template files to configure your credentials securely
 
 2. **Overly Permissive RLS Policies** (HIGH - FIXED)
    - **Issue**: Database policies allowed all operations with `USING (true)`
@@ -25,61 +25,43 @@ The following security issues existed in earlier versions and have been addresse
    - **Fix**: Configuration now uses template files, credentials kept out of VCS
    - **Recommendation**: Implement proper authentication for production
 
-## 🚨 If You Cloned This Repository
+## 🔧 Setting Up Your Configuration
 
-**IMMEDIATE ACTION REQUIRED** if you cloned before Nov 15, 2025:
+### Configure Your Local Environment
 
-### Step 1: Rotate Your Supabase Credentials
-
-1. **Go to Supabase Dashboard**
-   ```
-   https://supabase.com/dashboard/project/YOUR_PROJECT_ID/settings/api
-   ```
-
-2. **Reset the anon/public key**
-   - Click "Reset API Key"
-   - Confirm the reset
-   - Copy the new key immediately
-
-3. **Do NOT reset the service_role key** (unless you're certain you need to)
-   - Service role key is for backend operations only
-   - Resetting it may break existing backend services
-
-### Step 2: Update Your Local Configuration
-
-1. **Update `.env` file** (create from template if needed):
+1. **Update `.env` file**:
    ```bash
    cd admin/supabase
    cp .env.example .env
-   # Edit .env with your NEW credentials
+   # Edit .env with your Supabase credentials
    ```
 
-2. **Update `config.js`** (create from template if needed):
+2. **Update `config.js`**:
    ```bash
    cd admin/web-interface
    cp config.example.js config.js
-   # Edit config.js with your NEW credentials
+   # Edit config.js with your Supabase credentials
    ```
 
-### Step 3: Apply Security Improvements
+### Apply Security Improvements
 
-Run the security improvements SQL script:
+Run the security improvements SQL script in your Supabase SQL Editor:
 
 ```sql
--- In Supabase SQL Editor, run:
+-- Copy and paste the contents of:
 -- admin/supabase/03-security-improvements.sql
 ```
 
 This script:
 - Removes overly permissive policies
-- Implements read-only access for public
+- Implements read-only access for public users
 - Requires authentication for write operations
-- Adds database constraints
-- Creates audit logging
+- Adds database constraints and indexes
+- Creates audit logging system
 
-### Step 4: Verify Security
+### Verify Security Setup
 
-1. **Test with anon key** (should work for reading approved translations):
+1. **Test public read access** (should work with anon key):
    ```javascript
    // This should work:
    const { data } = await supabase
@@ -88,7 +70,7 @@ This script:
      .eq('is_approved', true);
    ```
 
-2. **Test write operations** (should fail with anon key):
+2. **Test write protection** (should fail with anon key):
    ```javascript
    // This should fail (requires authentication):
    const { error } = await supabase
@@ -110,10 +92,10 @@ This script:
    - Production database for live applications
    - Never mix the two
 
-3. **Rotate credentials regularly**
-   - Every 90 days minimum
-   - Immediately if exposed
-   - After team member changes
+3. **Monitor credential usage**
+   - Review access logs regularly
+   - Monitor for unusual activity
+   - Update credentials if compromised
 
 ### For Production
 
@@ -184,7 +166,7 @@ Use this checklist when setting up or auditing the system:
 
 ### Regular Maintenance
 - [ ] Review audit logs monthly
-- [ ] Rotate credentials every 90 days
+- [ ] Monitor credential usage and access logs
 - [ ] Update dependencies regularly
 - [ ] Monitor Supabase dashboard for anomalies
 - [ ] Review and update RLS policies as needed
@@ -203,11 +185,11 @@ If you discover a security vulnerability:
 
 ## 📋 Security Incident Response
 
-If credentials are exposed:
+If credentials are compromised:
 
-1. **Immediately rotate** the exposed credentials
+1. **Immediately update** the exposed credentials in Supabase Dashboard
 2. **Review audit logs** for unauthorized access
-3. **Update all deployments** with new credentials
+3. **Update all local configuration files** with new credentials
 4. **Notify affected users** if data was accessed
 5. **Document the incident** and lessons learned
 

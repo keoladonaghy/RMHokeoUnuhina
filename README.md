@@ -30,8 +30,11 @@ This system centralizes and standardizes translations for Hawaiian, Māori, Tahi
 ```bash
 # 1. Create a new project at https://supabase.com
 # 2. Go to SQL Editor in your Supabase dashboard
-# 3. Copy and paste the contents of:
+# 3. Run these scripts in order:
 admin/supabase/01-create-tables.sql
+admin/supabase/03-security-improvements.sql
+admin/supabase/04-fix-nested-json-function.sql
+admin/supabase/05-taxonomy-schema-extension.sql  # Optional: For taxonomy system
 ```
 
 #### 2. Configure Environment Variables
@@ -96,25 +99,18 @@ npx serve admin/web-interface
    # admin/supabase/03-security-improvements.sql
    ```
 
-### If You Cloned This Repository
+### Configuration Setup
 
-**⚠️ WARNING**: If you cloned this repository, the original Supabase credentials may have been exposed in Git history.
+**Configure your environment**:
 
-**DO THIS IMMEDIATELY**:
+1. **Set Up Your Credentials**
+   - Copy your Supabase URL and anon key from Dashboard > Settings > API
+   - Add them to `.env` and `config.js` using the template files
 
-1. **Rotate Your Credentials**
-   - Go to Supabase Dashboard > Settings > API
-   - Click "Reset API Key" for the anon/public key
-   - Copy the new key
-
-2. **Update Your Configuration**
-   - Add the new credentials to `.env` and `config.js`
-   - Never commit these files
-
-3. **Apply Security Improvements**
+2. **Apply Security Improvements**
    - Run `admin/supabase/03-security-improvements.sql` in Supabase SQL Editor
 
-4. **Set Up Authentication** (Recommended)
+3. **Set Up Authentication** (Recommended)
    - Enable Supabase Auth in your project
    - Implement authentication in the web interface
    - See "Advanced Security" section below
@@ -128,6 +124,8 @@ RMHokeoUnuhina/
 │   │   ├── 01-create-tables.sql       # Database schema
 │   │   ├── 02-import-script.js        # Import translations
 │   │   ├── 03-security-improvements.sql # Security updates
+│   │   ├── 04-fix-nested-json-function.sql # Database function fixes
+│   │   ├── 05-taxonomy-schema-extension.sql # Taxonomy system (optional)
 │   │   ├── .env.example               # Configuration template
 │   │   └── package.json               # Dependencies
 │   └── web-interface/
@@ -230,7 +228,8 @@ For production use, implement Supabase Auth:
 - **[Translation Format](standardized-translation-format.md)** - JSON structure standards
 - **[API Integration](translation-api-integration-guide.md)** - Client integration guide
 - **[Web Interface Guide](admin/web-interface/README.md)** - Admin interface usage
-- **[Supabase Setup](admin/supabase/README.md)** - Database setup guide
+- **[Technology Taxonomy Research](technology-taxonomy-research.md)** - Research findings for categorization system
+- **[Polynesian Technology Taxonomy](polynesian-technology-taxonomy.md)** - Implementation-ready taxonomy structure
 
 ## 🐛 Troubleshooting
 
@@ -275,6 +274,28 @@ This is an open-source project for Polynesian language preservation and educatio
 Created for Hawaiian and Polynesian language preservation and education.
 
 Special thanks to all language experts, translators, and contributors who help maintain accurate translations across all supported languages.
+
+---
+
+## 🚧 Current Status & Next Steps
+
+### ✅ **Production Ready Features:**
+- **Core Translation System** - Fully functional with 8 language support
+- **Web Admin Interface** - Complete with inline editing, search, and filtering
+- **Security Implementation** - Enterprise-grade with RLS policies and audit logging
+- **Database Functions** - Optimized queries and JSON export capabilities
+- **Client Library** - Ready for application integration
+
+### 🔄 **In Development:**
+- **Taxonomy System** - Advanced categorization and tagging (database schema ready)
+- **CSV Import Agent** - Automated import with fuzzy matching and conflict resolution
+- **Enhanced Web Interface** - Tag management and advanced filtering
+
+### 📋 **Next Session Goals:**
+1. Deploy taxonomy database schema (`05-taxonomy-schema-extension.sql`)
+2. Update web interface for tag management and display
+3. Implement CSV import agent with fuzzy matching
+4. Test with sample technology terminology imports
 
 ---
 

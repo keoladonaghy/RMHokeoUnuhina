@@ -1,0 +1,17 @@
+{
+  "name": "hokeo-unuhina",
+  "version": "1.0.0",
+  "description": "Polynesian Translation Management System",
+  "main": "admin/web-interface/index.html",
+  "scripts": {
+    "dev": "npx serve admin/web-interface",
+    "build": "echo 'No build step required for static site'",
+    "start": "npx serve admin/web-interface"
+  },
+  "keywords": ["polynesian", "translation", "hawaiian", "maori", "tahitian"],
+  "author": "Keola",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

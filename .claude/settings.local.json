@@ -5,7 +5,13 @@
       "Bash(git commit:*)",
       "Bash(git rm:*)",
       "Bash(git push:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(node:*)",
+      "WebSearch",
+      "WebFetch(domain:dl.acm.org)"
     ],
     "deny": [],
     "ask": []

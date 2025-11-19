@@ -8,7 +8,8 @@ node_modules/
 admin/supabase/.env
 
 # Configuration files with credentials - never commit these!
-admin/web-interface/config.js
+admin/web-interface/config.local.js
+admin/web-interface/github-env.js
 
 # Keep only the example/template versions:
 # admin/web-interface/config.example.js (safe to commit)

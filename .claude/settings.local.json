@@ -11,7 +11,9 @@
       "Bash(git check-ignore:*)",
       "Bash(node:*)",
       "WebSearch",
-      "WebFetch(domain:dl.acm.org)"
+      "WebFetch(domain:dl.acm.org)",
+      "Bash(git reset:*)",
+      "Bash(npx serve:*)"
     ],
     "deny": [],
     "ask": []

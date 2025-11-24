@@ -13,7 +13,11 @@
       "WebSearch",
       "WebFetch(domain:dl.acm.org)",
       "Bash(git reset:*)",
-      "Bash(npx serve:*)"
+      "Bash(npx serve:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:keoladonaghy.github.io)"
     ],
     "deny": [],
     "ask": []

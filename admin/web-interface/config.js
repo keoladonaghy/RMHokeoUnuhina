@@ -8,8 +8,8 @@
 
 window.SUPABASE_CONFIG = {
     // Try to load from environment variables first (GitHub Pages, Netlify, Vercel)
-    url: window.ENV_SUPABASE_URL || null,
-    key: window.ENV_SUPABASE_KEY || null
+    url: window.GITHUB_ENV?.SUPABASE_URL || window.ENV_SUPABASE_URL || null,
+    key: window.GITHUB_ENV?.SUPABASE_KEY || window.ENV_SUPABASE_KEY || null
 };
 
 // If no environment variables are set, try to load local development config

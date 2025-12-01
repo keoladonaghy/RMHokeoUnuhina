@@ -327,3 +327,4 @@ Special thanks to all language experts, translators, and contributors who help m
 - Open an issue on GitHub (if public)
 
 **Important**: This system handles culturally significant content. Please be respectful and accurate in all translations.
+# Trigger deployment with GitHub Secrets

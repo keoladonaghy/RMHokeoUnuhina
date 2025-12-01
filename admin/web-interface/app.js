@@ -22,6 +22,8 @@ class TranslationManager {
         await this.loadConfig();
         this.setupEventListeners();
         this.updateLanguageLabels();
+        // Load initial translations
+        await this.loadProjectTranslations();
         console.log('Translation Manager initialized');
     }
 

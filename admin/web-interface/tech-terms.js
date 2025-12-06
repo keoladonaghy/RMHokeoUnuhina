@@ -26,7 +26,7 @@ class TechTermsManager {
     async loadConfig() {
         let config;
 
-        if (window.SUPABASE_CONFIG) {
+        if (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url && window.SUPABASE_CONFIG.key) {
             config = window.SUPABASE_CONFIG;
         } else {
             let stored = localStorage.getItem('supabase-config');

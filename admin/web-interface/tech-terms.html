@@ -271,6 +271,16 @@
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="env-loader.js"></script>
+    <script>
+        // Try to load local config for development
+        const script = document.createElement('script');
+        script.src = 'config.local.js';
+        script.onerror = function() {
+            console.log('No local config found - using environment variables or prompting user');
+        };
+        document.head.appendChild(script);
+    </script>
     <script src="config.js"></script>
     <script src="tech-terms.js"></script>
 </body>

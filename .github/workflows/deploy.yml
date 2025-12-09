@@ -37,6 +37,7 @@ jobs:
       run: |
         mkdir -p dist/admin/web-interface
         cp -r admin/web-interface/* dist/admin/web-interface/
+        cp -r img dist/
         cp index.html dist/
         
         # Create environment configuration file

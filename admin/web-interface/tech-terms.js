@@ -12,6 +12,7 @@ class TechTermsManager {
         this.resultsPerPage = 20;
         this.searchTimeout = null;
         this.currentTerm = null;
+        this.editingElement = null;
 
         this.init();
     }
@@ -113,6 +114,24 @@ class TechTermsManager {
                 }
             });
         }
+
+        // Event delegation for inline editing
+        const termsTable = document.getElementById('terms-table');
+        if (termsTable) {
+            termsTable.addEventListener('click', (e) => {
+                if (e.target.classList.contains('editable-term')) {
+                    e.stopPropagation();
+                    this.startInlineEdit(e.target);
+                }
+            });
+        }
+
+        // ESC key handling
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.cancelInlineEdit();
+            }
+        });
     }
 
     debounceFilter() {
@@ -208,15 +227,21 @@ class TechTermsManager {
         tbody.innerHTML = pageTerms.map(term => `
             <tr data-term-id="${term.id}">
                 <td class="col-eng">
-                    <strong>${this.escapeHtml(term.eng_term || '')}</strong>
+                    <div class="editable-term" data-field="eng_term" data-term-id="${term.id}" ${!term.eng_term ? 'data-empty="true"' : ''} title="Click to edit English term">
+                        ${term.eng_term ? this.escapeHtml(term.eng_term) : ''}
+                    </div>
                     ${term.eng_definition ? `<br><small class="text-muted">${this.escapeHtml(this.truncate(term.eng_definition, 60))}</small>` : ''}
                 </td>
                 <td class="col-haw">
-                    ${term.haw_term ? this.escapeHtml(term.haw_term) : '<span class="text-muted">—</span>'}
+                    <div class="editable-term" data-field="haw_term" data-term-id="${term.id}" ${!term.haw_term ? 'data-empty="true"' : ''} title="Click to edit Hawaiian term">
+                        ${term.haw_term ? this.escapeHtml(term.haw_term) : ''}
+                    </div>
                     ${term.haw_status ? `<br><span class="status-badge status-${term.haw_status}">${this.formatStatus(term.haw_status)}</span>` : ''}
                 </td>
                 <td class="col-mao">
-                    ${term.mao_term ? this.escapeHtml(term.mao_term) : '<span class="text-muted">—</span>'}
+                    <div class="editable-term" data-field="mao_term" data-term-id="${term.id}" ${!term.mao_term ? 'data-empty="true"' : ''} title="Click to edit Māori term">
+                        ${term.mao_term ? this.escapeHtml(term.mao_term) : ''}
+                    </div>
                     ${term.mao_status ? `<br><span class="status-badge status-${term.mao_status}">${this.formatStatus(term.mao_status)}</span>` : ''}
                 </td>
                 <td class="col-domain">
@@ -433,6 +458,157 @@ class TechTermsManager {
     closeModal() {
         document.getElementById('term-detail-modal').classList.remove('active');
         this.currentTerm = null;
+    }
+
+    // Inline Editing Methods
+    startInlineEdit(element) {
+        // Prevent multiple edits at once
+        if (document.querySelector('.editable-term.editing')) {
+            this.cancelInlineEdit();
+        }
+
+        const termId = element.dataset.termId;
+        const field = element.dataset.field;
+        const currentValue = element.textContent.trim();
+        
+        // Skip if it's the placeholder text
+        const actualValue = element.dataset.empty === 'true' ? '' : currentValue;
+        
+        // Store original data
+        element.dataset.originalValue = actualValue;
+        
+        // Create input element
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = actualValue;
+        input.className = 'inline-edit-input';
+        
+        // Replace content with input
+        element.innerHTML = '';
+        element.appendChild(input);
+        element.classList.add('editing');
+        element.removeAttribute('data-empty');
+        
+        // Focus and select
+        input.focus();
+        input.select();
+        
+        // Save on Enter or blur
+        const saveEdit = () => {
+            this.saveInlineEdit(element, input.value, termId, field);
+        };
+        
+        const cancelEdit = () => {
+            this.cancelInlineEdit(element);
+        };
+        
+        input.addEventListener('blur', saveEdit);
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                saveEdit();
+            } else if (e.key === 'Escape') {
+                e.preventDefault();
+                cancelEdit();
+            }
+        });
+    }
+
+    async saveInlineEdit(element, newValue, termId, field) {
+        const originalValue = element.dataset.originalValue;
+        
+        // No change, just cancel
+        if (newValue === originalValue) {
+            this.cancelInlineEdit(element);
+            return;
+        }
+
+        try {
+            // Show saving state
+            element.innerHTML = '<span style="color: #6c757d;">Saving...</span>';
+            
+            // Update in database
+            const updateData = {};
+            updateData[field] = newValue || null;
+            
+            const { error } = await this.supabase
+                .from('tech_terms')
+                .update(updateData)
+                .eq('id', termId);
+
+            if (error) throw error;
+
+            // Update local data
+            const termIndex = this.allTerms.findIndex(t => t.id === termId);
+            if (termIndex !== -1) {
+                this.allTerms[termIndex][field] = newValue || null;
+            }
+
+            // Show new value
+            element.classList.remove('editing');
+            if (newValue.trim()) {
+                element.textContent = newValue;
+                element.removeAttribute('data-empty');
+            } else {
+                element.textContent = '';
+                element.setAttribute('data-empty', 'true');
+            }
+
+            // Show save indicator
+            this.showSaveIndicator(element);
+
+        } catch (error) {
+            console.error('Error saving inline edit:', error);
+            // Restore original value on error
+            element.classList.remove('editing');
+            if (originalValue) {
+                element.textContent = originalValue;
+            } else {
+                element.textContent = '';
+                element.setAttribute('data-empty', 'true');
+            }
+            alert('Error saving: ' + error.message);
+        }
+
+        delete element.dataset.originalValue;
+    }
+
+    cancelInlineEdit(element) {
+        const editingElements = element ? [element] : document.querySelectorAll('.editable-term.editing');
+        
+        editingElements.forEach(el => {
+            const originalValue = el.dataset.originalValue;
+            el.classList.remove('editing');
+            
+            if (originalValue) {
+                el.textContent = originalValue;
+                el.removeAttribute('data-empty');
+            } else {
+                el.textContent = '';
+                el.setAttribute('data-empty', 'true');
+            }
+            
+            delete el.dataset.originalValue;
+        });
+    }
+
+    showSaveIndicator(element) {
+        const indicator = document.createElement('span');
+        indicator.className = 'save-indicator';
+        indicator.textContent = '✓ Saved';
+        
+        element.parentNode.appendChild(indicator);
+        
+        // Show and hide indicator
+        setTimeout(() => indicator.classList.add('show'), 100);
+        setTimeout(() => {
+            indicator.classList.remove('show');
+            setTimeout(() => {
+                if (indicator.parentNode) {
+                    indicator.parentNode.removeChild(indicator);
+                }
+            }, 300);
+        }, 2000);
     }
 
     // Utility functions

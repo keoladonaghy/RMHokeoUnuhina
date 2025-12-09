@@ -1265,6 +1265,224 @@ class TranslationManager {
             this.showLoading(false);
         }
     }
+
+    // Inline editing methods for UI translations  
+    startInlineEdit(element) {
+        // Prevent multiple edits at once
+        if (this.editingCell) {
+            this.cancelInlineEdit();
+        }
+
+        this.editingCell = element;
+        const lang = element.dataset.lang;
+        const keyPath = element.dataset.key;
+        const project = element.dataset.project;
+        const currentValue = element.textContent.trim();
+        const actualValue = currentValue === '(missing)' ? '' : currentValue;
+
+        // Store original data
+        element.dataset.originalValue = actualValue;
+
+        // Create input element
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = actualValue;
+
+        // Replace content with input
+        element.innerHTML = '';
+        element.appendChild(input);
+        element.classList.add('editing');
+
+        // Focus and select
+        input.focus();
+        input.select();
+
+        // Save on Enter or blur
+        const saveEdit = () => {
+            this.saveInlineEdit(element, input.value, keyPath, project, lang);
+        };
+
+        const cancelEdit = () => {
+            this.cancelInlineEdit();
+        };
+
+        input.addEventListener('blur', saveEdit);
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                saveEdit();
+            } else if (e.key === 'Escape') {
+                e.preventDefault();
+                cancelEdit();
+            }
+        });
+    }
+
+    startInlineKeyEdit(element) {
+        // Similar to startInlineEdit but for key editing
+        if (this.editingCell) {
+            this.cancelInlineEdit();
+        }
+
+        this.editingCell = element;
+        const keyPath = element.dataset.key;
+        const project = element.dataset.project;
+        const currentValue = element.textContent.trim();
+
+        // Store original data
+        element.dataset.originalValue = currentValue;
+
+        // Create input element
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.value = currentValue;
+
+        // Replace content with input
+        element.innerHTML = '';
+        element.appendChild(input);
+        element.classList.add('editing');
+
+        // Focus and select
+        input.focus();
+        input.select();
+
+        // Save on Enter or blur
+        const saveEdit = () => {
+            this.saveInlineKeyEdit(element, input.value, keyPath, project);
+        };
+
+        const cancelEdit = () => {
+            this.cancelInlineEdit();
+        };
+
+        input.addEventListener('blur', saveEdit);
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                saveEdit();
+            } else if (e.key === 'Escape') {
+                e.preventDefault();
+                cancelEdit();
+            }
+        });
+    }
+
+    async saveInlineEdit(element, newValue, keyPath, project, lang) {
+        const originalValue = element.dataset.originalValue;
+
+        // No change, just cancel
+        if (newValue === originalValue) {
+            this.cancelInlineEdit();
+            return;
+        }
+
+        try {
+            // Show saving state
+            element.innerHTML = '<span style="color: #6c757d;">Saving...</span>';
+
+            // Get the necessary IDs
+            const projectId = await this.getProjectId(project);
+            const languageId = await this.getLanguageId(lang);
+
+            // Find the key
+            const { data: keyData } = await this.supabase
+                .from('translation_keys')
+                .select('id')
+                .eq('key_path', keyPath)
+                .eq('project_id', projectId)
+                .single();
+
+            if (keyData) {
+                // Update or insert translation
+                const { data: existing } = await this.supabase
+                    .from('translations')
+                    .select('id')
+                    .eq('key_id', keyData.id)
+                    .eq('language_id', languageId)
+                    .single();
+
+                if (existing) {
+                    // Update existing
+                    const { error } = await this.supabase
+                        .from('translations')
+                        .update({ value: newValue, is_approved: false })
+                        .eq('id', existing.id);
+                    if (error) throw error;
+                } else {
+                    // Insert new
+                    const { error } = await this.supabase
+                        .from('translations')
+                        .insert({
+                            key_id: keyData.id,
+                            language_id: languageId,
+                            value: newValue,
+                            is_approved: false
+                        });
+                    if (error) throw error;
+                }
+
+                // Update local data and refresh view
+                await this.loadProjectTranslations();
+            }
+
+        } catch (error) {
+            console.error('Error saving inline edit:', error);
+            // Restore original value on error
+            element.classList.remove('editing');
+            element.textContent = originalValue || '(missing)';
+            alert('Error saving: ' + error.message);
+        }
+
+        this.editingCell = null;
+        delete element.dataset.originalValue;
+    }
+
+    async saveInlineKeyEdit(element, newValue, oldKeyPath, project) {
+        const originalValue = element.dataset.originalValue;
+
+        // No change or invalid key name
+        if (newValue === originalValue || !newValue.trim()) {
+            this.cancelInlineEdit();
+            return;
+        }
+
+        try {
+            element.innerHTML = '<span style="color: #6c757d;">Saving...</span>';
+
+            const projectId = await this.getProjectId(project);
+
+            // Update key path in database
+            const { error } = await this.supabase
+                .from('translation_keys')
+                .update({ key_path: newValue.trim() })
+                .eq('key_path', oldKeyPath)
+                .eq('project_id', projectId);
+
+            if (error) throw error;
+
+            // Refresh the view
+            await this.loadProjectTranslations();
+
+        } catch (error) {
+            console.error('Error saving key edit:', error);
+            element.classList.remove('editing');
+            element.textContent = originalValue;
+            alert('Error saving: ' + error.message);
+        }
+
+        this.editingCell = null;
+        delete element.dataset.originalValue;
+    }
+
+    cancelInlineEdit() {
+        if (this.editingCell) {
+            const originalValue = this.editingCell.dataset.originalValue;
+            this.editingCell.classList.remove('editing');
+            this.editingCell.textContent = originalValue || '(missing)';
+            delete this.editingCell.dataset.originalValue;
+            this.editingCell = null;
+        }
+    }
 }
 
 // Initialize the application when DOM is loaded

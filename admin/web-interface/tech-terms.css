@@ -401,3 +401,65 @@
         flex-direction: column;
     }
 }
+
+/* Inline Editing Styles */
+.editable-term {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    min-height: 1.2em;
+    display: inline-block;
+    width: 100%;
+    min-width: 100px;
+}
+
+.editable-term:hover {
+    background-color: #f0f8ff;
+    border: 1px solid #007aff;
+}
+
+.editable-term.editing {
+    background-color: white;
+    border: 2px solid #007aff;
+    outline: none;
+    padding: 4px 8px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.editable-term.editing input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.editable-term[data-empty="true"] {
+    color: #6c757d;
+    font-style: italic;
+}
+
+.editable-term[data-empty="true"]:before {
+    content: "Click to add...";
+}
+
+.save-indicator {
+    color: #28a745;
+    font-size: 12px;
+    margin-left: 8px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.save-indicator.show {
+    opacity: 1;
+}

@@ -3,13 +3,29 @@
 A comprehensive translation management system designed for Polynesian language applications, supporting 8 languages across multiple educational and gaming projects.
 
 ## 🌐 **LIVE DEPLOYMENT**
-**Web Interface**: https://keoladonaghy.github.io/RMHokeoUnuhina/admin/web-interface/
+**UI Translations Manager**: https://keoladonaghy.github.io/RMHokeoUnuhina/admin/web-interface/
+**Technical Terms Dictionary**: https://keoladonaghy.github.io/RMHokeoUnuhina/admin/web-interface/tech-terms.html
 
 *Secure cloud deployment with GitHub Actions and environment variable protection*
 
 ## 🌺 Overview
 
 This system centralizes and standardizes translations for Hawaiian, Māori, Tahitian, and other Polynesian language applications. Built on Supabase with a web-based admin interface, it provides professional translation management at a fraction of the cost of commercial solutions.
+
+### Two Integrated Systems
+
+**1. UI Translations Manager**
+- Manages interface strings for applications (buttons, labels, messages)
+- Simple key-value translations
+- Project-based organization
+- 8 language support
+
+**2. Technical Terms Dictionary**
+- Comprehensive technical terminology database
+- Rich metadata (definitions, examples, sources, POS)
+- Domain classification (Hardware, Software, Network, Data)
+- Currently: 547 terms with Hawaiian and Māori translations
+- Ready for expansion to all Polynesian languages
 
 ### Supported Languages
 - **Primary**: English (eng), Hawaiian (haw), Māori (mao), Tahitian (tah)
@@ -43,6 +59,7 @@ admin/supabase/01-create-tables.sql
 admin/supabase/03-security-improvements.sql
 admin/supabase/04-fix-nested-json-function.sql
 admin/supabase/05-taxonomy-schema-extension.sql  # Optional: For taxonomy system
+admin/supabase/06-tech-terms-schema-revised.sql  # Technical Terms Dictionary
 ```
 
 #### 2. Set Up Secure Deployment
@@ -293,31 +310,26 @@ Special thanks to all language experts, translators, and contributors who help m
 
 ### ✅ **COMPLETED - Production Ready:**
 - **Core Translation System** - Fully functional with 8 language support
-- **Web Admin Interface** - Complete with inline editing, search, and filtering
+- **UI Translations Manager** - Complete with inline editing, search, and filtering
+- **🆕 Technical Terms Dictionary** - 547 terms with Hawaiian/Māori translations
 - **Security Implementation** - Enterprise-grade with RLS policies and audit logging
 - **Database Functions** - Optimized queries and JSON export capabilities
 - **Client Library** - Ready for application integration
-- **🆕 Cloud Deployment** - Live on GitHub Pages with secure environment variables
-- **🆕 GitHub Actions CI/CD** - Automated deployment pipeline
-- **🆕 Environment Variable Security** - Credentials safely stored in GitHub Secrets
+- **Cloud Deployment** - Live on GitHub Pages with secure environment variables
+- **GitHub Actions CI/CD** - Automated deployment pipeline
+- **Environment Variable Security** - Credentials safely stored in GitHub Secrets
+- **Navigation Integration** - Seamless switching between UI and Tech Terms interfaces
 
-### 🔄 **In Development:**
+### 🔄 **In Progress:**
+- **Domain Classification** - Categorizing 547 technical terms into Hardware/Software/Network/Data
+- **Translation Review** - Approving pending Hawaiian and Māori translations
+
+### 🎯 **Future Enhancements:**
 - **Taxonomy System** - Advanced categorization and tagging (database schema ready)
-- **CSV Import Agent** - Automated import with fuzzy matching and conflict resolution
-- **Enhanced Web Interface** - Tag management and advanced filtering
-
-### 🎯 **Deployment Status:**
-- **Production URL**: https://keoladonaghy.github.io/RMHokeoUnuhina/admin/web-interface/
-- **Status**: ✅ Deployed (pending GitHub Secrets configuration)
-- **Security**: ✅ Repository safe for public visibility
-- **Auto-deployment**: ✅ Enabled on every push to master
-
-### 📋 **Next Session Goals:**
-1. Complete GitHub Secrets setup for live database connection
-2. Deploy taxonomy database schema (`05-taxonomy-schema-extension.sql`)
-3. Update web interface for tag management and display
-4. Implement CSV import agent with fuzzy matching
-5. Test with sample technology terminology imports
+- **Export Functionality** - CSV export for technical terms
+- **Bulk Operations** - Mass update for domain classification
+- **Translation History** - Version tracking for term changes
+- **Additional Languages** - Tahitian, Samoan, Tongan, French, Spanish support
 
 ---
 

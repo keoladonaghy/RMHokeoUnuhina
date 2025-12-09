@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Terms Manager - Polynesian Translation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tech-terms.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <img src="../../img/hokeo-unuhinia.png" alt="Hokeo Unuhina" class="header-logo">
+                <h1>Technical Terms Manager</h1>
+                <div class="header-nav">
+                    <a href="index.html" class="nav-link">UI Translations</a>
+                    <a href="tech-terms.html" class="nav-link active">Technical Terms</a>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="domain-selector">
+                    <label for="domain-select">Domain:</label>
+                    <select id="domain-select">
+                        <option value="all">All Domains</option>
+                        <option value="hardware">Hardware</option>
+                        <option value="software">Software</option>
+                        <option value="network">Network</option>
+                        <option value="data">Data</option>
+                        <option value="unclassified">Unclassified</option>
+                    </select>
+                </div>
+
+                <div class="status-selector">
+                    <label for="status-select">Status:</label>
+                    <select id="status-select">
+                        <option value="all">All Status</option>
+                        <option value="approved">Approved</option>
+                        <option value="pending_approval">Pending Approval</option>
+                        <option value="in_progress">In Progress</option>
+                    </select>
+                </div>
+
+                <div class="language-filter">
+                    <label for="language-filter">Has Translation:</label>
+                    <select id="language-filter">
+                        <option value="all">All</option>
+                        <option value="has-hawaiian">Has Hawaiian</option>
+                        <option value="needs-hawaiian">Needs Hawaiian</option>
+                        <option value="has-maori">Has Māori</option>
+                        <option value="needs-maori">Needs Māori</option>
+                    </select>
+                </div>
+
+                <div class="search-input">
+                    <input type="text" id="search-field" placeholder="Search terms..." autocomplete="off">
+                    <span class="search-results-count" id="results-count"></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="search-results" id="search-results">
+                <div class="results-header">
+                    <h3>Technical Terms</h3>
+                    <div class="header-actions">
+                        <button class="btn-primary" id="new-term-btn">New Term</button>
+                        <div class="stats-summary" id="stats-summary">
+                            <span id="total-count">0 terms</span>
+                        </div>
+                        <div class="pagination" id="pagination"></div>
+                    </div>
+                </div>
+
+                <div class="terms-table-container">
+                    <table class="terms-table" id="terms-table">
+                        <thead>
+                            <tr>
+                                <th class="col-eng">English Term</th>
+                                <th class="col-haw">Hawaiian</th>
+                                <th class="col-mao">Māori</th>
+                                <th class="col-domain">Domain</th>
+                                <th class="col-status">Status</th>
+                                <th class="col-actions">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-list">
+                            <tr class="no-results">
+                                <td colspan="6">
+                                    <p>Loading...</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Term Detail Modal -->
+    <div class="modal-overlay" id="term-detail-modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="modal-title">Term Details</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="term-form">
+                    <input type="hidden" id="term-id">
+
+                    <!-- English Section -->
+                    <div class="form-section">
+                        <h3>English (Source)</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eng-term">Term*</label>
+                                <input type="text" id="eng-term" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="eng-pos">Part of Speech</label>
+                                <input type="text" id="eng-pos" placeholder="noun, verb, adj, etc.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="eng-definition">Definition</label>
+                            <textarea id="eng-definition" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="eng-examples">Examples</label>
+                            <textarea id="eng-examples" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="eng-notes">Notes</label>
+                            <textarea id="eng-notes" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Hawaiian Section -->
+                    <div class="form-section">
+                        <h3>Hawaiian ('Ōlelo Hawaiʻi)</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="haw-term">Term(s)</label>
+                                <input type="text" id="haw-term" placeholder="Multiple terms separated by semicolons">
+                                <small>Use semicolons (;) to separate multiple translations</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="haw-pos">Part of Speech</label>
+                                <input type="text" id="haw-pos" placeholder="e.g., kikino, haʻiʻōlelo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="haw-definition">Definition</label>
+                            <textarea id="haw-definition" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="haw-examples">Examples</label>
+                            <textarea id="haw-examples" rows="2"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="haw-source">Source(s)</label>
+                                <input type="text" id="haw-source" placeholder="e.g., Māmaka Kaiao (2003+)">
+                                <small>Separate multiple sources with semicolons</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="haw-status">Status</label>
+                                <select id="haw-status">
+                                    <option value="pending_approval">Pending Approval</option>
+                                    <option value="in_progress">In Progress</option>
+                                    <option value="approved">Approved</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="haw-notes">Notes</label>
+                            <textarea id="haw-notes" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Māori Section -->
+                    <div class="form-section">
+                        <h3>Māori (Te Reo Māori)</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mao-term">Term(s)</label>
+                                <input type="text" id="mao-term" placeholder="Multiple terms separated by semicolons">
+                                <small>Use semicolons (;) to separate multiple translations</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="mao-pos">Part of Speech</label>
+                                <input type="text" id="mao-pos">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mao-definition">Definition</label>
+                            <textarea id="mao-definition" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="mao-examples">Examples</label>
+                            <textarea id="mao-examples" rows="2"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mao-source">Source(s)</label>
+                                <input type="text" id="mao-source">
+                                <small>Separate multiple sources with semicolons</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="mao-status">Status</label>
+                                <select id="mao-status">
+                                    <option value="pending_approval">Pending Approval</option>
+                                    <option value="in_progress">In Progress</option>
+                                    <option value="approved">Approved</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mao-notes">Notes</label>
+                            <textarea id="mao-notes" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Metadata Section -->
+                    <div class="form-section">
+                        <h3>Classification & Metadata</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="primary-domain">Primary Domain</label>
+                                <select id="primary-domain">
+                                    <option value="">Unclassified</option>
+                                    <option value="hardware">Hardware</option>
+                                    <option value="software">Software</option>
+                                    <option value="network">Network</option>
+                                    <option value="data">Data</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subdomain">Subdomain</label>
+                                <input type="text" id="subdomain" placeholder="e.g., processor, storage, wired">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="primary-source">Primary Source</label>
+                                <input type="text" id="primary-source">
+                            </div>
+                            <div class="form-group">
+                                <label for="review-status">Overall Review Status</label>
+                                <select id="review-status">
+                                    <option value="needs_check">Needs Check</option>
+                                    <option value="needs_native_review">Needs Native Review</option>
+                                    <option value="ok">OK</option>
+                                    <option value="deprecated">Deprecated</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancel-edit">Cancel</button>
+                <button class="btn-danger" id="delete-term" style="margin-right: auto;">Delete Term</button>
+                <button class="btn-primary" id="save-term">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="env-loader.js"></script>
+    <script>
+        // Try to load local config for development
+        const script = document.createElement('script');
+        script.src = 'config.local.js';
+        script.onerror = function() {
+            console.log('No local config found - using environment variables or prompting user');
+        };
+        document.head.appendChild(script);
+    </script>
+    <script src="config.js"></script>
+    <script src="tech-terms.js"></script>
+</body>
+</html>

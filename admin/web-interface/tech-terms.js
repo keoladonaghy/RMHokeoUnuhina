@@ -122,14 +122,26 @@ class TechTermsManager {
                 if (e.target.classList.contains('editable-term')) {
                     e.stopPropagation();
                     this.startInlineEdit(e.target);
+                } else if (e.target.closest('.editable-dropdown')) {
+                    e.stopPropagation();
+                    const dropdown = e.target.closest('.editable-dropdown');
+                    this.startDropdownEdit(dropdown);
                 }
             });
         }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.editable-dropdown')) {
+                this.closeAllDropdowns();
+            }
+        });
 
         // ESC key handling
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.cancelInlineEdit();
+                this.closeAllDropdowns();
             }
         });
     }
@@ -230,28 +242,40 @@ class TechTermsManager {
                     <div class="editable-term" data-field="eng_term" data-term-id="${term.id}" ${!term.eng_term ? 'data-empty="true"' : ''} title="Click to edit English term">
                         ${term.eng_term ? this.escapeHtml(term.eng_term) : ''}
                     </div>
-                    ${term.eng_definition ? `<br><small class="text-muted">${this.escapeHtml(this.truncate(term.eng_definition, 60))}</small>` : ''}
+                    ${term.eng_definition ? `<br><div class="editable-term editable-definition" data-field="eng_definition" data-term-id="${term.id}" title="Click to edit definition">
+                        <small class="text-muted">${this.escapeHtml(this.truncate(term.eng_definition, 60))}</small>
+                    </div>` : `<br><div class="editable-term editable-definition" data-field="eng_definition" data-term-id="${term.id}" data-empty="true" title="Click to add definition">
+                        <small class="text-muted">—</small>
+                    </div>`}
                 </td>
                 <td class="col-haw">
                     <div class="editable-term" data-field="haw_term" data-term-id="${term.id}" ${!term.haw_term ? 'data-empty="true"' : ''} title="Click to edit Hawaiian term">
                         ${term.haw_term ? this.escapeHtml(term.haw_term) : ''}
                     </div>
-                    ${term.haw_status ? `<br><span class="status-badge status-${term.haw_status}">${this.formatStatus(term.haw_status)}</span>` : ''}
+                    <br><div class="editable-dropdown" data-field="haw_status" data-term-id="${term.id}" title="Click to change status">
+                        <span class="status-badge status-${term.haw_status || 'pending_approval'}">${this.formatStatus(term.haw_status || 'pending_approval')}</span>
+                    </div>
                 </td>
                 <td class="col-mao">
                     <div class="editable-term" data-field="mao_term" data-term-id="${term.id}" ${!term.mao_term ? 'data-empty="true"' : ''} title="Click to edit Māori term">
                         ${term.mao_term ? this.escapeHtml(term.mao_term) : ''}
                     </div>
-                    ${term.mao_status ? `<br><span class="status-badge status-${term.mao_status}">${this.formatStatus(term.mao_status)}</span>` : ''}
+                    <br><div class="editable-dropdown" data-field="mao_status" data-term-id="${term.id}" title="Click to change status">
+                        <span class="status-badge status-${term.mao_status || 'pending_approval'}">${this.formatStatus(term.mao_status || 'pending_approval')}</span>
+                    </div>
                 </td>
                 <td class="col-domain">
-                    ${term.primary_domain ? `
-                        <span class="domain-badge domain-${term.primary_domain}">${term.primary_domain}</span>
-                        ${term.subdomain ? `<br><small>${this.escapeHtml(term.subdomain)}</small>` : ''}
-                    ` : '<span class="text-muted">—</span>'}
+                    <div class="editable-dropdown" data-field="primary_domain" data-term-id="${term.id}" title="Click to change domain">
+                        ${term.primary_domain ? `
+                            <span class="domain-badge domain-${term.primary_domain}">${term.primary_domain}</span>
+                            ${term.subdomain ? `<br><small>${this.escapeHtml(term.subdomain)}</small>` : ''}
+                        ` : '<span class="text-muted">Click to set</span>'}
+                    </div>
                 </td>
                 <td class="col-status">
-                    <span class="status-badge status-${term.review_status || 'needs_check'}">${this.formatStatus(term.review_status || 'needs_check')}</span>
+                    <div class="editable-dropdown" data-field="review_status" data-term-id="${term.id}" title="Click to change status">
+                        <span class="status-badge status-${term.review_status || 'needs_check'}">${this.formatStatus(term.review_status || 'needs_check')}</span>
+                    </div>
                 </td>
                 <td class="col-actions">
                     <button class="btn-small btn-edit" onclick="manager.editTerm('${term.id}')">Edit</button>
@@ -469,17 +493,28 @@ class TechTermsManager {
 
         const termId = element.dataset.termId;
         const field = element.dataset.field;
-        const currentValue = element.textContent.trim();
         
-        // Skip if it's the placeholder text
-        const actualValue = element.dataset.empty === 'true' ? '' : currentValue;
+        // Handle definition field differently (extract from small tag)
+        let currentValue, actualValue;
+        if (element.classList.contains('editable-definition')) {
+            const smallTag = element.querySelector('small');
+            currentValue = smallTag ? smallTag.textContent.trim() : '';
+            actualValue = (element.dataset.empty === 'true' || currentValue === '—') ? '' : currentValue;
+        } else {
+            currentValue = element.textContent.trim();
+            actualValue = element.dataset.empty === 'true' ? '' : currentValue;
+        }
         
         // Store original data
         element.dataset.originalValue = actualValue;
         
-        // Create input element
-        const input = document.createElement('input');
-        input.type = 'text';
+        // Create input element (use textarea for definition)
+        const input = field === 'eng_definition' ? document.createElement('textarea') : document.createElement('input');
+        if (input.tagName === 'INPUT') {
+            input.type = 'text';
+        } else {
+            input.rows = 2;
+        }
         input.value = actualValue;
         input.className = 'inline-edit-input';
         
@@ -505,8 +540,16 @@ class TechTermsManager {
         input.addEventListener('blur', saveEdit);
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                e.preventDefault();
-                saveEdit();
+                // For textarea, allow Enter but save on Ctrl+Enter
+                if (field === 'eng_definition') {
+                    if (e.ctrlKey) {
+                        e.preventDefault();
+                        saveEdit();
+                    }
+                } else {
+                    e.preventDefault();
+                    saveEdit();
+                }
             } else if (e.key === 'Escape') {
                 e.preventDefault();
                 cancelEdit();
@@ -547,10 +590,18 @@ class TechTermsManager {
             // Show new value
             element.classList.remove('editing');
             if (newValue.trim()) {
-                element.textContent = newValue;
+                if (element.classList.contains('editable-definition')) {
+                    element.innerHTML = `<small class="text-muted">${this.escapeHtml(this.truncate(newValue, 60))}</small>`;
+                } else {
+                    element.textContent = newValue;
+                }
                 element.removeAttribute('data-empty');
             } else {
-                element.textContent = '';
+                if (element.classList.contains('editable-definition')) {
+                    element.innerHTML = '<small class="text-muted">—</small>';
+                } else {
+                    element.textContent = '';
+                }
                 element.setAttribute('data-empty', 'true');
             }
 
@@ -581,10 +632,18 @@ class TechTermsManager {
             el.classList.remove('editing');
             
             if (originalValue) {
-                el.textContent = originalValue;
+                if (el.classList.contains('editable-definition')) {
+                    el.innerHTML = `<small class="text-muted">${this.escapeHtml(this.truncate(originalValue, 60))}</small>`;
+                } else {
+                    el.textContent = originalValue;
+                }
                 el.removeAttribute('data-empty');
             } else {
-                el.textContent = '';
+                if (el.classList.contains('editable-definition')) {
+                    el.innerHTML = '<small class="text-muted">—</small>';
+                } else {
+                    el.textContent = '';
+                }
                 el.setAttribute('data-empty', 'true');
             }
             
@@ -609,6 +668,134 @@ class TechTermsManager {
                 }
             }, 300);
         }, 2000);
+    }
+
+    // Dropdown editing methods
+    startDropdownEdit(element) {
+        // Close any existing dropdowns
+        this.closeAllDropdowns();
+
+        const field = element.dataset.field;
+        const termId = element.dataset.termId;
+        const currentValue = this.getFieldValue(termId, field);
+
+        element.classList.add('editing');
+
+        // Create dropdown menu
+        const dropdown = document.createElement('div');
+        dropdown.className = 'dropdown-menu';
+
+        // Get options based on field type
+        const options = this.getDropdownOptions(field);
+        
+        options.forEach(option => {
+            const optionEl = document.createElement('div');
+            optionEl.className = 'dropdown-option';
+            if (option.value === currentValue) {
+                optionEl.classList.add('selected');
+            }
+            optionEl.textContent = option.label;
+            optionEl.dataset.value = option.value;
+            
+            optionEl.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.saveDropdownEdit(element, option.value, termId, field);
+            });
+            
+            dropdown.appendChild(optionEl);
+        });
+
+        element.appendChild(dropdown);
+    }
+
+    async saveDropdownEdit(element, newValue, termId, field) {
+        try {
+            // Update in database
+            const updateData = {};
+            updateData[field] = newValue;
+            
+            const { error } = await this.supabase
+                .from('tech_terms')
+                .update(updateData)
+                .eq('id', termId);
+
+            if (error) throw error;
+
+            // Update local data
+            const termIndex = this.allTerms.findIndex(t => t.id === termId);
+            if (termIndex !== -1) {
+                this.allTerms[termIndex][field] = newValue;
+            }
+
+            // Refresh the view to show new value
+            this.renderResults();
+
+            // Show save indicator briefly
+            setTimeout(() => {
+                const newElement = document.querySelector(`[data-field="${field}"][data-term-id="${termId}"]`);
+                if (newElement) {
+                    this.showSaveIndicator(newElement);
+                }
+            }, 100);
+
+        } catch (error) {
+            console.error('Error saving dropdown edit:', error);
+            element.classList.remove('editing');
+            this.removeDropdownMenu(element);
+            alert('Error saving: ' + error.message);
+        }
+    }
+
+    closeAllDropdowns() {
+        const editingDropdowns = document.querySelectorAll('.editable-dropdown.editing');
+        editingDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('editing');
+            this.removeDropdownMenu(dropdown);
+        });
+    }
+
+    removeDropdownMenu(element) {
+        const menu = element.querySelector('.dropdown-menu');
+        if (menu) {
+            menu.remove();
+        }
+    }
+
+    getFieldValue(termId, field) {
+        const term = this.allTerms.find(t => t.id === termId);
+        return term ? term[field] : null;
+    }
+
+    getDropdownOptions(field) {
+        switch (field) {
+            case 'haw_status':
+            case 'mao_status':
+                return [
+                    { value: 'pending_approval', label: 'Pending' },
+                    { value: 'approved', label: 'Approved' },
+                    { value: 'in_progress', label: 'In Progress' },
+                    { value: 'needs_native_review', label: 'Needs Review' },
+                    { value: 'deprecated', label: 'Deprecated' }
+                ];
+            case 'primary_domain':
+                return [
+                    { value: 'hardware', label: 'Hardware' },
+                    { value: 'software', label: 'Software' },
+                    { value: 'network', label: 'Network' },
+                    { value: 'data', label: 'Data' },
+                    { value: 'unclassified', label: 'Unclassified' }
+                ];
+            case 'review_status':
+                return [
+                    { value: 'needs_check', label: 'Needs Check' },
+                    { value: 'approved', label: 'Approved' },
+                    { value: 'pending_approval', label: 'Pending Approval' },
+                    { value: 'in_progress', label: 'In Progress' },
+                    { value: 'deprecated', label: 'Deprecated' }
+                ];
+            default:
+                return [];
+        }
     }
 
     // Utility functions

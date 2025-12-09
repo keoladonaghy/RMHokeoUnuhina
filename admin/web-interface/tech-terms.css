@@ -463,3 +463,71 @@
 .save-indicator.show {
     opacity: 1;
 }
+
+/* Dropdown Editing Styles */
+.editable-dropdown {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    position: relative;
+    min-height: 1.2em;
+    display: inline-block;
+}
+
+.editable-dropdown:hover {
+    background-color: #f0f8ff;
+    border: 1px solid #007aff;
+}
+
+.editable-dropdown.editing {
+    background-color: white;
+    border: 2px solid #007aff;
+    outline: none;
+    z-index: 1000;
+}
+
+.editable-dropdown .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #007aff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1001;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.editable-dropdown .dropdown-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.editable-dropdown .dropdown-option:hover {
+    background-color: #f8f9fa;
+}
+
+.editable-dropdown .dropdown-option:last-child {
+    border-bottom: none;
+}
+
+.editable-dropdown .dropdown-option.selected {
+    background-color: #e3f2fd;
+    font-weight: 500;
+}
+
+.editable-definition {
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.editable-definition:hover {
+    background-color: #f0f8ff;
+}
